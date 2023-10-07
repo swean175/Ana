@@ -108,7 +108,7 @@ async function fetchReply() {
 
             push(conversationInDb, response.data.choices[0].message)
             renderTypewriterText(response.data.choices[0].message.content)
-           getEleven(response.data.choices[0].message.content+".....")
+        //    getEleven(response.data.choices[0].message.content+".....")
             
         }
         else {
