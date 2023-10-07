@@ -3,19 +3,7 @@ import { getDatabase, ref, push, get, remove } from 'firebase/database'
 
 import { Configuration, OpenAIApi } from 'openai'
 
-// const getApis = async () => {await(await fetch('https://resilient-ganache-139b9c.netlify.app/.netlify/functions/helloWorld')).json()
-//    .then((data) => data.response)}
 
-//    console.log("fetch responmnse"+getApis)
-//async function getApis(){
-   // const serUrl = 'http://localhost:8888//.netlify/functions/helloWorld'                  // 'https://resilient-ganache-139b9c.netlify.app/.netlify/functions/helloWorld'
-   // const response = await fetch(serUrl)
-  //  .then(res=>res.json())
-  //  .then(data => data.body)
-
-    
-//}
-//getApis()
 
 const userInput = document.getElementById('user-input')
 const talkBtn = document.getElementById('talk')
@@ -24,7 +12,29 @@ const content = document.getElementById('content')
 const speechRec = window.SpeechRecognition || window.webkitSpeechRecognition
 const recognition = new speechRec()
 recognition.lang = 'pl'
+const hi =" say hi"
 
+
+
+// const getApis = async () => {await(await fetch('https://resilient-ganache-139b9c.netlify.app/.netlify/functions/helloWorld')).json()
+//    .then((data) => data.response)}
+
+//    console.log("fetch responmnse"+getApis)
+//async function getApis(){
+   // const serUrl = 'https://resilient-ganache-139b9c.netlify.app/.netlify/functions/helloWorld'
+   // const response = await fetch(serUrl, {
+// method:'Post',
+// headers: {
+    // 'content-type': 'rext/plain',
+// },
+// body: hi
+  // })
+//const data = await response.json()
+//console.log(data)
+
+    
+//}
+//getApis()
 
 
 //-------------------------------
