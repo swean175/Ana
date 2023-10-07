@@ -134,7 +134,6 @@ const handler = async (event) => {
       frequency_penalty: 0.3
   })
 
-  elevenSpeak(response.data)
    
     return {
     
