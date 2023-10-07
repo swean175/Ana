@@ -29,7 +29,7 @@ method: 'POST',
 headers: {
     'content-type': 'rext/plain',
 },
-body: message
+body: JSON.stringify(message)
   })
 const data = await response.json()
 console.log(data)
