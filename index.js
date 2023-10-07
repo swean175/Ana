@@ -31,7 +31,7 @@ headers: {
 },
 body: message
   })
-.then(data=>console.log(data))
+.then(data=>console.log(data.json()))
 
 // const data = await response.json()
 
