@@ -20,7 +20,8 @@ const handler = async (event) => {
     const subject = event.queryStringParameters.name || 'World'
     return {
       statusCode: 200,
-      body: JSON.stringify({response }),
+      body: JSON.stringify({
+        reply:response.data }),
       // // more keys you can return:
       // headers: { "headerName": "headerValue", ... },
       // isBase64Encoded: true,
