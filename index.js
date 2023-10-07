@@ -31,11 +31,11 @@ headers: {
 },
 body: JSON.stringify(message)
   })
-.then(data=>console.log(data))
+.then(data=>console.log(data.reply))
 
 // const data = await response.json()
 
-return response
+return response.reply
     
 }
 
