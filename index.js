@@ -29,7 +29,7 @@ method: 'POST',
 headers: {
     'content-type': 'rext/plain',
 },
-body: JSON.stringify(message)
+body: message
   })
 .then(data=>console.log(data))
 
