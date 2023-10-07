@@ -21,8 +21,8 @@ const hi =" say hi"
 
 
 
-async function getApis(message){
-   const serUrl = 'https://resilient-ganache-139b9c.netlify.app/.netlify/functions/fetchApi'
+async function getOpenAi(message){
+   const serUrl = 'https://resilient-ganache-139b9c.netlify.app/.netlify/functions/fetchOpenAi'
    const response = await fetch(serUrl, {
 method:'Post',
 headers: {
@@ -37,6 +37,21 @@ return data
 }
 
 
+
+async function getEleven(message){
+    const serUrl = 'https://resilient-ganache-139b9c.netlify.app/.netlify/functions/fetchEleven'
+    const response = await fetch(serUrl, {
+ method:'Post',
+ headers: {
+     'content-type': 'rext/plain',
+ },
+ body: message
+   })
+ const data = await response.json()
+ console.log(data)
+ return data
+     
+ }
 
 
 
@@ -89,11 +104,11 @@ async function fetchReply() {
            //     presence_penalty: 0,
            //     frequency_penalty: 0.3
           //  })
-         const response = await getApis(conversationArr)
+         const response = await getOpenAi(conversationArr)
 
             push(conversationInDb, response.data.choices[0].message)
             renderTypewriterText(response.data.choices[0].message.content)
-            elevenSpeak(response.data.choices[0].message.content+".....")
+           getEleven(response.data.choices[0].message.content+".....")
             
         }
         else {
