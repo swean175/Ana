@@ -107,8 +107,9 @@ async function fetchReply() {
            //     presence_penalty: 0,
            //     frequency_penalty: 0.3
           //  })
-         const response = await getOpenAi(conversationArr)
-
+          const outcome =  getOpenAi(conversationArr)
+         const response = await outcome
+console.log("fetch-reply --" + response)
             // push(conversationInDb, response.data.choices[0].message)
             // renderTypewriterText(response.data.choices[0].message.content)
         //    getEleven(response.data.choices[0].message.content+".....")
