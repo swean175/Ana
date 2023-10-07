@@ -1,7 +1,7 @@
 import { initializeApp } from 'firebase/app'
 import { getDatabase, ref, push, get, remove } from 'firebase/database'
 
-import { Configuration, OpenAIApi } from 'openai'
+// import { Configuration, OpenAIApi } from 'openai'
 
 
 
@@ -16,36 +16,33 @@ const hi =" say hi"
 
 
 
-// const getApis = async () => {await(await fetch('https://resilient-ganache-139b9c.netlify.app/.netlify/functions/helloWorld')).json()
+// const getApis = async (promt-message) => {await(await fetch('https://resilient-ganache-139b9c.netlify.app/.netlify/functions/fetchApi')).json()
 //    .then((data) => data.response)}
 
-//    console.log("fetch responmnse"+getApis)
+
+
+
 //async function getApis(){
-   // const serUrl = 'https://resilient-ganache-139b9c.netlify.app/.netlify/functions/helloWorld'
+   // const serUrl = 'https://resilient-ganache-139b9c.netlify.app/.netlify/functions/fetchApi'
    // const response = await fetch(serUrl, {
 // method:'Post',
 // headers: {
     // 'content-type': 'rext/plain',
 // },
-// body: hi
+// body: promt-message
   // })
 //const data = await response.json()
 //console.log(data)
-
+// return data
     
 //}
-//getApis()
 
 
-//-------------------------------
-const configuration = new Configuration({
-    apiKey: "open", // ---------------------------------to change
-})
 
-const openai = new OpenAIApi(configuration)
+
 
 const appSettings = {
-    databaseURL: 'fire/'  //----------------------to change
+    databaseURL: 'https://aiassistent-10cdd-default-rtdb.europe-west1.firebasedatabase.app/'
 }
 
 const app = initializeApp(appSettings)
@@ -87,13 +84,13 @@ async function fetchReply() {
         if (snapshot.exists()) {
             const conversationArr = Object.values(snapshot.val())
             conversationArr.unshift(instructionObj)
-            const response = await openai.createChatCompletion({
-                model: 'gpt-4',
-                messages: conversationArr,
-                presence_penalty: 0,
-                frequency_penalty: 0.3
-            })
-         
+           // const response = await openai.createChatCompletion({ //-------------------competion
+           //     model: 'gpt-3.5-turbo',
+           //     messages: conversationArr,
+           //     presence_penalty: 0,
+           //     frequency_penalty: 0.3
+          //  })
+         const response = await getApis(conversationArr)
 
             push(conversationInDb, response.data.choices[0].message)
             renderTypewriterText(response.data.choices[0].message.content)
