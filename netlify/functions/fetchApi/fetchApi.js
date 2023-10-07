@@ -6,8 +6,6 @@ const configuration = new Configuration({
   apiKey: process.env.OPENAI_API_KEY, 
 })
 
-const hi = {"test"}
-
 const openai = new OpenAIApi(configuration)
 
 // Docs on event and context https://docs.netlify.com/functions/build/#code-your-function-2
