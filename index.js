@@ -21,14 +21,14 @@ const hi =" say hi"
 
 
 
-async function getApis(promt-message){
+async function getApis(message){
    const serUrl = 'https://resilient-ganache-139b9c.netlify.app/.netlify/functions/fetchApi'
    const response = await fetch(serUrl, {
 method:'Post',
 headers: {
     'content-type': 'rext/plain',
 },
-body: promt-message
+body: message
   })
 const data = await response.json()
 console.log(data)
