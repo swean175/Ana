@@ -1,8 +1,6 @@
 import { initializeApp } from 'firebase/app'
 import { getDatabase, ref, push, get, remove } from 'firebase/database'
 
-// import { Configuration, OpenAIApi } from 'openai'
-
 
 
 const userInput = document.getElementById('user-input')
@@ -40,14 +38,14 @@ return await response.json()
 
 
 
-async function getEleven(message){
+async function getEleven(){
     const serUrl = 'https://resilient-ganache-139b9c.netlify.app/.netlify/functions/fetchEleven/fetchEleven'
     const response = await fetch(serUrl, {
  method: 'POST',
  headers: {
      'content-type': 'rext/plain',
  },
- body: message
+ body: "hi"
    })
  const data = await response.json()
  console.log(data)
@@ -106,7 +104,7 @@ async function fetchReply() {
            //     presence_penalty: 0,
            //     frequency_penalty: 0.3
           //  })
-          const outcome =  getOpenAi()
+          const outcome =  getEleven()
          const response = await outcome
 console.log("fetch-reply --" + response)
             // push(conversationInDb, response.data.choices[0].message)
