@@ -32,7 +32,7 @@ let nextTime = 0; // This variable will keep track of the time the next chunk sh
               "stability": 0.5,
               "similarity_boost": true
           },
-          "xi_api_key": 'eleven', // replace with your API key --------------------------------------- to change
+          "xi_api_key": process.env.ELEVEN_API_KEY, // replace with your API key --------------------------------------- to change
       };
   
       socket.send(JSON.stringify(bosMessage));
@@ -134,9 +134,10 @@ const handler = async (event) => {
       frequency_penalty: 0.3
   })
 
-
+  elevenSpeak(response.data)
    
     return {
+    
       statusCode: 200,
       body: JSON.stringify(
         {
