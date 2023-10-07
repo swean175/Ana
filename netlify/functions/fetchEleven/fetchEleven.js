@@ -1,6 +1,6 @@
 // Docs on event and context https://docs.netlify.com/functions/build/#code-your-function-2
 
-async function elevenSpeak(message){
+function elevenSpeak(message){
 let outcome
   let audioDataArray = []
 const AudioContext = window.AudioContext || window.webkitAudioContext
