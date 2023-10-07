@@ -22,7 +22,6 @@ const hi =" say hi"
 
 
 async function getOpenAi(message){
-    console.log(message)
    const serUrl = 'https://resilient-ganache-139b9c.netlify.app/.netlify/functions/fetchApi/fetchOpenAi'
    const response = await fetch(serUrl, {
 method: 'POST',
@@ -107,7 +106,7 @@ async function fetchReply() {
            //     presence_penalty: 0,
            //     frequency_penalty: 0.3
           //  })
-          const outcome =  getOpenAi(conversationArr)
+          const outcome =  getOpenAi("hi")
          const response = await outcome
 console.log("fetch-reply --" + response)
             // push(conversationInDb, response.data.choices[0].message)
