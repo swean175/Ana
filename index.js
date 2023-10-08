@@ -42,7 +42,7 @@ body:message
   })
 
 
-  console.log(response.res)
+  console.log(response)
   return response
     
 }
@@ -117,7 +117,7 @@ async function fetchReply() {
           //  })
           const outcome =  fetchOpenAi(conversationArr)
          const response = await outcome
-console.log("fetch-reply --" + response.reply)
+console.log("fetch-reply --" + response.data.reply)
             // push(conversationInDb, response.data.choices[0].message)
             // renderTypewriterText(response.data.choices[0].message.content)
         //    getEleven(response.data.choices[0].message.content+".....")
