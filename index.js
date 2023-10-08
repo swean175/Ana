@@ -19,7 +19,7 @@ const hi =" say hi"
 
 
 
-async function getOpenAi(){
+async function fetchOpenAi(){
    const serUrl = 'https://resilient-ganache-139b9c.netlify.app/.netlify/functions/fetchOpenAi'
    const response = await fetch(serUrl, {
 method: 'POST',
@@ -37,7 +37,7 @@ body:{role:'user', content:'hi'}
 
 
 
-async function getEleven(){
+async function fetchEleven(){
     const serUrl = 'https://resilient-ganache-139b9c.netlify.app/.netlify/functions/fetchEleven'
     const response = await fetch(serUrl, {
  method: 'POST',
@@ -103,7 +103,7 @@ async function fetchReply() {
            //     presence_penalty: 0,
            //     frequency_penalty: 0.3
           //  })
-          const outcome =  getOpenAi()
+          const outcome =  fetchOpenAi()
          const response = await outcome
 console.log("fetch-reply --" + response)
             // push(conversationInDb, response.data.choices[0].message)
