@@ -30,8 +30,8 @@ body:message
   })
 
   const data = await response.json()
-  console.log(data)
-  return data.json()
+  console.log(data.res)
+  return data
     
 }
 
