@@ -24,7 +24,7 @@ async function fetchOpenAi(message){
    const response = await fetch(serUrl, {
 method: 'POST',
 headers: {
-    'content-type': 'rext/plain',
+    'content-type': 'text/plain',
 },
 body:message
   })
@@ -42,7 +42,7 @@ async function fetchEleven(){
     const response = await fetch(serUrl, {
  method: 'POST',
  headers: {
-     'content-type': 'rext/plain',
+     'content-type': 'text/plain',
  },
  body: "hi"
    })
