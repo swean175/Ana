@@ -26,13 +26,12 @@ method: 'POST',
 headers: {
     'content-type': 'rext/plain',
 },
-body:"hi"
+body:{role:'user', content:'hi'}
   })
-.then(data=>console.log(data.json()))
 
-// const data = await response.json()
-
-return await response.json()
+  const data = await response.json()
+  console.log(data)
+  return data
     
 }
 
@@ -104,7 +103,7 @@ async function fetchReply() {
            //     presence_penalty: 0,
            //     frequency_penalty: 0.3
           //  })
-          const outcome =  getEleven()
+          const outcome =  getOpenAi()
          const response = await outcome
 console.log("fetch-reply --" + response)
             // push(conversationInDb, response.data.choices[0].message)

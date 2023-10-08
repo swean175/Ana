@@ -28,7 +28,7 @@ const handler = async (event) => {
     
       statusCode: 200,
       body: JSON.stringify({
-        reply:response.data 
+        reply:response 
       }),
       // // more keys you can return:
       // headers: { "headerName": "headerValue", ... },

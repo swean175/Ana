@@ -3,7 +3,7 @@
 async function elevenSpeak(message){
 let outcome
   let audioDataArray = []
-const AudioContext = window.AudioContext || window.webkitAudioContext
+const AudioContext = window.AudioContext || window.webkitAudioContext //-----------------------------------Window to fix
 const audioContext = new AudioContext();
 let nextTime = 0; // This variable will keep track of the time the next chunk should start
 
@@ -21,7 +21,7 @@ let nextTime = 0; // This variable will keep track of the time the next chunk sh
               "stability": 0.5,
               "similarity_boost": true
           },
-          "xi_api_key": process.env.ELEVEN_API_KEY, // replace with your API key --------------------------------------- to change
+          "xi_api_key": process.env.ELEVEN_API_KEY, 
       };
   
       socket.send(JSON.stringify(bosMessage));
