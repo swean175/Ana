@@ -20,7 +20,7 @@ const hi =" say hi"
 
 
 async function getOpenAi(){
-   const serUrl = 'https://resilient-ganache-139b9c.netlify.app/.netlify/functions/fetchApi/fetchOpenAi'
+   const serUrl = 'https://resilient-ganache-139b9c.netlify.app/.netlify/functions/fetchOpenAi'
    const response = await fetch(serUrl, {
 method: 'POST',
 headers: {
@@ -38,7 +38,7 @@ body:{role:'user', content:'hi'}
 
 
 async function getEleven(){
-    const serUrl = 'https://resilient-ganache-139b9c.netlify.app/.netlify/functions/fetchEleven/fetchEleven'
+    const serUrl = 'https://resilient-ganache-139b9c.netlify.app/.netlify/functions/fetchEleven'
     const response = await fetch(serUrl, {
  method: 'POST',
  headers: {
