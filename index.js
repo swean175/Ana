@@ -13,6 +13,18 @@ recognition.lang = 'pl'
 const hi =" say hi"
 
 
+// This error typically occurs when the response from the fetch request is not valid JSON. To troubleshoot this issue, you can follow these steps:
+
+// 1. Check the response format: Make sure that the response from the server is valid JSON. You can verify this by printing the response data to the console before parsing it as JSON.
+
+// 2. Check the response headers: Ensure that the server is setting the "Content-Type" header to "application/json" for JSON responses. If the header is not set correctly, the browser may not parse the response as JSON.
+
+// 3. Check for syntax errors: If the response is a string, manually inspect it for any syntax errors. JSON data should be enclosed in curly braces `{}` or square brackets `[]` and should not have any trailing commas.
+
+// 4. Handle server errors: If the response is an error message or HTML, it may indicate a server-side error. In this case, you may need to handle the error condition in your code.
+
+// If none of these steps resolve the issue, please provide more details about your code and the response you are receiving, and I'll be happy to help further.
+
 
 // const getApis = async (promt-message) => {await(await fetch('https://resilient-ganache-139b9c.netlify.app/.netlify/functions/fetchApi')).json()
 //    .then((data) => data.response)}
