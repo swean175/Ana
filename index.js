@@ -38,7 +38,7 @@ method: 'POST',
 headers: {
     'Content-Type': 'application/json',//'text/plain'
 },
-body:message
+body:JSON.stringify(message)
   })
 
 
