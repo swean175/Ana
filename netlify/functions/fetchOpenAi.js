@@ -9,14 +9,14 @@ const configuration = new Configuration({
 const openai = new OpenAIApi(configuration)
 
 
-//------------------------Eleven----------
+
 
 
 
 // Docs on event and context https://docs.netlify.com/functions/build/#code-your-function-2
 const handler = async (event) => {
   try {
-    const response = await openai.createChatCompletion({ //-------------------competion
+    const response = await openai.createChatCompletion({ 
       model: 'gpt-3.5-turbo',
       messages: event.body,
       presence_penalty: 0,
