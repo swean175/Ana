@@ -40,7 +40,6 @@ const handler = async ({event}) => {
    
     }
 
-    console.log(response)
   } catch (error) {
     return { statusCode: 500, body: error.toString("dont know") }
   }
