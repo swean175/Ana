@@ -16,7 +16,7 @@ const openai = new OpenAIApi(configuration)
 // Docs on event and context https://docs.netlify.com/functions/build/#code-your-function-2
 const handler = async (event) => {
   try {
-
+const res = "test reply"
     // const requestBody = JSON.parse(event.body); // Parse the request body as JSON
     // const messages = requestBody.messages.map((message) => ({
     //   role: message.role,
@@ -28,13 +28,13 @@ const handler = async (event) => {
     //   messages: JSON.parse(event.body),
     //   presence_penalty: 0,
     //   frequency_penalty: 0.3
-  })
+ // })
     return {
     
       statusCode: 200,
       body: JSON.stringify({
         //reply:response.data
-        "test reply"
+        res
       }),
    
     }
