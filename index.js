@@ -41,9 +41,9 @@ headers: {
 body:message
   })
 
-  const data = await response.json()
-  console.log(data.res)
-  return data
+
+  console.log(response.res)
+  return response
     
 }
 
