@@ -1,6 +1,6 @@
 // Docs on event and context https://docs.netlify.com/functions/build/#code-your-function-2
 
-function elevenSpeak(message){
+async function elevenSpeak(message){
 let outcome
   let audioDataArray = []
 const AudioContext = window.AudioContext || window.webkitAudioContext
@@ -121,6 +121,7 @@ const handler = async (event) => {
     const response = await elevenSpeak({ 
       message: event.body,
   })
+    
     return {
       statusCode: 200,
       body: JSON.stringify({  reply:response.data }),
