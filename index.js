@@ -105,7 +105,7 @@ async function fetchReply() {
           //  })
           const outcome =  fetchOpenAi(conversationArr)
          const response = await outcome
-console.log("fetch-reply --" + response.res)
+console.log("fetch-reply --" + response)
             // push(conversationInDb, response.data.choices[0].message)
             // renderTypewriterText(response.data.choices[0].message.content)
         //    getEleven(response.data.choices[0].message.content+".....")
