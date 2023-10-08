@@ -33,8 +33,8 @@ const handler = async (event) => {
     
       statusCode: 200,
       body: JSON.stringify({
-        //reply:response.data
-        res
+        reply:response.data
+      
       }),
    
     }
