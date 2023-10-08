@@ -30,7 +30,7 @@ const handler = async ({event}) => {
       frequency_penalty: 0.3
  })
 
- console.log(response)
+
     return {
     
       statusCode: 200,
@@ -39,6 +39,8 @@ const handler = async ({event}) => {
       }),
    
     }
+
+    console.log(response)
   } catch (error) {
     return { statusCode: 500, body: error.toString("dont know") }
   }
