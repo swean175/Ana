@@ -26,14 +26,14 @@ const handler = async (event) => {
     
       statusCode: 200,
       body: JSON.stringify({
-        reply:response 
+        reply:response.data
       }),
       // // more keys you can return:
       // headers: { "headerName": "headerValue", ... },
       // isBase64Encoded: true,
     }
   } catch (error) {
-    return { statusCode: 500, body: error.toString() }
+    return { statusCode: 500, body: error.toString("dont know") }
   }
 }
 
