@@ -23,11 +23,11 @@ const handler = async (event) => {
     //   content: message.content,
     // }));
 
-    const response = await openai.createChatCompletion({ 
-      model: 'gpt-3.5-turbo',
-      messages: JSON.parse(event.body),
-      presence_penalty: 0,
-      frequency_penalty: 0.3
+    // const response = await openai.createChatCompletion({ 
+    //   model: 'gpt-3.5-turbo',
+    //   messages: JSON.parse(event.body),
+    //   presence_penalty: 0,
+    //   frequency_penalty: 0.3
   })
     return {
     
