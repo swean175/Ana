@@ -14,7 +14,7 @@ const openai = new OpenAIApi(configuration)
 
 
 // Docs on event and context https://docs.netlify.com/functions/build/#code-your-function-2
-const handler = async ({event}) => {
+const handler = async (event) => {
   try {
 
     // const requestBody = JSON.parse(event.body); // Parse the request body as JSON
@@ -25,7 +25,7 @@ const handler = async ({event}) => {
 
     const response = await openai.createChatCompletion({ 
       model: 'gpt-3.5-turbo',
-      messages: [{"role": "user", "content": "Say this is a test!"}],                     //    event.body,
+      messages: JSON.stringify(event.body),
       presence_penalty: 0,
       frequency_penalty: 0.3
  })
