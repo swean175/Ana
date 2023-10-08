@@ -29,6 +29,8 @@ const handler = async ({event}) => {
       presence_penalty: 0,
       frequency_penalty: 0.3
  })
+
+ console.log(response)
     return {
     
       statusCode: 200,
