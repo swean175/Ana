@@ -2,6 +2,7 @@
 import { Configuration, OpenAIApi } from 'openai'
 
 // const {Configuration, OpenAIApi} = require(openai)
+const openai = require('openai')
 
 //-------------------------------
 const configuration = new Configuration({
