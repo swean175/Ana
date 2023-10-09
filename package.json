@@ -1,16 +1,6 @@
 {
-  "name": "project",
   "dependencies": {
-    "firebase": "^9.20.0",
-    "openai": "file:3.2.1"
-  },
-  "devDependencies": {
-    "vite": "latest"
-  },
-  "scripts": {
-    "start": "vite",
-    "dev": "vite",
-    "build": "vite build",
-    "preview": "vite preview"
+    "firebase": "^10.4.0",
+    "openai": "^4.11.1"
   }
 }
