@@ -7,7 +7,7 @@ const handler = async (event) => {
         return {
             statusCode: 200,
             body: JSON.stringify({
-                reply: response.data                
+                reply: response               
             })
         }
     } catch (error) {
@@ -15,4 +15,4 @@ const handler = async (event) => {
     }
 }
 
-// module.exports = { handler }
+module.exports = { handler }
