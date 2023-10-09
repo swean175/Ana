@@ -1,6 +1,6 @@
 // import { Configuration, OpenAIApi } from 'openai'
 
-const {Configuration, OpenAiApi} = require(openai)
+const {Configuration, OpenAIApi} = require(openai)
 
 //-------------------------------
 const configuration = new Configuration({
