@@ -1,4 +1,4 @@
-// import { Configuration, OpenAIApi } from 'openai'
+import { Configuration, OpenAIApi } from 'openai'
 
 const {Configuration, OpenAIApi} = require(openai)
 
