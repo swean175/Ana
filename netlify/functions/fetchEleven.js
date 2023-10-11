@@ -77,7 +77,7 @@ exports.handler = async function (event, context) {
           }
       }
 
-        const response = await audioChunk
+        const response = audioChunk
 
     
         return {
