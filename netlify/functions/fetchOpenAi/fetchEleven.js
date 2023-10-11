@@ -80,7 +80,7 @@ const handler = async (event) => {
 
 
 
-      const response = await audioChunk 
+      const response = "await audioChunk "
   
   
       return {
