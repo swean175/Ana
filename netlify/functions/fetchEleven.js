@@ -12,8 +12,6 @@ const socket = new WebSocket(wsUrl);
 exports.handler = async function (event, context) {
     try {
 
-
-        console.log("function running")
         // 2. Initialize the connection by sending the BOS message
         socket.onopen = function (event) {
           const bosMessage = {
@@ -47,12 +45,9 @@ exports.handler = async function (event, context) {
       socket.onmessage = async function (event) {
           const response = await JSON.parse(event.data);
       
-          console.log("Server response:", response);
-      
           if (response.audio) {
               // decode and handle the audio data (e.g., play it)
               audioChunk = atob(response.audio);  // decode base64
-              console.log("Received audio chunk");
               return audioChunk
           } else {
               console.log("No audio data in the response");
@@ -60,7 +55,7 @@ exports.handler = async function (event, context) {
       
           if (response.isFinal) {
               // the generation is complete
-              return response
+            
           }
       
           if (response.normalizedAlignment) {
@@ -81,8 +76,6 @@ exports.handler = async function (event, context) {
               console.warn('Connection died');
           }
       }
-      console.log(audioChunk)
-
 
         const response = await audioChunk
 
