@@ -32,12 +32,9 @@ const instructionObj = {
     role: 'system',
     content: 'You are a helpful, flirty, funny, teasy assistant, your name is Ana my name is Damian and i am amzing'  
 }
+let conversationArr = []
+conversationArr.unshift(instructionObj)
 
-get(conversationInDb).then(async (snapshot) => {
-    if (snapshot.exists()) {
-        const conversationArr = Object.values(snapshot.val())
-       
-        conversationArr.unshift(instructionObj)
 
         //---------------------------------------Fetch
 
@@ -101,7 +98,9 @@ document.addEventListener('submit', (e) => {
 
 async function fetchReply() {
 
-   
+    get(conversationInDb).then(async (snapshot) => {
+        if (snapshot.exists()) {
+            const conversationArr = Object.values(snapshot.val())
         
           const response =  await fetchOpenAi(conversationArr)
        
