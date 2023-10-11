@@ -2,8 +2,8 @@ const voiceId = '21m00Tcm4TlvDq8ikWAM'; // replace with your voice_id
 const model = 'eleven_monolingual_v1';
 const wsUrl = `wss://api.elevenlabs.io/v1/text-to-speech/${voiceId}/stream-input?model_id=${model}`;
 const socket = new WebSocket(wsUrl);
-const audioChunk =""
 
+function elven(){
   // 2. Initialize the connection by sending the BOS message
   socket.onopen = function (event) {
     const bosMessage = {
@@ -68,28 +68,12 @@ socket.onclose = function (event) {
     } else {
         console.warn('Connection died');
     }
-};
-
+}
+}
 
 
 const handler = async (event) => {
-    try {
-        
-
-
-    //   const response = JSON.parse(event.body)
-  const response = "works"
-  
-      return {
-      
-       
-        // body: JSON.stringify({"reply":response}),
-        response
-      }
-  
-    } catch (error) {
-      return { statusCode: 500, body: error.toString("dont know") }
-    }
+  return "works"
   }
   
   module.exports = { handler }

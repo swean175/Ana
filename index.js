@@ -84,12 +84,15 @@ document.addEventListener('submit', (e) => {
         content: userInput.value
     })
     fetchReply()
+    function showInput(){
     const newSpeechBubble = document.createElement('div')
     newSpeechBubble.classList.add('speech', 'speech-human')
     chatbotConversation.appendChild(newSpeechBubble)
     newSpeechBubble.textContent = userInput.value
     userInput.value = ''
     chatbotConversation.scrollTop = chatbotConversation.scrollHeight
+    }
+    showInput()
 })
 
 
@@ -173,6 +176,7 @@ recognition.onresult = function(event){
     role: 'user',
     content: userInput.value
 })
+showInput()
 fetchReply()
 }
 
