@@ -7,7 +7,10 @@ exports.handler = async function (event, context) {
         const res = ""
         sdk.auth( process.env.GENNY_API_KEY);
         sdk.syncTts({speed: 1})
-        .then((data) => res = data)
+        .then((data) => {
+            res = data
+            console.log('cokolwiek')
+        return res})
         .catch(err => console.error(err));
 
         const response = await res
