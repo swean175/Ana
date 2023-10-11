@@ -84,7 +84,14 @@ document.addEventListener('submit', (e) => {
         content: userInput.value
     })
     fetchReply()
-    function showInput(){
+   
+    showInput()
+})
+
+
+//----------------------------------Show Input-------------------------------
+
+function showInput(){
     const newSpeechBubble = document.createElement('div')
     newSpeechBubble.classList.add('speech', 'speech-human')
     chatbotConversation.appendChild(newSpeechBubble)
@@ -92,9 +99,6 @@ document.addEventListener('submit', (e) => {
     userInput.value = ''
     chatbotConversation.scrollTop = chatbotConversation.scrollHeight
     }
-    showInput()
-})
-
 
 async function fetchReply() {
 
