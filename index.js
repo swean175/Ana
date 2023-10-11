@@ -14,31 +14,41 @@ recognition.lang = 'pl'
 
 
 
-// This error typically occurs when the response from the fetch request is not valid JSON. To troubleshoot this issue, you can follow these steps:
+//---------------------------------Database
 
-// 1. Check the response format: Make sure that the response from the server is valid JSON. You can verify this by printing the response data to the console before parsing it as JSON.
+const appSettings = {
+    databaseURL: 'https://aiassistent-10cdd-default-rtdb.europe-west1.firebasedatabase.app/'
+}
 
-// 2. Check the response headers: Ensure that the server is setting the "Content-Type" header to "application/json" for JSON responses. If the header is not set correctly, the browser may not parse the response as JSON.
+const app = initializeApp(appSettings)
 
-// 3. Check for syntax errors: If the response is a string, manually inspect it for any syntax errors. JSON data should be enclosed in curly braces `{}` or square brackets `[]` and should not have any trailing commas.
+const database = getDatabase(app)
 
-// 4. Handle server errors: If the response is an error message or HTML, it may indicate a server-side error. In this case, you may need to handle the error condition in your code.
+const conversationInDb = ref(database)
 
-// If none of these steps resolve the issue, please provide more details about your code and the response you are receiving, and I'll be happy to help further.
+const chatbotConversation = document.getElementById('chatbot-conversation')
 
+const instructionObj = {
+    role: 'system',
+    content: 'You are a helpful, flirty, funny, teasy assistant, your name is Ana my name is Damian and i am amzing'  
+}
 
-// const getApis = async (promt-message) => {await(await fetch('https://resilient-ganache-139b9c.netlify.app/.netlify/functions/fetchApi')).json()
-//    .then((data) => data.response)}
+get(conversationInDb).then(async (snapshot) => {
+    if (snapshot.exists()) {
+        const conversationArr = Object.values(snapshot.val())
+       
+        conversationArr.unshift(instructionObj)
 
+        //---------------------------------------Fetch
 
-
+        
 async function fetchOpenAi(message){
     console.log(JSON.stringify(message))
    const serUrl = 'https://resilient-ganache-139b9c.netlify.app/.netlify/functions/fetchOpenAi'
    const response = await fetch(serUrl, {
 method: 'POST',
 headers: {
-    'Content-Type': 'application/json'//'text/plain', 
+    'Content-Type': 'application/json'
 },
 body:JSON.stringify(message)
   })
@@ -67,23 +77,7 @@ async function fetchEleven(){
  }
 
 
-
-const appSettings = {
-    databaseURL: 'https://aiassistent-10cdd-default-rtdb.europe-west1.firebasedatabase.app/'
-}
-
-const app = initializeApp(appSettings)
-
-const database = getDatabase(app)
-
-const conversationInDb = ref(database)
-
-const chatbotConversation = document.getElementById('chatbot-conversation')
-
-const instructionObj = {
-    role: 'system',
-    content: 'You are a helpful, flirty, funny, teasy assistant, your name is Ana my name is Damian and i am amzing'  
-}
+ //--------------------------- Event
 
 document.addEventListener('submit', (e) => {
     e.preventDefault()
@@ -107,11 +101,7 @@ document.addEventListener('submit', (e) => {
 
 async function fetchReply() {
 
-    get(conversationInDb).then(async (snapshot) => {
-        if (snapshot.exists()) {
-            const conversationArr = Object.values(snapshot.val())
-           
-            conversationArr.unshift(instructionObj)
+   
         
           const response =  await fetchOpenAi(conversationArr)
        
