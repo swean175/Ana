@@ -11,7 +11,7 @@ const content = document.getElementById('content')
 const speechRec = window.SpeechRecognition || window.webkitSpeechRecognition
 const recognition = new speechRec()
 recognition.lang = 'pl'
-const hi =" say hi"
+
 
 
 // This error typically occurs when the response from the fetch request is not valid JSON. To troubleshoot this issue, you can follow these steps:
@@ -37,7 +37,7 @@ async function fetchOpenAi(message){
    const response = await fetch(serUrl, {
 method: 'POST',
 headers: {
-    'content-type': 'application/json', //'text/plain',
+    'content-type': 'text/plain',
 },
 body:message
   })
