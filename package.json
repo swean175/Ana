@@ -1,5 +1,5 @@
 {
-  
+ 
   "dependencies": {
     "firebase": "^10.4.0",
     "node-fetch": "^3.3.2",
@@ -14,5 +14,4 @@
     "build": "vite build",
     "preview": "vite preview"
   }
- 
 }
