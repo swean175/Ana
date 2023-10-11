@@ -5,7 +5,7 @@ const model = 'eleven_monolingual_v1';
 const wsUrl = `wss://api.elevenlabs.io/v1/text-to-speech/${voiceId}/stream-input?model_id=${model}`;
 const socket = new WebSocket(wsUrl);
 
-function eleven(message){
+async function eleven(message){
     const audioChunk = ""
   // 2. Initialize the connection by sending the BOS message
   socket.onopen = function (event) {
