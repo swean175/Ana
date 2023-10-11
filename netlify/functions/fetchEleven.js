@@ -5,7 +5,7 @@ const model = 'eleven_monolingual_v1';
 const wsUrl = `wss://api.elevenlabs.io/v1/text-to-speech/${voiceId}/stream-input?model_id=${model}`;
 const socket = new WebSocket(wsUrl);
 
-function elven(){
+function eleven(message){
   // 2. Initialize the connection by sending the BOS message
   socket.onopen = function (event) {
     const bosMessage = {
@@ -21,7 +21,7 @@ function elven(){
 
     // 3. Send the input text message ("Hello World")
     const textMessage = {
-        "text": "Hello World ",
+        "text": `${message} `,
         "try_trigger_generation": true,
     };
 
@@ -74,8 +74,19 @@ socket.onclose = function (event) {
 }
 
 exports.handler = async function (event, context) {
-    return {
-      statusCode: 200,
-      body: JSON.stringify({ message: "Hello World" }),
-    };
+    try {
+
+        const response = await eleven(event.body)
+
+    
+        return {
+        
+          statusCode: 200,
+          body: JSON.stringify({"reply":response.choices[0].message}),
+       
+        }
+    
+      } catch (error) {
+        return { statusCode: 500, body: error.toString("dont know") }
+      }
   };
