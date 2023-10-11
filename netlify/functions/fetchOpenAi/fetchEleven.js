@@ -73,7 +73,8 @@ socket.onclose = function (event) {
 
 
 const handler = async (event) => {
-  return "works"
+    const res = "works"
+  return JSON.stringify(res)
   }
   
   module.exports = { handler }
