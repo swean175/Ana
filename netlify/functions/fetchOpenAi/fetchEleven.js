@@ -19,7 +19,7 @@ const handler = async (event) => {
                     "stability": 0.5,
                     "similarity_boost": true
                 },
-                "xi_api_key": "api_key_here", // replace with your API key
+                "xi_api_key": process.env.ELEVEN_API_KEY
             };
         
             socket.send(JSON.stringify(bosMessage));
