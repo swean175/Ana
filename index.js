@@ -109,11 +109,12 @@ async function fetchReply() {
     get(conversationInDb).then(async (snapshot) => {
         if (snapshot.exists()) {
             const conversationArr = Object.values(snapshot.val())
+           
             conversationArr.unshift(instructionObj)
         
           const response =  await fetchOpenAi(conversationArr)
        
-console.log("fetch-reply --" + response)
+console.log("fetch-reply --" + response.data.choices[0].message)
             push(conversationInDb, response.data.choices[0].message)
             renderTypewriterText(response.data.choices[0].message.content)
            getEleven(response.data.choices[0].message.content+".....")

@@ -39,7 +39,7 @@ const handler = async (event) => {
         {
             "role": "user",
             "content": "Lakel: Where is this race?"
-        },],
+        }],
       presence_penalty: 0,
       frequency_penalty: 0.3
  })
