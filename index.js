@@ -13,6 +13,8 @@ const recognition = new speechRec()
 recognition.lang = 'pl'
 
 
+let Sophia  = new Audio("https://voiceverse-prod.s3.us-west-2.amazonaws.com/team/6511deba448ce2002390279b/jobs/652717d6e43e81002487fb0c/wkmFkLI0Mg.wav?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIA26OUSLIS7YRKCXJL%2F20231011%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20231011T214711Z&X-Amz-Expires=86400&X-Amz-Signature=d1b5d4df63ed12f391f6d6197bd7d5ae0247908ecdd8eafd14d6308170088b52&X-Amz-SignedHeaders=host&x-id=GetObject")
+
 
 //---------------------------------Database
 
@@ -112,6 +114,7 @@ async function fetchReply() {
 console.log("fetch-reply --" + response.reply)
             push(conversationInDb, response.reply)
             renderTypewriterText(response.reply.content)
+            Sophia.play()
            fetchEleven("hi")
             
         }
