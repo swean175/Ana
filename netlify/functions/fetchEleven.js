@@ -79,7 +79,8 @@ return audioChunk
 exports.handler = async function (event, context) {
     try {
 
-        const response = await eleven(event.body)
+        console.log(event.body)
+        const response = await eleven("It works")
 
     
         return {
