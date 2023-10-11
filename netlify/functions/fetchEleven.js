@@ -2,15 +2,13 @@
 
 //   const sdk = require('api')('@genny-api/v1.0#eqij1clm8s4s2v');
 
-exports.handler = async function (event, context) {
-
-   
+exports.handler = async function (event, context) { 
     try {
         const options = {
             method: 'POST',
             headers: {
               accept: 'application/json',
-              'content-type': 'application/json',
+              'Content-Type': 'application/json',
               'X-API-KEY': process.env.GENNY_API_KEY
             },
             body: JSON.stringify({speed: 1, text: 'Jestem Ana', speaker: '640f477d2babeb0024be422b'})
