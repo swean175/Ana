@@ -105,7 +105,7 @@ async function fetchReply() {
           const response =  await fetchOpenAi(conversationArr)
        
 console.log("fetch-reply --" + response.reply)
-            push(conversationInDb, response.reply.content)
+            push(conversationInDb, response.reply)
             renderTypewriterText(response.reply.content)
         //    getEleven(response.reply.content+".....")
             
