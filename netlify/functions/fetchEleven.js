@@ -1,91 +1,28 @@
-import WebSocket from 'ws'
-
-const voiceId = '21m00Tcm4TlvDq8ikWAM'; // replace with your voice_id
-const model = 'eleven_monolingual_v1';
-const wsUrl = `wss://api.elevenlabs.io/v1/text-to-speech/${voiceId}/stream-input?model_id=${model}`;
-const socket = new WebSocket(wsUrl);
 
 
-    const audioChunk = ""
-
+  const sdk = require('api')('@genny-api/v1.0#eqij1clm8s4s2v');
 
 exports.handler = async function (event, context) {
     try {
 
-        // 2. Initialize the connection by sending the BOS message
-        socket.onopen = function (event) {
-          const bosMessage = {
-              "text": " ",
-              "voice_settings": {
-                  "stability": 0.5,
-                  "similarity_boost": true
-              },
-              "xi_api_key": process.env.ELEVEN_API_KEY
-          };
-      
-          socket.send(JSON.stringify(bosMessage));
-      
-          // 3. Send the input text message ("Hello World")
-          const textMessage = {
-              "text": `It works `,
-              "try_trigger_generation": true,
-          };
-      
-          socket.send(JSON.stringify(textMessage));
-      
-          // 4. Send the EOS message with an empty string
-          const eosMessage = {
-              "text": ""
-          };
-      
-          socket.send(JSON.stringify(eosMessage));
-      };
-      
-      // 5. Handle server responses
-      socket.onmessage = async function (event) {
-          const response = await JSON.parse(event.data);
-      
-          if (response.audio) {
-              // decode and handle the audio data (e.g., play it)
-              audioChunk = atob(response.audio);  // decode base64
-              return audioChunk
-          } else {
-              console.log("No audio data in the response");
-          }
-      
-          if (response.isFinal) {
-              // the generation is complete
-            
-          }
-      
-          if (response.normalizedAlignment) {
-              // use the alignment info if needed
-          }
-      };
-      
-      // Handle errors
-      socket.onerror = function (error) {
-          console.error(`WebSocket Error: ${error}`);
-      };
-      
-      // Handle socket closing
-      socket.onclose = function (event) {
-          if (event.wasClean) {
-              console.info(`Connection closed cleanly, code=${event.code}, reason=${event.reason}`);
-          } else {
-              console.warn('Connection died');
-          }
-      }
 
-        const response = audioChunk
+        sdk.auth('6dd6683b-668b-4ff9-b2a7-479f0453bbce');
+       const response = await sdk.syncTts({speed: 1, text: JSON.parse(event.body), speaker: '640f477d2babeb0024be422b'})
+          .then(({ data }) => console.log(data))
+          .catch(err => console.error(err));
+    
+    return {
+        statusCode: 200,
+        body: JSON.stringify({"reply":response}),
+    }
 
-    
-        return {
-            statusCode: 200,
-            body: JSON.stringify({"reply":response}),
-        }
-    
-      } catch (error) {
-        return { statusCode: 500, body: error.toString("dont know") }
-      }
-  };
+  } catch (error) {
+    return { statusCode: 500, body: error.toString("dont know") }
+  }
+};
+
+
+// "id": "64191022c25c1f00222c0ab1",
+//"displayName": "Sophia Butler",
+
+"https://voiceverse-prod.s3.us-west-2.amazonaws.com/team/6511deba448ce2002390279b/jobs/652717d6e43e81002487fb0c/wkmFkLI0Mg.wav?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIA26OUSLIS7YRKCXJL%2F20231011%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20231011T214711Z&X-Amz-Expires=86400&X-Amz-Signature=d1b5d4df63ed12f391f6d6197bd7d5ae0247908ecdd8eafd14d6308170088b52&X-Amz-SignedHeaders=host&x-id=GetObject"
