@@ -1,7 +1,8 @@
 {
   "dependencies": {
     "firebase": "^10.4.0",
-    "openai": "^4.11.1"
+    "openai": "^4.11.1",
+    "ws": "^8.14.2"
   },
   "devDependencies": {
     "vite": "latest"
