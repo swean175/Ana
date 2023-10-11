@@ -39,7 +39,7 @@ method: 'POST',
 headers: {
     'Content-Type': 'text/plain', //'application/json',
 },
-body:message
+body:[...message]
   })
 
 const data = await response.json()
