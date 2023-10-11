@@ -170,7 +170,7 @@ recognition.onresult = function(event){
     const transcript = event.results[current][0].transcript
    content.textContent += transcript
    userInput.value = transcript
-
+fetchReply()
 }
 
 talkBtn.addEventListener('click', () => {
