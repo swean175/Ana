@@ -1,17 +1,19 @@
-import { Configuration, OpenAIApi } from 'openai'
-const openai = require('openai')
+// import { Configuration, OpenAIApi } from 'openai'
+// const openai = require('openai')
 // const {Configuration, OpenAIApi} = require(openai)
 //f
 
 //-------------------------------
-const configuration = new Configuration({
-  apiKey: process.env.OPENAI_API_KEY, 
-})
+// const configuration = new Configuration({
+//   apiKey: process.env.OPENAI_API_KEY, 
+// })
 
- openai = new OpenAIApi(configuration)
+// const openai = new OpenAIApi(configuration)
 
 
+import OpenAI from 'openai'
 
+const openai = new OpenAI({apiKey: process.env.OPENAI_API_KEY})
 
 
 
