@@ -37,7 +37,7 @@ async function fetchOpenAi(message){
    const response = await fetch(serUrl, {
 method: 'POST',
 headers: {
-    'content-type': 'text/plain',
+    'Content-Type': 'text/plain',
 },
 body:message
   })
