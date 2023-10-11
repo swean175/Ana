@@ -6,6 +6,7 @@ const wsUrl = `wss://api.elevenlabs.io/v1/text-to-speech/${voiceId}/stream-input
 const socket = new WebSocket(wsUrl);
 
 function eleven(message){
+    const audioChunk = ""
   // 2. Initialize the connection by sending the BOS message
   socket.onopen = function (event) {
     const bosMessage = {
@@ -71,6 +72,8 @@ socket.onclose = function (event) {
         console.warn('Connection died');
     }
 }
+
+return audioChunk
 }
 
 exports.handler = async function (event, context) {
