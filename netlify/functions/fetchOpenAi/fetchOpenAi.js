@@ -1,4 +1,3 @@
-
 import { Configuration, OpenAIApi } from 'openai'
 // const openai = require('openai')
 // const {Configuration, OpenAIApi} = require(openai)
