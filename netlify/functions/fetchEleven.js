@@ -8,7 +8,7 @@ exports.handler = async function (event, context) {
  const response =""
         sdk.auth(process.env.GENNY_API_KEY);
       
-       sdk.syncTts({speed: 1, text: JSON.parse(event.body), speaker: '640f477d2babeb0024be422b'})
+       sdk.syncTts({speed: 1, text: "Jestem Ana", speaker: '640f477d2babeb0024be422b'})
           .then(({ data }) => response = data)
           .catch(err => console.error(err));
     
