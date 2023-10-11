@@ -58,7 +58,7 @@ const data = await response.json()
 
 
 async function fetchEleven(message){
-    const serUrl = 'https://resilient-ganache-139b9c.netlify.app/.netlify/functions/fetchEleven'
+    const serUrl = 'https://resilient-ganache-139b9c.netlify.app/.netlify/functions/fetchOpenAi/fetchEleven'
     const response = await fetch(serUrl, {
         method: 'POST',
         headers: {
