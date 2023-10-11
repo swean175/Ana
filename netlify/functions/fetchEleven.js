@@ -1,4 +1,3 @@
-
 const voiceId = '21m00Tcm4TlvDq8ikWAM'; // replace with your voice_id
 const model = 'eleven_monolingual_v1';
 const wsUrl = `wss://api.elevenlabs.io/v1/text-to-speech/${voiceId}/stream-input?model_id=${model}`;
