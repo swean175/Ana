@@ -7,6 +7,7 @@ const socket = new WebSocket(wsUrl);
 
 async function eleven(message){
     const audioChunk = ""
+    console.log("function running")
   // 2. Initialize the connection by sending the BOS message
   socket.onopen = function (event) {
     const bosMessage = {
@@ -79,7 +80,6 @@ return audioChunk
 exports.handler = async function (event, context) {
     try {
 
-        console.log(JSON.parse(event.body))
         const response = await eleven("It works")
 
     
