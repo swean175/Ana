@@ -1,12 +1,12 @@
 
 
   const sdk = require('api')('@genny-api/v1.0#eqij1clm8s4s2v');
- const response =""
+
 exports.handler = async function (event, context) {
     try {
 
-
-        sdk.auth('6dd6683b-668b-4ff9-b2a7-479f0453bbce');
+ const response =""
+        sdk.auth(process.env.GENNY_API_KEY);
       
        sdk.syncTts({speed: 1, text: JSON.parse(event.body), speaker: '640f477d2babeb0024be422b'})
           .then(({ data }) => response = data)
