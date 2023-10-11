@@ -60,17 +60,18 @@ const data = await response.json()
 async function fetchEleven(){
     const serUrl = 'https://resilient-ganache-139b9c.netlify.app/.netlify/functions/fetchEleven'
     const response = await fetch(serUrl, {
- method: 'POST',
- headers: {
-     'content-type': 'text/plain',
- },
- body: "hi"
-   })
- const data = await response.json()
- console.log(data)
- return data.response
-     
- }
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body:JSON.stringify(message)
+          })
+        
+        const data = await response.json()
+          console.log(data)
+          return data
+            
+        }
 
 
  //--------------------------- Event
@@ -107,7 +108,7 @@ async function fetchReply() {
 console.log("fetch-reply --" + response.reply)
             push(conversationInDb, response.reply)
             renderTypewriterText(response.reply.content)
-        //    getEleven(response.reply.content+".....")
+           getEleven()
             
         }
         else {
@@ -170,6 +171,11 @@ recognition.onresult = function(event){
     const transcript = event.results[current][0].transcript
    content.textContent += transcript
    userInput.value = transcript
+
+   push(conversationInDb, {
+    role: 'user',
+    content: userInput.value
+})
 fetchReply()
 }
 
