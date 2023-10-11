@@ -23,7 +23,7 @@ const handler = async (event) => {
 
     const response = await openai.chat.completions.create({ 
       model:  'gpt-3.5-turbo',     
-      messages: event.body.json(),
+      messages: JSON.parse(event.body),
       presence_penalty: 0,
       frequency_penalty: 0.3
  })
@@ -32,7 +32,7 @@ const handler = async (event) => {
     return {
     
       statusCode: 200,
-      body: JSON.stringify({reply:response.choices[0].message}),
+      body: JSON.stringify({"reply":response.choices[0].message}),
    
     }
 
