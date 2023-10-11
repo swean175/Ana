@@ -110,18 +110,13 @@ async function fetchReply() {
         if (snapshot.exists()) {
             const conversationArr = Object.values(snapshot.val())
             conversationArr.unshift(instructionObj)
-           // const response = await openai.createChatCompletion({ //-------------------competion
-           //     model: 'gpt-3.5-turbo',
-           //     messages: conversationArr,
-           //     presence_penalty: 0,
-           //     frequency_penalty: 0.3
-          //  })
-          const outcome =  fetchOpenAi(conversationArr)
-         const response = await outcome
+        
+          const response =  await fetchOpenAi(conversationArr)
+       
 console.log("fetch-reply --" + response)
-            // push(conversationInDb, response.data.choices[0].message)
-            // renderTypewriterText(response.data.choices[0].message.content)
-        //    getEleven(response.data.choices[0].message.content+".....")
+            push(conversationInDb, response.data.choices[0].message)
+            renderTypewriterText(response.data.choices[0].message.content)
+           getEleven(response.data.choices[0].message.content+".....")
             
         }
         else {
