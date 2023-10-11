@@ -57,7 +57,7 @@ const data = await response.json()
 
 
 
-async function fetchEleven(){
+async function fetchEleven(message){
     const serUrl = 'https://resilient-ganache-139b9c.netlify.app/.netlify/functions/fetchEleven'
     const response = await fetch(serUrl, {
         method: 'POST',
@@ -108,7 +108,7 @@ async function fetchReply() {
 console.log("fetch-reply --" + response.reply)
             push(conversationInDb, response.reply)
             renderTypewriterText(response.reply.content)
-           getEleven()
+           fetchEleven("hi")
             
         }
         else {
