@@ -48,7 +48,7 @@ const handler = async (event) => {
     return {
     
       statusCode: 200,
-      body: JSON.stringify({reply:response}),
+      body: JSON.stringify({reply:response.choices[0].message}),
    
     }
 
