@@ -77,7 +77,7 @@ const handler = async (event) => {
         
 
 
-      const response = event.body
+      const response = JSON.parse(event.body)
   
   
       return {
