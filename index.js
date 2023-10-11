@@ -105,7 +105,7 @@ async function fetchReply() {
 console.log("fetch-reply --" + response.reply)
             push(conversationInDb, response.reply)
             renderTypewriterText(response.reply.content)
-           fetchEleven("hi")
+        //    fetchEleven("hi")
             
         }
         else {
