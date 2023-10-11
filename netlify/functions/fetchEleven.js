@@ -82,7 +82,7 @@ exports.handler = async function (event, context) {
         return {
         
           statusCode: 200,
-          body: JSON.stringify({"reply":response.choices[0].message}),
+          body: JSON.stringify({"reply":response}),
        
         }
     
