@@ -22,7 +22,7 @@ const handler = async (event) => {
   try {
 
     const response = await openai.chat.completions.create({ 
-      model:  'gpt-4',      //'gpt-3.5-turbo',
+      model:  'gpt-3.5-turbo',     
       messages: [
         {
             "role": "system",
@@ -48,7 +48,7 @@ const handler = async (event) => {
     return {
     
       statusCode: 200,
-      body: JSON.stringify({reply:response.data}),
+      body: JSON.stringify({reply:response}),
    
     }
 
