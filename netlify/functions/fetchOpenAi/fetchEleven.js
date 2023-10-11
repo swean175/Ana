@@ -77,14 +77,14 @@ const handler = async (event) => {
         
 
 
-      const response = JSON.parse(event.body)
-  
+    //   const response = JSON.parse(event.body)
+  const response = "works"
   
       return {
       
         statusCode: 200,
-        body: JSON.stringify({"reply":response}),
-     
+        // body: JSON.stringify({"reply":response}),
+        body: {"reply":response},
       }
   
     } catch (error) {
