@@ -1,4 +1,4 @@
-import sdk from 'api'
+import {sdk} from 'api'
 
 //   const sdk = require('api')('@genny-api/v1.0#eqij1clm8s4s2v');
 
