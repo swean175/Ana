@@ -82,9 +82,9 @@ const handler = async (event) => {
   
       return {
       
-        statusCode: 200,
+       
         // body: JSON.stringify({"reply":response}),
-        body: {"reply":response},
+         "reply":response
       }
   
     } catch (error) {
