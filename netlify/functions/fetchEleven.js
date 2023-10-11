@@ -72,7 +72,7 @@ socket.onclose = function (event) {
         console.warn('Connection died');
     }
 }
-
+console.log(audioChunk)
 return audioChunk
 }
 
@@ -84,7 +84,8 @@ exports.handler = async function (event, context) {
 
     
         return {
-       response
+            statusCode: 200,
+            body: JSON.stringify({"reply":response}),
         }
     
       } catch (error) {
