@@ -32,15 +32,14 @@ const instructionObj = {
     role: 'system',
     content: 'You are a helpful, flirty, funny, teasy assistant, your name is Ana my name is Damian and i am amzing'  
 }
-let conversationArr = []
-conversationArr.unshift(instructionObj)
+
+
 
 
         //---------------------------------------Fetch
 
         
 async function fetchOpenAi(message){
-    console.log(JSON.stringify(message))
    const serUrl = 'https://resilient-ganache-139b9c.netlify.app/.netlify/functions/fetchOpenAi'
    const response = await fetch(serUrl, {
 method: 'POST',
@@ -101,7 +100,8 @@ async function fetchReply() {
     get(conversationInDb).then(async (snapshot) => {
         if (snapshot.exists()) {
             const conversationArr = Object.values(snapshot.val())
-        
+             conversationArr.unshift(instructionObj)
+        console.log(conversationArr)
           const response =  await fetchOpenAi(conversationArr)
        
 console.log("fetch-reply --" + response.reply.content)
