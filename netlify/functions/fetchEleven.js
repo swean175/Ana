@@ -84,10 +84,7 @@ exports.handler = async function (event, context) {
 
     
         return {
-        
-          statusCode: 200,
-          body: {"reply":response},
-       
+       response
         }
     
       } catch (error) {
