@@ -29,7 +29,7 @@ exports.handler = async function (event, context) {
       
           // 3. Send the input text message ("Hello World")
           const textMessage = {
-              "text": `${message} `,
+              "text": `It works `,
               "try_trigger_generation": true,
           };
       
@@ -44,8 +44,8 @@ exports.handler = async function (event, context) {
       };
       
       // 5. Handle server responses
-      socket.onmessage = function (event) {
-          const response = JSON.parse(event.data);
+      socket.onmessage = async function (event) {
+          const response = await JSON.parse(event.data);
       
           console.log("Server response:", response);
       
@@ -53,12 +53,14 @@ exports.handler = async function (event, context) {
               // decode and handle the audio data (e.g., play it)
               audioChunk = atob(response.audio);  // decode base64
               console.log("Received audio chunk");
+              return audioChunk
           } else {
               console.log("No audio data in the response");
           }
       
           if (response.isFinal) {
               // the generation is complete
+              return response
           }
       
           if (response.normalizedAlignment) {
