@@ -23,7 +23,7 @@ const handler = async (event) => {
 
 
 
-    const response = await openai.createChatCompletion({ 
+    const response = await openai.chat.completions.create({ 
       model: 'gpt-3.5-turbo',
       messages: event.body,
       presence_penalty: 0,
