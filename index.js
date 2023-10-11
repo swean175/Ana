@@ -93,9 +93,6 @@ document.addEventListener('submit', (e) => {
 })
 
 
-
-
-
 async function fetchReply() {
 
     get(conversationInDb).then(async (snapshot) => {
