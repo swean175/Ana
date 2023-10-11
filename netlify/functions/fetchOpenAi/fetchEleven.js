@@ -84,7 +84,7 @@ const handler = async (event) => {
       
        
         // body: JSON.stringify({"reply":response}),
-         "reply":response
+        response
       }
   
     } catch (error) {
