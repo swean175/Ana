@@ -117,7 +117,7 @@ async function fetchReply() {
        
 console.log("fetch-reply --" + response.reply.content)
             push(conversationInDb, response.reply.content)
-            renderTypewriterText(response.reply.content.content)
+            renderTypewriterText(response.reply.content)
         //    getEleven(response.reply.content+".....")
             
         }
