@@ -4,21 +4,11 @@
 
 exports.handler = async function (event, context) { 
     try {
-        const options = {
-            method: 'POST',
-            headers: {
-              accept: 'application/json',
-              'Content-Type': 'application/json',
-              'X-API-KEY': process.env.GENNY_API_KEY
-            },
-            body: JSON.stringify({speed: 1, text: 'Jestem Ana', speaker: '640f477d2babeb0024be422b'})
-          };
+        const response = await sdk.auth( process.env.GENNY_API_KEY);
+        sdk.syncTts({speed: 1})
+          .then(({ data }) => console.log(data))
+          .catch(err => console.error(err));
 
-        const response = await fetch('https://api.genny.lovo.ai/api/v1/tts/sync', options)
-        .then(response => response.json())
-        .then(response => console.log(response))
-        .catch(err => console.error(err));
-     
         return {
         
           statusCode: 200,
