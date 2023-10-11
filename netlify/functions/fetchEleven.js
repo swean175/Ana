@@ -1,6 +1,6 @@
 import {sdk} from 'api'
 
-//   const sdk = require('api')('@genny-api/v1.0#eqij1clm8s4s2v');
+  const sdk = require('api')('@genny-api/v1.0#eqij1clm8s4s2v');
 
 exports.handler = async function (event, context) { 
     try {
