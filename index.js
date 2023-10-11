@@ -32,15 +32,15 @@ recognition.lang = 'pl'
 
 
 
-async function fetchOpenAi([...message]){
-    console.log(JSON.stringify([message]))
+async function fetchOpenAi(message){
+    console.log(JSON.stringify(message))
    const serUrl = 'https://resilient-ganache-139b9c.netlify.app/.netlify/functions/fetchOpenAi'
    const response = await fetch(serUrl, {
 method: 'POST',
 headers: {
     'Content-Type': 'application/json'//'text/plain', 
 },
-body:JSON.stringify([message])
+body:JSON.stringify(message)
   })
 
 const data = await response.json()
