@@ -1,17 +1,41 @@
 {
  
   "dependencies": {
-    "firebase": "^10.4.0",
-    "node-fetch": "^3.3.2",
-    "openai": "^4.11.1"           
+ 
+   
+  "dotenv": "^16.3.1",
+ 
+   
+  "firebase": "^10.4.0",
+ 
+   
+  "node-fetch": "^3.3.2",
+ 
+   
+  "openai": "^4.11.1"
+ 
   },
+ 
   "devDependencies": {
-    "vite": "latest"
+ 
+   
+  "vite": "latest"
+ 
   },
+ 
   "scripts": {
-    "start": "vite",
-    "dev": "netlify-dev",
-    "build": "vite build",
-    "preview": "vite preview"
+ 
+   
+  "start": "vite",
+ 
+   
+  "dev": "netlify-dev",
+ 
+   
+  "build": "vite build",
+ 
+   
+  "preview": "vite preview"
+ 
   }
 }
