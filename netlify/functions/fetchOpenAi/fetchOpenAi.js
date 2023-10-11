@@ -22,7 +22,7 @@ const handler = async (event) => {
   try {
 
     const response = await openai.chat.completions.create({ 
-      model:  'davinci:ft-scrimba-2023-03-30-23-10-03',      //'gpt-3.5-turbo',
+      model:  'gpt-3.5-turbo-0301',      //'gpt-3.5-turbo',
       messages: [
         {
             "role": "system",
