@@ -6,9 +6,9 @@ exports.handler = async function (event, context) {
     try {
        
         sdk.auth( process.env.GENNY_API_KEY);
-        const res = await sdk.syncTts({speed: 1, text: 'I am Ana Your faithfull assisatant', speaker: '640f477d2babeb0024be422b'})
-        // .then((data) => res = data)
-        // .catch(err => console.error(err));
+        const res = await sdk.syncTts({speed: 1, text: 'I am Ana Your faithfull assisatant ', speaker: '640f477d2babeb0024be422b'})
+        .then(({data}) => console.log(data))
+        .catch(err => console.error(err));
 
        
         return {
