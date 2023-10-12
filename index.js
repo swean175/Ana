@@ -36,7 +36,7 @@ const instructionObj = {
 }
 
 
-
+Sophia.play()
 
         //---------------------------------------Fetch
 
@@ -59,21 +59,21 @@ const data = await response.json()
 
 
 
-async function fetchEleven(message){
-    const serUrl = 'https://resilient-ganache-139b9c.netlify.app/.netlify/functions/fetchEleven'
-    const response = await fetch(serUrl, {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body:JSON.stringify(message)
-          })
+// async function fetchEleven(message){
+//     const serUrl = 'https://resilient-ganache-139b9c.netlify.app/.netlify/functions/fetchEleven'
+//     const response = await fetch(serUrl, {
+//         method: 'POST',
+//         headers: {
+//             'Content-Type': 'application/json'
+//         },
+//         body:JSON.stringify(message)
+//           })
         
-        const data = await response.json()
-          console.log(data)
-          return data
+//         const data = await response.json()
+//           console.log(data)
+//           return data
             
-        }
+//         }
 
 
  //--------------------------- Event
@@ -114,8 +114,8 @@ async function fetchReply() {
 console.log("fetch-reply --" + response.reply)
             push(conversationInDb, response.reply)
             renderTypewriterText(response.reply.content)
-            Sophia.play()
-           fetchEleven("hi")
+           
+           eleven(response.reply.content)
             
         }
         else {
@@ -202,4 +202,112 @@ talkBtn.addEventListener('click', () => {
   
 //     window.speechSynthesis.speak(speech)
 // }
+
+
+
+function eleven(Txt){
+
+    const voiceId = '21m00Tcm4TlvDq8ikWAM'; // replace with your voice_id
+    const model = 'eleven_monolingual_v1';
+    const wsUrl = `wss://api.elevenlabs.io/v1/text-to-speech/${voiceId}/stream-input?model_id=${model}`;
+    const socket = new WebSocket(wsUrl);
+    
+   
+
+
+        // 2. Initialize the connection by sending the BOS message
+        socket.onopen = function (event) {
+          const bosMessage = {
+              "text": " ",
+              "voice_settings": {
+                  "stability": 0.1,
+                  "similarity_boost": true
+              },
+              "xi_api_key": '04a2a640ad70a0dee3a3f8888a1ab5b5'
+          };
+      
+          socket.send(JSON.stringify(bosMessage));
+      
+          // 3. Send the input text message ("Hello World")
+          const textMessage = {
+              "text": `${Txt} `,
+              "try_trigger_generation": true,
+          };
+      
+          socket.send(JSON.stringify(textMessage));
+      
+          // 4. Send the EOS message with an empty string
+          const eosMessage = {
+              "text": ""
+          };
+      
+          socket.send(JSON.stringify(eosMessage));
+      };
+      
+      // 5. Handle server responses
+      socket.onmessage = function (event) {
+          const response = JSON.parse(event.data);
+      
+          if (response.audio) {
+              // decode and handle the audio data (e.g., play it)
+             const audioChunk = atob(response.audio);  // decode base64
+
+             function playAudio(audioStr) {
+                const audioString = audioStr;
+                const audioBlob = mp3_44100toBlob(audioString);
+                const audioUrl = URL.createObjectURL(audioBlob);
+             
+                const audio = new Audio();
+                audio.src = audioUrl;
+                audio.play();
+             }
+             
+             function mp3_44100toBlob(mp3_44100) {
+                const byteCharacters = atob(mp3_44100);
+                const byteNumbers = new Array(byteCharacters.length);
+             
+                for (let i = 0; i < byteCharacters.length; i++) {
+                   byteNumbers[i] = byteCharacters.charCodeAt(i);
+                }
+             
+                const byteArray = new Uint8Array(byteNumbers);
+                return new Blob([byteArray], { type: 'audio/mp3' });
+             }
+            
+
+             playAudio(response.audio)
+
+              return console.log("worked")
+          } else {
+              console.log("No audio data in the response");
+          }
+      
+          if (response.isFinal) {
+              // the generation is complete
+            
+          }
+      
+          if (response.normalizedAlignment) {
+              // use the alignment info if needed
+          }
+      };
+      
+      // Handle errors
+      socket.onerror = function (error) {
+          console.error(`WebSocket Error: ${error}`);
+      };
+      
+      // Handle socket closing
+      socket.onclose = function (event) {
+          if (event.wasClean) {
+              console.info(`Connection closed cleanly, code=${event.code}, reason=${event.reason}`);
+          } else {
+              console.warn('Connection died');
+          }
+      }
+}
+
+
+
+
 renderConversationFromDb()
