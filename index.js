@@ -251,7 +251,7 @@ function eleven(Txt){
           const response = JSON.parse(event.data)
       console.log(typeof response.audio)
 resArr.unshift(response.audio)
-console.log(...resArr)
+
           if (response.audio) {
               // decode and handle the audio data (e.g., play it)
              const audioChunk = atob(response.audio);  // decode base64
@@ -281,7 +281,7 @@ console.log(...resArr)
              }
             
 
-             playAudio(...resArr)
+             playAudio([...resArr])
             }, 3000)
 
               return console.log("worked")
