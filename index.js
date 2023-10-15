@@ -256,6 +256,8 @@ function eleven(Txt){
 
 const firstPart = response.audio.split(response.audio.length / 2)
 console.log(firstPart)
+const secoundPart = response.audio.split(response.audio.length / 2, response.audio.length)
+connectDatabaseEmulator.log(secoundPart)
 
              function playAudio(audioStr) {
                 const audioString = audioStr;
@@ -280,7 +282,7 @@ console.log(firstPart)
              }
             
 
-             setTimeout(() => playAudio(firstPart), 1000)
+             setTimeout(() => playAudio(secoundPart), 1000)
 
               return console.log("worked")
           } else {
