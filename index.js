@@ -294,7 +294,7 @@ resArr.unshift(response.audio)
 
      function toSay(res){
                  let say  = res.join(" ")
-                     .then(playAudio(say))
+                     playAudio(say)
          console.log("toSay")
             }
 
