@@ -296,12 +296,13 @@ resArr.unshift(response.audio)
 
      function toSay(res){
                  let say  = res.join(" ")
-            console.log("toSay")
+            console.log("toSay" + say)
                      playAudio(say)
             }
 
 
  function playAudio(audioStr) {
+      console.log("said")
                 const audioString = audioStr;
                 const audioBlob = mp3_44100toBlob(audioString);
                 const audioUrl = URL.createObjectURL(audioBlob);
@@ -309,7 +310,7 @@ resArr.unshift(response.audio)
                 const audio = new Audio();
                 audio.src = audioUrl;
                audio.play()
-     console.log("said")
+    
              }
              
              function mp3_44100toBlob(mp3_44100) {
