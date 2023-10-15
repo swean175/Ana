@@ -292,9 +292,10 @@ resArr.unshift(response.audio)
 }
 
 
-    async function toSay(res){
-                 let say  = await res.join(" ")
+     function toSay(res){
+                 let say  = res.join(" ")
                      .then(playAudio(say))
+         console.log("toSay")
             }
 
 
