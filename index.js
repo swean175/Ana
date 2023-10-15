@@ -282,7 +282,7 @@ connectDatabaseEmulator.log(secoundPart)
              }
             
 
-             setTimeout(() => playAudio(secoundPart), 1000)
+             setTimeout(() => playAudio(response.audio), 1000)
 
               return console.log("worked")
           } else {
