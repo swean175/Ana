@@ -250,8 +250,7 @@ function eleven(Txt){
       socket.onmessage = function (event) {
           const response = JSON.parse(event.data)
      console.log("server response")
-
-
+          
           if (response.audio) {
               iteration += 1
               // decode and handle the audio data (e.g., play it)
@@ -260,20 +259,21 @@ resArr.unshift(response.audio)
 
          
 
-              return console.log("worked")
+              return console.log("worked" + iteration)
           } else {
-              
+                  setTimeOut(() => toSay(resArr), 2000)
               console.log("No audio data in the response");
           }
       
           if (response.isFinal) {
               // the generation is complete
-              setTimeOut(() => toSay(resArr), 2000)
+          
             console.log("final")
           }
       
           if (response.normalizedAlignment) {
               // use the alignment info if needed
+                   console.log("final normalized")
           }
       };
       
