@@ -247,7 +247,9 @@ function eleven(Txt){
       // 5. Handle server responses
       socket.onmessage = function (event) {
           const response = JSON.parse(event.data);
-      
+      console.log(typeof response.audio)
+
+
           if (response.audio) {
               // decode and handle the audio data (e.g., play it)
              const audioChunk = atob(response.audio);  // decode base64
