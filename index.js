@@ -280,7 +280,7 @@ console.log(firstPart)
              }
             
 
-             setTimeout(() => playAudio(response.audio), 1000)
+             setTimeout(() => playAudio(firstPart), 1000)
 
               return console.log("worked")
           } else {
