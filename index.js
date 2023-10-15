@@ -251,20 +251,22 @@ function eleven(Txt){
           const response = JSON.parse(event.data)
       console.log(typeof response.audio)
 resArr.unshift(response.audio)
+
+
           
-
-          if (response.audio) {
-              // decode and handle the audio data (e.g., play it)
-             const audioChunk = atob(response.audio);  // decode base64
-
-
              async function toSay(){
                  let say  = await resArr.join(" ")
                      .then(playAudio(say))
 
                 
             }
-              toSay()
+
+          if (response.audio) {
+              // decode and handle the audio data (e.g., play it)
+             const audioChunk = atob(response.audio);  // decode base64
+
+
+        
 
               return console.log("worked")
           } else {
@@ -289,6 +291,7 @@ resArr.unshift(response.audio)
       // Handle socket closing
       socket.onclose = function (event) {
           if (event.wasClean) {
+                    toSay()
               console.info(`Connection closed cleanly, code=${event.code}, reason=${event.reason}`);
           } else {
               console.warn('Connection died');
@@ -306,6 +309,7 @@ resArr.unshift(response.audio)
                 const audio = new Audio();
                 audio.src = audioUrl;
                audio.play()
+     console.log("said")
              }
              
              function mp3_44100toBlob(mp3_44100) {
