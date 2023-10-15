@@ -251,14 +251,15 @@ function eleven(Txt){
           const response = JSON.parse(event.data)
       console.log(typeof response.audio)
 resArr.unshift(response.audio)
-          let say  = resArr.join(" ")
+          
 
           if (response.audio) {
               // decode and handle the audio data (e.g., play it)
              const audioChunk = atob(response.audio);  // decode base64
 
 
-             setTimeout(() => {
+             setTimeout(async () => {
+                 let say  = await resArr.join(" ")
                 function playAudio(audioStr) {
                 const audioString = audioStr;
                 const audioBlob = mp3_44100toBlob(audioString);
