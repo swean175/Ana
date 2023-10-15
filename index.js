@@ -214,7 +214,7 @@ function eleven(Txt){
     const wsUrl = `wss://api.elevenlabs.io/v1/text-to-speech/${voiceId}/stream-input?model_id=${model}`;
     const socket = new WebSocket(wsUrl);
     
-   const iteration = 0
+   let iteration = 0
 
 
         // 2. Initialize the connection by sending the BOS message
@@ -257,9 +257,9 @@ function eleven(Txt){
               // decode and handle the audio data (e.g., play it)
              const audioChunk = atob(response.audio);  // decode base64
 resArr.unshift(response.audio)
-if (iteration === rerArr.length){
-         setTimeOut(() => toSay(resArr), 2000)
-}
+
+         
+
               return console.log("worked")
           } else {
               
@@ -268,6 +268,7 @@ if (iteration === rerArr.length){
       
           if (response.isFinal) {
               // the generation is complete
+              setTimeOut(() => toSay(resArr), 2000)
             console.log("final")
           }
       
