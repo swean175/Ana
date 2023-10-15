@@ -261,7 +261,7 @@ function eleven(Txt){
              
                 const audio = new Audio();
                 audio.src = audioUrl;
-                setInterval(()=> audio.play(), 1000);
+                setTimeout(()=> audio.play(), 1000);
              }
              
              function mp3_44100toBlob(mp3_44100) {
