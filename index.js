@@ -261,6 +261,7 @@ resArr.unshift(response.audio)
 
               return console.log("worked")
           } else {
+                toSay()
               console.log("No audio data in the response");
           }
       
