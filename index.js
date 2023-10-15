@@ -206,6 +206,8 @@ talkBtn.addEventListener('click', () => {
 
 
 function eleven(Txt){
+    const resArr = []
+
 
     const voiceId = '21m00Tcm4TlvDq8ikWAM'; // replace with your voice_id
     const model = 'eleven_monolingual_v1';
@@ -248,7 +250,7 @@ function eleven(Txt){
       socket.onmessage = function (event) {
           const response = JSON.parse(event.data)
       console.log(typeof response.audio)
-
+resArr.unshift(response.audio)
 
           if (response.audio) {
               // decode and handle the audio data (e.g., play it)
@@ -279,8 +281,8 @@ function eleven(Txt){
              }
             
 
-             playAudio(response.audio)
-            }, 2000)
+             playAudio(...resArr)
+            }, 3000)
 
               return console.log("worked")
           } else {
