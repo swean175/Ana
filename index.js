@@ -248,7 +248,7 @@ function eleven(Txt){
       
       // 5. Handle server responses
       socket.onmessage = function (event) {
-          const finalRes = ""
+          let finalRes = ""
           const response = JSON.parse(event.data)
      console.log("server response")
           
