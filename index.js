@@ -252,7 +252,7 @@ function eleven(Txt){
      console.log("server response")
           
           if (response.audio) {
-              iteration += 1
+              iteration ++
               // decode and handle the audio data (e.g., play it)
              const audioChunk = atob(response.audio);  // decode base64
 resArr.unshift(response.audio)
@@ -261,7 +261,7 @@ resArr.unshift(response.audio)
 
               return console.log("worked" + iteration)
           } else {
-                  setTimeOut(() => toSay(resArr), 2000)
+                  // setTimeOut(() => toSay(resArr), 2000)
               console.log("No audio data in the response");
           }
       
@@ -285,7 +285,7 @@ resArr.unshift(response.audio)
       // Handle socket closing
       socket.onclose = function (event) {
           if (event.wasClean) {
-                   
+                   toSay(resArr)
               console.info(`Connection closed cleanly, code=${event.code}, reason=${event.reason}`);
           } else {
               console.warn('Connection died');
