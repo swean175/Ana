@@ -248,7 +248,6 @@ function eleven(Txt){
       
       // 5. Handle server responses
       socket.onmessage = function (event) {
-          let finalRes = ""
           const response = JSON.parse(event.data)
      console.log("server response")
           
@@ -256,10 +255,9 @@ function eleven(Txt){
               iteration ++
               // decode and handle the audio data (e.g., play it)
              const audioChunk = atob(response.audio);  // decode base64
-resArr.unshift(response.audio)
-finalRes = response.audio
-         
+resArr.push(response.audio)
 
+         
               return console.log("worked" + iteration)
           } else {
                   // setTimeOut(() => toSay(resArr), 2000)
@@ -269,7 +267,7 @@ finalRes = response.audio
           if (response.isFinal) {
               // the generation is complete
           
-            console.log("Final: "+ finalRes)
+            console.log("Final: ")
           }
       
           if (response.normalizedAlignment) {
