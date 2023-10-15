@@ -254,12 +254,9 @@ function eleven(Txt){
               // decode and handle the audio data (e.g., play it)
              const audioChunk = atob(response.audio);  // decode base64
 
-const firstPart = response.audio.split(response.audio.length / 2)
-console.log(firstPart)
-const secoundPart = response.audio.split(response.audio.length / 2, response.audio.length)
-connectDatabaseEmulator.log(secoundPart)
 
-             function playAudio(audioStr) {
+             setTimeout(() => {
+                function playAudio(audioStr) {
                 const audioString = audioStr;
                 const audioBlob = mp3_44100toBlob(audioString);
                 const audioUrl = URL.createObjectURL(audioBlob);
@@ -282,7 +279,8 @@ connectDatabaseEmulator.log(secoundPart)
              }
             
 
-             setTimeout(() => playAudio(response.audio), 1000)
+             playAudio(response.audio)
+            }, 2000)
 
               return console.log("worked")
           } else {
