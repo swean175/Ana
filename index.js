@@ -268,7 +268,7 @@ resArr.unshift(response.audio)
           if (response.isFinal) {
               // the generation is complete
           
-            console.log("final")
+            console.log(response.audio)
           }
       
           if (response.normalizedAlignment) {
@@ -296,7 +296,7 @@ resArr.unshift(response.audio)
 
      function toSay(res){
                  let say  = res.join("")
-            console.log("toSay" )
+            console.log(say)
                      playAudio(say)
             }
 
