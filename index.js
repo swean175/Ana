@@ -108,7 +108,7 @@ async function fetchReply() {
         if (snapshot.exists()) {
             const conversationArr = Object.values(snapshot.val())
              conversationArr.unshift(instructionObj)
-        console.log(conversationArr)
+       
           const response =  await fetchOpenAi(conversationArr)
        
 console.log("fetch-reply --" + response.reply)
@@ -247,7 +247,7 @@ function eleven(Txt){
       // 5. Handle server responses
       socket.onmessage = async function (event) {
           const response = await JSON.parse(event.data)
-      .then(console.log(typeof response.audio))
+      (console.log(typeof response.audio))
 
 
           if (response.audio) {
