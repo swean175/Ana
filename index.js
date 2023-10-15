@@ -252,13 +252,6 @@ function eleven(Txt){
       console.log(typeof response.audio)
 resArr.unshift(response.audio)
 
-
-          
-             async function toSay(){
-                 let say  = await resArr.join(" ")
-                     .then(playAudio(say))
-            }
-
           if (response.audio) {
               // decode and handle the audio data (e.g., play it)
              const audioChunk = atob(response.audio);  // decode base64
@@ -297,6 +290,11 @@ resArr.unshift(response.audio)
       }
 }
 
+
+    async function toSay(){
+                 let say  = await resArr.join(" ")
+                     .then(playAudio(say))
+            }
 
 
  function playAudio(audioStr) {
