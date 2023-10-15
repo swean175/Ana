@@ -254,6 +254,9 @@ function eleven(Txt){
               // decode and handle the audio data (e.g., play it)
              const audioChunk = atob(response.audio);  // decode base64
 
+const firstPart = response.audio.split(response.audio.length / 2)
+console.log(firstPart)
+
              function playAudio(audioStr) {
                 const audioString = audioStr;
                 const audioBlob = mp3_44100toBlob(audioString);
