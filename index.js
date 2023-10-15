@@ -282,7 +282,7 @@ resArr.unshift(response.audio)
             
 
              playAudio(response.audio)
-            }, 3000)
+            }, 5000)
 
               return console.log("worked")
           } else {
