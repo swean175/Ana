@@ -298,8 +298,8 @@ finalRes = response.audio
      function toSay(res){
                  // let say  = res.join("")
          for (let i = 0; i < res.length; i++){
-       
-                     setTimeout(() => playAudio(res[i]), 1500)
+       let time = i * 1000
+                     setTimeout(() => playAudio(res[i]), time)
          }
             }
 
