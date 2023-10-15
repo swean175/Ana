@@ -249,7 +249,7 @@ function eleven(Txt){
       // 5. Handle server responses
       socket.onmessage = function (event) {
           const response = JSON.parse(event.data)
-      console.log(typeof response.audio)
+     console.log("server response")
 
 
           if (response.audio) {
@@ -257,11 +257,11 @@ function eleven(Txt){
              const audioChunk = atob(response.audio);  // decode base64
 resArr.unshift(response.audio)
 
-         toSay(resArr)
+         setTimeOut(() => toSay(resArr), 2000)
 
               return console.log("worked")
           } else {
-                toSay(resArr)
+              
               console.log("No audio data in the response");
           }
       
@@ -294,8 +294,8 @@ resArr.unshift(response.audio)
 
      function toSay(res){
                  let say  = res.join(" ")
+            console.log("toSay")
                      playAudio(say)
-         console.log("toSay")
             }
 
 
