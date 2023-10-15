@@ -251,6 +251,7 @@ function eleven(Txt){
           const response = JSON.parse(event.data)
       console.log(typeof response.audio)
 resArr.unshift(response.audio)
+          let say  = resArr.join(" ")
 
           if (response.audio) {
               // decode and handle the audio data (e.g., play it)
@@ -281,7 +282,7 @@ resArr.unshift(response.audio)
              }
             
 
-             playAudio(response.audio)
+             playAudio(say)
             }, 5000)
 
               return console.log("worked")
