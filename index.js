@@ -258,33 +258,10 @@ resArr.unshift(response.audio)
              const audioChunk = atob(response.audio);  // decode base64
 
 
-             setTimeout(async () => {
+             async () => {
                  let say  = await resArr.join(" ")
-                function playAudio(audioStr) {
-                const audioString = audioStr;
-                const audioBlob = mp3_44100toBlob(audioString);
-                const audioUrl = URL.createObjectURL(audioBlob);
-             
-                const audio = new Audio();
-                audio.src = audioUrl;
-               audio.play()
-             }
-             
-             function mp3_44100toBlob(mp3_44100) {
-                const byteCharacters = atob(mp3_44100);
-                const byteNumbers = new Array(byteCharacters.length);
-             
-                for (let i = 0; i < byteCharacters.length; i++) {
-                   byteNumbers[i] = byteCharacters.charCodeAt(i);
-                }
-             
-                const byteArray = new Uint8Array(byteNumbers);
-                return new Blob([byteArray], { type: 'audio/mp3' });
-             }
-            
-
-             playAudio(say)
-            }, 5000)
+                     .then(playAudio(say))
+            }
 
               return console.log("worked")
           } else {
@@ -316,6 +293,29 @@ resArr.unshift(response.audio)
       }
 }
 
+
+
+ function playAudio(audioStr) {
+                const audioString = audioStr;
+                const audioBlob = mp3_44100toBlob(audioString);
+                const audioUrl = URL.createObjectURL(audioBlob);
+             
+                const audio = new Audio();
+                audio.src = audioUrl;
+               audio.play()
+             }
+             
+             function mp3_44100toBlob(mp3_44100) {
+                const byteCharacters = atob(mp3_44100);
+                const byteNumbers = new Array(byteCharacters.length);
+             
+                for (let i = 0; i < byteCharacters.length; i++) {
+                   byteNumbers[i] = byteCharacters.charCodeAt(i);
+                }
+             
+                const byteArray = new Uint8Array(byteNumbers);
+                return new Blob([byteArray], { type: 'audio/mp3' });
+             }
 
 
 
