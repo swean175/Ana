@@ -13,7 +13,7 @@ const recognition = new speechRec()
 recognition.lang = 'pl'
 
 
-let Sophia  = new Audio("https://voiceverse-prod.s3.us-west-2.amazonaws.com/team/6511deba448ce2002390279b/jobs/652717d6e43e81002487fb0c/wkmFkLI0Mg.wav?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIA26OUSLIS7YRKCXJL%2F20231011%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20231011T214711Z&X-Amz-Expires=86400&X-Amz-Signature=d1b5d4df63ed12f391f6d6197bd7d5ae0247908ecdd8eafd14d6308170088b52&X-Amz-SignedHeaders=host&x-id=GetObject")
+
 
 
 //---------------------------------Database
@@ -36,7 +36,7 @@ const instructionObj = {
 }
 
 
-Sophia.play()
+
 
         //---------------------------------------Fetch
 
@@ -257,8 +257,6 @@ resArr.unshift(response.audio)
              async function toSay(){
                  let say  = await resArr.join(" ")
                      .then(playAudio(say))
-
-                
             }
 
           if (response.audio) {
@@ -266,7 +264,7 @@ resArr.unshift(response.audio)
              const audioChunk = atob(response.audio);  // decode base64
 
 
-        
+         toSay()
 
               return console.log("worked")
           } else {
@@ -291,7 +289,7 @@ resArr.unshift(response.audio)
       // Handle socket closing
       socket.onclose = function (event) {
           if (event.wasClean) {
-                    toSay()
+                   
               console.info(`Connection closed cleanly, code=${event.code}, reason=${event.reason}`);
           } else {
               console.warn('Connection died');
