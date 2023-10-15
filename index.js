@@ -281,7 +281,7 @@ resArr.unshift(response.audio)
              }
             
 
-             playAudio([...resArr])
+             playAudio(response.audio)
             }, 3000)
 
               return console.log("worked")
