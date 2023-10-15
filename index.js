@@ -250,12 +250,12 @@ function eleven(Txt){
       socket.onmessage = function (event) {
           const response = JSON.parse(event.data)
       console.log(typeof response.audio)
-resArr.unshift(response.audio)
+
 
           if (response.audio) {
               // decode and handle the audio data (e.g., play it)
              const audioChunk = atob(response.audio);  // decode base64
-
+resArr.unshift(response.audio)
 
          toSay(resArr)
 
