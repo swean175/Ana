@@ -257,11 +257,11 @@ resArr.unshift(response.audio)
              const audioChunk = atob(response.audio);  // decode base64
 
 
-         toSay()
+         toSay(resArr)
 
               return console.log("worked")
           } else {
-                toSay()
+                toSay(resArr)
               console.log("No audio data in the response");
           }
       
@@ -292,8 +292,8 @@ resArr.unshift(response.audio)
 }
 
 
-    async function toSay(){
-                 let say  = await resArr.join(" ")
+    async function toSay(res){
+                 let say  = await res.join(" ")
                      .then(playAudio(say))
             }
 
