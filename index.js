@@ -261,7 +261,7 @@ function eleven(Txt){
              
                 const audio = new Audio();
                 audio.src = audioUrl;
-                setTimeout(()=> audio.play(), 1000);
+               audio.play()
              }
              
              function mp3_44100toBlob(mp3_44100) {
@@ -277,7 +277,7 @@ function eleven(Txt){
              }
             
 
-             playAudio(response.audio)
+             setTimeout(() => playAudio(response.audio), 1000)
 
               return console.log("worked")
           } else {
