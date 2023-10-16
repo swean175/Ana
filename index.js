@@ -297,7 +297,7 @@ resArr.push(response.audio)
                  // let say  = res.join("")
          for (let i = 0; i < res.length; i++){
        let time = 0
-             i > 0 ? time = i * 1300 : time = 0
+             i > 0 ? time = i * 1550 : time = 0
                      setTimeout(() => playAudio(res[i]), time)
          }
             }
