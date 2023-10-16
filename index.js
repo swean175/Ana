@@ -296,7 +296,8 @@ resArr.push(response.audio)
      function toSay(res){
                  // let say  = res.join("")
          for (let i = 0; i < res.length; i++){
-       let time = i * 1000
+       let time = 0
+             i > 0 ? time = i * 1300 : time = 0
                      setTimeout(() => playAudio(res[i]), time)
          }
             }
