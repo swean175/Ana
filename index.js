@@ -311,6 +311,11 @@ resArr.push(response.audio)
              
                 const audio = new Audio();
                 audio.src = audioUrl;
+                audio.addEventListener('loadedmetadata', function() {
+                    const durationInSeconds = audio.duration;
+                    console.log("Audio duration: " + durationInSeconds + " seconds");
+                  })
+
                audio.play()
     
              }
