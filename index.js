@@ -12,6 +12,7 @@ const speechRec = window.SpeechRecognition || window.webkitSpeechRecognition
 const recognition = new speechRec()
 recognition.lang = 'pl'
 
+const durationInSeconds = 0
 
 
 
@@ -296,8 +297,8 @@ resArr.push(response.audio)
      function toSay(res){
                  // let say  = res.join("")
          for (let i = 0; i < res.length; i++){
-       let time = 0
-             i > 0 ? time = i * 1550 : time = 0
+       let time = Math.round(durationInSeconds * 10000)
+            //  i > 0 ? time = i * 1550 : time = 0
                      setTimeout(() => playAudio(res[i]), time)
          }
             }
@@ -312,7 +313,7 @@ resArr.push(response.audio)
                 const audio = new Audio();
                 audio.src = audioUrl;
                 audio.addEventListener('loadedmetadata', function() {
-                    const durationInSeconds = audio.duration;
+                     durationInSeconds = audio.duration;
                     console.log("Audio duration: " + durationInSeconds + " seconds");
                   })
 
