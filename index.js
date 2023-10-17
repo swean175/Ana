@@ -295,12 +295,13 @@ resArr.push(response.audio)
 
 
  function toSay(res){
-                 // let say  = res.join("")
+                 
          for (let i = 0; i < res.length; i++){
-    //    let time = Math.round(durationInSeconds * 10000)
+       let time = Math.round(durationInSeconds * 10000)
+       console.log(time)
             //  i > 0 ? time = i * 1550 : time = 0
-                    //  setTimeout(() => playAudio(res[i]), time)
-                    playAudio(res[i])
+                     setTimeout(() => playAudio(res[i]), time>0?time:0)
+              
          }
             }
 
@@ -320,9 +321,8 @@ resArr.push(response.audio)
                     durationInSeconds = audio.duration;
                     console.log("Audio duration: " + durationInSeconds + " seconds");
                   })
-                  let time = Math.round(durationInSeconds * 10000)
-                  console.log("time is "+time)
-                  setTimeout(() => audio.play(), time>0?time:2000)
+               
+                 audio.play()
                   
              }
              
