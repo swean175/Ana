@@ -294,10 +294,10 @@ resArr.push(response.audio)
 }
 
 
-     function toSay(res){
+    async function toSay(res){
                  // let say  = res.join("")
          for (let i = 0; i < res.length; i++){
-       let time = Math.round(durationInSeconds * 10000)
+       let time = await Math.round(durationInSeconds * 10000)
             //  i > 0 ? time = i * 1550 : time = 0
                      setTimeout(() => playAudio(res[i]), time)
          }
