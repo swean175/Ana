@@ -306,7 +306,7 @@ resArr.push(response.audio)
 
             var durationInSeconds = 0
 
-            
+
  function playAudio(audioStr) {
       console.log("said")
                 const audioString = audioStr;
@@ -322,7 +322,7 @@ resArr.push(response.audio)
                   })
                   let time = Math.round(durationInSeconds * 10000)
                   console.log("time is "+time)
-                  setTimeout(() => audio.play(), time)
+                  setTimeout(() => audio.play(), time>0?time:2000)
                   
              }
              
