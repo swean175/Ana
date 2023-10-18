@@ -291,11 +291,17 @@ iteration ++
       socket.onclose = function (event) {
           if (event.wasClean) {
               console.info(`Connection closed cleanly, code=${event.code}, reason=${event.reason}`);
-              let partsResArr = resArr.forEach((it) => {
-                  iteration === 0 ? it.split(0, it.length - 1) : it.split(1, it.length -1)
+              
+              
+              let partsResArr = []
+                  resArr.forEach((it) => {
+                      let newIt
+                  iteration === 0 ?newIt = it.split(0, - 1) :newIt = it.split(1, -1)
+                      partsResArr.push(newIt)
               })
+              partResArr.push("==")
+              
       let connected = partsResArr.join('')
-              connected + "=="
               console.log(connected)
             toSay(connected)
           } else {
