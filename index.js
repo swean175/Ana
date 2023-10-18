@@ -10,7 +10,7 @@ const content = document.getElementById('content')
 //--------------------Speech
 const speechRec = window.SpeechRecognition || window.webkitSpeechRecognition
 const recognition = new speechRec()
-recognition.lang = 'pl'
+recognition.lang = 'en-GB'
 let time = 0
 
 
@@ -320,10 +320,12 @@ function playAudio(audioStr) {
                 audio.addEventListener('loadedmetadata', function() {
                   const durationInSeconds = audio.duration
                 //   delay(durationInSeconds)
-                time = durationInSeconds
-                  setTimeout(() => {audio.play()
+
+                setTimeout(() => {audio.play()
                     console.log("spoken")
                 }, time)
+                time = durationInSeconds
+                 
                     console.log("Audio duration: " + durationInSeconds + " seconds");
                     console.log("time = "+time)
                   })
