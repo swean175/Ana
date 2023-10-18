@@ -319,8 +319,8 @@ function playAudio(audioStr) {
                 audio.src = audioUrl
                
                 audio.addEventListener('loadedmetadata', function() {
-                  const durationInSeconds = audio.duration
-                  durationInSeconds.toFixed(1)
+                  const durationInSeconds = Math.round(audio.duration)
+                //   durationInSeconds.toFixed(1)
                   console.log("duration afetr fixing= "+durationInSeconds)
                 //   delay(durationInSeconds)
                     if (time[iteration] > 0){
