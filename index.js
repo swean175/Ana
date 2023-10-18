@@ -325,7 +325,7 @@ iteration ++
                  
                     console.log("Audio duration: " + durationInSeconds + " seconds ");
                console.log("time is "+ time)
-                        playAudio()
+                       audio.play()
                   })
 
        timeReduced = time.reduce((acc, curr) => {
@@ -338,9 +338,7 @@ iteration ++
             }
 
 
-function playAudio(){
-audio.play()
-}
+
             
 
              function mp3_44100toBlob(mp3_44100) {
