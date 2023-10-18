@@ -294,7 +294,7 @@ iteration ++
               let partsResArr = resArr.forEach((it) => {
                   iteration === 0 ? it.split(0, it.length - 1) : it.split(1, it.length -1)
               })
-      let connected = partsResArr.jon('') + "=="
+      let connected = partsResArr.join('') + "=="
               console.log(connected)
             toSay(connected)
           } else {
