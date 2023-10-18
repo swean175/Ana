@@ -318,12 +318,12 @@ resArr.push(response.audio)
                 const audio = new Audio();
                 audio.src = audioUrl;
                
-                audio.addEventListener('loadedmetadata', function() {
-                    durationInSeconds = audio.duration;
+                audio.addEventListener('loadedmetadata', async function() {
+                    durationInSeconds = await audio.duration
                     console.log("Audio duration: " + durationInSeconds + " seconds");
                   })
                
-                 audio.play()
+                 setTimeout(() => audio.play(), 500)
                   console.log("spoken")
              }
              
