@@ -321,7 +321,7 @@ resArr.push(response.audio)
          
                      // setTimeout(() => playAudio(audio), 2000)
 
-      let timeReduced = time.reduce((a, b, 0) => a + b)
+      // let timeReduced = time.reduce((a, b, 0) => a + b)
       console.log("said")
             // setTimeout(() => sentence.play(), timeReduced)
                   audio.play()
@@ -329,12 +329,6 @@ resArr.push(response.audio)
             }
 
             
-            
-
-
-
-
-
 
              function mp3_44100toBlob(mp3_44100) {
                 const byteCharacters = atob(mp3_44100);
