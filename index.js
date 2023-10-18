@@ -11,7 +11,8 @@ const content = document.getElementById('content')
 const speechRec = window.SpeechRecognition || window.webkitSpeechRecognition
 const recognition = new speechRec()
 recognition.lang = 'pl'
-
+var durationInSeconds = 0
+var time = durationInSeconds * 10000
 
 
 
@@ -295,18 +296,18 @@ resArr.push(response.audio)
 
 
  function toSay(res){
-    let time = durationInSeconds * 10000
+   
          for (let i = 0; i < res.length; i++){
        
-       console.log(time)
+       console.log("time = "+time)
             //  i > 0 ? time = i * 1550 : time = 0
-                     setTimeout(() => playAudio(res[i]), time>0?time:0)
+                     setTimeout(() => playAudio(res[i]), time)
               
          }
             }
 
-            var durationInSeconds = 0
-
+            
+            
 
  function playAudio(audioStr) {
       console.log("said")
