@@ -321,8 +321,9 @@ function playAudio(audioStr) {
                 audio.src = audioUrl
                
                 audio.addEventListener('loadedmetadata', function() {
-                  const durationInSeconds = audio.duration.toFixed(1)
-                 
+                  
+                 const convToSec = audio.duration.toFixed(1)
+                 const durationInSeconds = convToSec * 1000
                     if (time[iteration] > 0){
                         let reducedTime = time.reduce((a, b) => a + b, 0)
                         console.log("reduced time = "+ reducedTime)
@@ -337,7 +338,7 @@ function playAudio(audioStr) {
                 iteration ++
             }
          
-                time.push(durationInSeconds*1000)
+                time.push(durationInSeconds)
                  
                     console.log("Audio duration: " + durationInSeconds + " seconds, time is "+time[iteration]);
                   
