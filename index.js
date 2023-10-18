@@ -11,8 +11,7 @@ const content = document.getElementById('content')
 const speechRec = window.SpeechRecognition || window.webkitSpeechRecognition
 const recognition = new speechRec()
 recognition.lang = 'pl'
-var durationInSeconds = 0
-var time = 0
+const time = 100
 
 
 
@@ -318,9 +317,9 @@ resArr.push(response.audio)
                 const audio = new Audio();
                 audio.src = audioUrl
                
-                audio.addEventListener('loadedmetadata', function() {
-                    durationInSeconds = audio.duration
-                    time = durationInSeconds * 10000
+                audio.addEventListener('loadedmetadata', async function() {
+                  const durationInSeconds = await audio.duration
+                    time = await durationInSeconds * 10000
                     console.log("Audio duration: " + durationInSeconds + " seconds");
                   })
 
