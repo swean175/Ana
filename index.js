@@ -325,6 +325,7 @@ function playAudio(audioStr) {
                   
                  const convToSec = audio.duration.toFixed(1)
                  const durationInSeconds = convToSec * 1000
+
                     if (time[iteration] > 0){
                         let reducedTime = time.reduce((a, b) => a + b, 0)
                         console.log("reduced time = "+ reducedTime)
@@ -339,7 +340,8 @@ function playAudio(audioStr) {
                 iteration ++
             }
          
-                time.push(durationInSeconds + (iteration * 10))
+
+                time.push(durationInSeconds + (iteration * 100))
                  
                     console.log("Audio duration: " + durationInSeconds + " seconds ");
                   
