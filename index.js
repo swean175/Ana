@@ -311,6 +311,7 @@ iteration ++
 
 
 async function toSay(res){
+    console.log("shit")
           console.log("toSay at  " + timeReduced)
     
    // let connected =  res.join('')
@@ -331,11 +332,11 @@ async function toSay(res){
                     console.log("Audio duration: " + durationInSeconds + " seconds ");
                console.log("time is "+ time)
                        audio.play()
-                  })
 
-       timeReduced = time.reduce((acc, curr) => {
+                        timeReduced = time.reduce((acc, curr) => {
         return acc + curr
     }, 0)
+                  })
 
     console.log("timeReduced "+ timeReduced)
             // setTimeout(() => audio.play(), timeReduced)
