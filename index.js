@@ -322,11 +322,12 @@ function playAudio(audioStr) {
                   const durationInSeconds = audio.duration.toFixed(1)
                  
                     if (time[iteration] > 0){
+                        let reducedTime = time.reduce((a, b) => a + b, 0)
                 setTimeout(() => {
                     audio.play()
-                    console.log("spoken after " + time.reduce((a, b) => a + b, 0) + "  delay on iteration "+iteration)
+                    console.log("spoken after " + reducedTime + "  delay on iteration "+iteration)
                     iteration ++
-                }, time.reduce((a, b) => a + b, 0))
+                }, reducedTime)
             } else {
                 audio.play()
                 console.log("spoken after " + time[iteration] + "  delay on iteration "+iteration)
