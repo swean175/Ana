@@ -328,10 +328,10 @@ resArr.push(response.audio)
             
 
 function playAudio(sentence) {
-    let timeReduced = time.reduce((a, b, 0) => a + b)
+    // let timeReduced = time.reduce((a, b, 0) => a + b)
       console.log("said")
-            setTimeout(() => sentence.play(), timeReduced)
-                  
+            // setTimeout(() => sentence.play(), timeReduced)
+                  sentence.play()
              }
 
 
