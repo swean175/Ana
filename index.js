@@ -319,20 +319,19 @@ resArr.push(response.audio)
                   })
 
          
-                     setTimeout(() => playAudio(audio), 2000)
+                     // setTimeout(() => playAudio(audio), 2000)
 
+      let timeReduced = time.reduce((a, b, 0) => a + b)
+      console.log("said")
+            // setTimeout(() => sentence.play(), timeReduced)
+                  audio.play()
   
             }
 
             
             
 
-function playAudio(sentence) {
-    // let timeReduced = time.reduce((a, b, 0) => a + b)
-      console.log("said")
-            // setTimeout(() => sentence.play(), timeReduced)
-                  sentence.play()
-             }
+
 
 
 
