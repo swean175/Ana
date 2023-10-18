@@ -323,8 +323,10 @@ resArr.push(response.audio)
                     console.log("Audio duration: " + durationInSeconds + " seconds");
                   })
                
-                 setTimeout(() => audio.play(), 500)
-                  console.log("spoken")
+                 setTimeout(() => {audio.play()
+                    console.log("spoken")
+                }, 500)
+                 
              }
              
              function mp3_44100toBlob(mp3_44100) {
