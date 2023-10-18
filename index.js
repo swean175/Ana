@@ -335,7 +335,7 @@ function playAudio(audioStr) {
                 iteration ++
             }
          
-                time.push((durationInSeconds*1000) + 40)
+                time.push((durationInSeconds*1000) + (10 * iteration))
                  
                     console.log("Audio duration: " + durationInSeconds + " seconds");
                   
