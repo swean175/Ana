@@ -263,7 +263,6 @@ function eleven(Txt){
              const audioChunk = atob(response.audio);  // decode base64
 resArr.push(response.audio)
 
-         
               return console.log("worked")
               toSay(resArr)
           } else {
