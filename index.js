@@ -302,48 +302,24 @@ resArr.push(response.audio)
  function toSay(res){
    let newRes = res.join("")
   const audio = new Audio();
-     
-         for (let i = 0; i < res.length; i++){
-       
-            //  i > 0 ? time = i * 1550 : time = 0
-            // time === 0 & i > 0? time = 2000: time = time
-
-    const audioString = res[i];
+      const audioString = newRes;
                 const audioBlob = mp3_44100toBlob(audioString);
                 const audioUrl = URL.createObjectURL(audioBlob);
-             
-              
-                audio.src = audioUrl
+                 audio.src = audioUrl  
                
                 audio.addEventListener('loadedmetadata', function() {
                   
                  const convToSec = audio.duration.toFixed(1)
                  const durationInSeconds = convToSec * 1000
                   
-
-                    if (time[iteration] > 0){
-                        var reducedTime = time.reduce((a, b) => a + b, 0)
-                        console.log("reduced time = "+ reducedTime)
-                setTimeout(() => {
-                   
-                    console.log("spoken after " + reducedTime + "  delay on iteration "+iteration+" time is "+time[iteration])
-                    iteration ++
-                }, reducedTime)
-            } else {
-             
-                console.log("spoken after " + time[iteration] + "  delay on iteration "+iteration+" time is "+time[iteration])
-                iteration ++
-            }
-         
-
                 time.push(durationInSeconds + 100)
                  
                     console.log("Audio duration: " + durationInSeconds + " seconds ");
                
                   })
 
-         }
-                     setTimeout(() => playAudio(newRes), 3000)
+         
+                     setTimeout(() => playAudio(newRes), 2000)
                   
   
             }
@@ -352,8 +328,9 @@ resArr.push(response.audio)
             
 
 function playAudio(sentence) {
+    let timeReduced = time.reduce((a, b, 0) => a + b)
       console.log("said")
-            sentence.play()
+            setTimeout(() => sentence.play(), timeReduced)
                   
              }
 
