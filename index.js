@@ -301,8 +301,8 @@ resArr.push(response.audio)
        
        console.log("time = "+time)
             //  i > 0 ? time = i * 1550 : time = 0
-                     setTimeout(() => playAudio(res[i]), time+1000)
-              
+                    //  setTimeout(() => playAudio(res[i]), time+1000)
+                    playAudio(res[i])
          }
             }
 
@@ -318,15 +318,16 @@ resArr.push(response.audio)
                 const audio = new Audio();
                 audio.src = audioUrl
                
-                 setTimeout(() => {audio.play()
-                    console.log("spoken")
-                }, 100)
-
                 audio.addEventListener('loadedmetadata', function() {
                     durationInSeconds = audio.duration
+                    time = durationInSeconds * 10000
                     console.log("Audio duration: " + durationInSeconds + " seconds");
                   })
-                 time = durationInSeconds * 10000
+
+                  setTimeout(() => {audio.play()
+                    console.log("spoken")
+                }, time)
+                 
              }
              
              function mp3_44100toBlob(mp3_44100) {
