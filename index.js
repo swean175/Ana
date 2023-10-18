@@ -10,10 +10,11 @@ const content = document.getElementById('content')
 //--------------------Speech
 const speechRec = window.SpeechRecognition || window.webkitSpeechRecognition
 const recognition = new speechRec()
-recognition.lang = 'en-GB'
+recognition.lang = "en-GB"
 const languageBtn = document.getElementById('language-btn')
 let languageBtnClicked = false
 let iteration = 0
+
 let time = [0]
 
 
@@ -329,18 +330,18 @@ function playAudio(audioStr) {
                         console.log("reduced time = "+ reducedTime)
                 setTimeout(() => {
                     audio.play()
-                    console.log("spoken after " + reducedTime + "  delay on iteration "+iteration)
+                    console.log("spoken after " + reducedTime + "  delay on iteration "+iteration+" time is "+time[iteration])
                     iteration ++
                 }, reducedTime)
             } else {
                 audio.play()
-                console.log("spoken after " + time[iteration] + "  delay on iteration "+iteration)
+                console.log("spoken after " + time[iteration] + "  delay on iteration "+iteration+" time is "+time[iteration])
                 iteration ++
             }
          
-                time.push(durationInSeconds)
+                time.push(durationInSeconds + (iteration * 10))
                  
-                    console.log("Audio duration: " + durationInSeconds + " seconds, time is "+time[iteration]);
+                    console.log("Audio duration: " + durationInSeconds + " seconds ");
                   
                   })
                   
@@ -363,7 +364,15 @@ function playAudio(audioStr) {
 
              languageBtn.addEventListener("click", ()=>{
                 languageBtnClicked = !languageBtnClicked
-                languageBtnClicked ? languageBtn.className = "set-language-btn pl" : languageBtn.className = "set-language-btn en"
+               if (languageBtnClicked){
+                recognition.lang = "pl-PL"
+                languageBtn.className = "set-language-btn pl"
+                languageBtn.textContent = "Pl"
+               } else {
+                recognition.lang = "en-GB"
+                languageBtn.className = "set-language-btn en"
+                languageBtn.textContent = "En"
+               }
              })
 
 renderConversationFromDb()
