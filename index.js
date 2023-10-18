@@ -299,8 +299,7 @@ iteration ++
                           toSay(it)
                       }
               })
-              
-              
+            
            
           } else {
               console.warn('Connection died');
@@ -309,7 +308,7 @@ iteration ++
 }
 
 
- function toSay(res){
+async function toSay(res){
           console.log("said on iteration " + iteration)
     
    // let connected =  res.join('')
@@ -322,7 +321,7 @@ iteration ++
                
                 audio.addEventListener('loadedmetadata', function() {
                   
-                 const convToSec = audio.duration.toFixed(1)
+                 const convToSec = await audio.duration.toFixed(1)
                  const durationInSeconds = convToSec * 1000
                   
                 time.push(durationInSeconds)
@@ -341,9 +340,6 @@ iteration ++
           
             }
 
-
-
-            
 
              function mp3_44100toBlob(mp3_44100) {
                 const byteCharacters = atob(mp3_44100);
