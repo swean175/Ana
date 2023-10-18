@@ -310,7 +310,7 @@ iteration ++
 }
 
 
-async function toSay(res){
+function toSay(res){
     console.log("shit")
           console.log("toSay at  " + timeReduced)
     
@@ -322,7 +322,7 @@ async function toSay(res){
                 const audioUrl = URL.createObjectURL(audioBlob);
                  audio.src = audioUrl  
                
-                audio.addEventListener('loadedmetadata', function() {
+                audio.addEventListener('loadedmetadata',async function() {
                   
                  const convToSec = await audio.duration.toFixed(1)
                  const durationInSeconds = convToSec * 1000
