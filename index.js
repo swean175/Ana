@@ -325,8 +325,8 @@ async function toSay(res){
         return acc + curr
     }, 0)
       console.log("said")
-            // setTimeout(() => sentence.play(), timeReduced)
-                  audio.play()
+            setTimeout(() => sentence.play(), timeReduced)
+                  
   alert(timeReduced)
             }
 
