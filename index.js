@@ -299,10 +299,10 @@ resArr.push(response.audio)
 }
 
 
- function toSay(res){
-   let connected = res.join('')
+async function toSay(res){
+   let connected = await res.join('')
   const audio = new Audio();
-      const audioString = connected;
+      const audioString = await connected;
                 const audioBlob = mp3_44100toBlob(audioString);
                 const audioUrl = URL.createObjectURL(audioBlob);
                  audio.src = audioUrl  
