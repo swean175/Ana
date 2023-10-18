@@ -302,7 +302,8 @@ resArr.push(response.audio)
  function toSay(res){
    let connected =  res.join('')
   const audio = new Audio();
-      const audioString = connected;
+      const audioString = res[0]
+     iterration > 0 ? audioString = connected : audioString = res[0]
                 const audioBlob = mp3_44100toBlob(audioString);
                 const audioUrl = URL.createObjectURL(audioBlob);
                  audio.src = audioUrl  
@@ -320,7 +321,7 @@ resArr.push(response.audio)
 
          
                      // setTimeout(() => playAudio(audio), 2000)
-
+iterration ++
       let timeReduced = time.reduce((acc, curr) => {
         return acc + curr
     }, 0)
