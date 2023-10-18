@@ -308,7 +308,7 @@ resArr.push(response.audio)
             
             
 
- async function playAudio(audioStr) {
+function playAudio(audioStr) {
       console.log("said")
                 const audioString = audioStr;
                 const audioBlob = mp3_44100toBlob(audioString);
@@ -317,19 +317,24 @@ resArr.push(response.audio)
                 const audio = new Audio();
                 audio.src = audioUrl
                
-                audio.addEventListener('loadedmetadata', async  function getDuration() {
+                audio.addEventListener('loadedmetadata', function() {
                   const durationInSeconds = audio.duration
+                  delay(durationInSeconds)
                     console.log("Audio duration: " + durationInSeconds + " seconds");
-                    return durationInSeconds * 1000
                   })
-
-                  time = await getDuration()
 
                   setTimeout(() => {audio.play()
                     console.log("spoken")
                 }, time)
-                 
              }
+
+
+
+             async function delay(dur){
+                time = await dur
+             }
+             
+
              
              function mp3_44100toBlob(mp3_44100) {
                 const byteCharacters = atob(mp3_44100);
