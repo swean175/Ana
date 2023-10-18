@@ -301,7 +301,7 @@ resArr.push(response.audio)
 
  function toSay(res){
    let newRes = res.join("")
-
+  const audio = new Audio();
      
          for (let i = 0; i < res.length; i++){
        
@@ -312,7 +312,7 @@ resArr.push(response.audio)
                 const audioBlob = mp3_44100toBlob(audioString);
                 const audioUrl = URL.createObjectURL(audioBlob);
              
-                const audio = new Audio();
+              
                 audio.src = audioUrl
                
                 audio.addEventListener('loadedmetadata', function() {
@@ -339,7 +339,7 @@ resArr.push(response.audio)
                 time.push(durationInSeconds + 100)
                  
                     console.log("Audio duration: " + durationInSeconds + " seconds ");
-                  
+               
                   })
 
          }
