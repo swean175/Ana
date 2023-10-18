@@ -303,7 +303,7 @@ resArr.push(response.audio)
  function toSay(res){
           console.log("said on iteration " + iteration)
     
-   let connected =  res.join('')
+   // let connected =  res.join('')
   let audio = new Audio();
      let audioString = res
      // iteration > 0 ? audioString = connected : audioString = res[0]
