@@ -327,6 +327,7 @@ function playAudio(audioStr) {
                 }, time)
             } else {
                 audio.play()
+                console.log("spoken")
             }
                 time = durationInSeconds
                  
