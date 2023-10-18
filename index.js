@@ -295,9 +295,9 @@ resArr.push(response.audio)
 
 
  function toSay(res){
-                 
+    let time = durationInSeconds * 10000
          for (let i = 0; i < res.length; i++){
-       let time = Math.round(durationInSeconds * 10000)
+       
        console.log(time)
             //  i > 0 ? time = i * 1550 : time = 0
                      setTimeout(() => playAudio(res[i]), time>0?time:0)
