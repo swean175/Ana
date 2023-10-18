@@ -15,7 +15,7 @@ const languageBtn = document.getElementById('language-btn')
 const langBtnText = document.getElementById('lang-btn')
 let languageBtnClicked = false
 let iteration = 0
-
+let timeReduced = 0
 let time = [0]
 
 
@@ -324,10 +324,10 @@ iteration ++
                 time.push(durationInSeconds)
                  
                     console.log("Audio duration: " + durationInSeconds + " seconds ");
-               
+               console.log("time is "+ time)
                   })
 
-      var timeReduced = time.reduce((acc, curr) => {
+       timeReduced = time.reduce((acc, curr) => {
         return acc + curr
     }, 0)
 
