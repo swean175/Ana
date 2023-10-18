@@ -12,6 +12,7 @@ const speechRec = window.SpeechRecognition || window.webkitSpeechRecognition
 const recognition = new speechRec()
 recognition.lang = "en-GB"
 const languageBtn = document.getElementById('language-btn')
+const langBtnText = document.getElementById('lang-btn')
 let languageBtnClicked = false
 let iteration = 0
 
@@ -369,11 +370,11 @@ function playAudio(audioStr) {
                if (languageBtnClicked){
                 recognition.lang = "pl-PL"
                 languageBtn.className = "set-language-btn pl"
-                languageBtn.textContent = "Pl"
+                langBtnText.textContent = "Pl"
                } else {
                 recognition.lang = "en-GB"
                 languageBtn.className = "set-language-btn en"
-                languageBtn.textContent = "En"
+                langBtnText.textContent = "En"
                }
              })
 
