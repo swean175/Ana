@@ -300,7 +300,7 @@ resArr.push(response.audio)
        
             //  i > 0 ? time = i * 1550 : time = 0
             time === 0 & i > 0? time = 2000: time = time
-                     setTimeout(() => playAudio(res[i]), time)
+                     setTimeout(() => playAudio(res[i]), 100)
                      console.log("time = "+time)
          }
             }
@@ -319,20 +319,21 @@ function playAudio(audioStr) {
                
                 audio.addEventListener('loadedmetadata', function() {
                   const durationInSeconds = audio.duration
-                  delay(durationInSeconds)
+                //   delay(durationInSeconds)
+                time = durationInSeconds
+                  setTimeout(() => {audio.play()
+                    console.log("spoken")
+                }, time)
                     console.log("Audio duration: " + durationInSeconds + " seconds");
                   })
 
-                  setTimeout(() => {audio.play()
-                    console.log("spoken")
-                }, 50)
              }
 
 
 
-             async function delay(dur){
-                time = await dur
-             }
+            //  async function delay(dur){
+            //     time = await dur
+            //  }
              
 
 
