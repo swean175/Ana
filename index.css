@@ -95,6 +95,12 @@
     margin: 1em 0 0 auto; 
   }
 
+  .set-language-btn:hover{
+    border: 1px solid #eff6f3;
+    color: #8b8d8c;
+    cursor: pointer;
+  }
+
   .pl::after{
     background-color:  #f15353;
   }

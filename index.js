@@ -370,11 +370,11 @@ function playAudio(audioStr) {
                if (languageBtnClicked){
                 recognition.lang = "pl-PL"
                 languageBtn.className = "set-language-btn pl"
-                langBtnText.textContent = "Pl"
+                langBtnText.innerText = "Pl"
                } else {
                 recognition.lang = "en-GB"
                 languageBtn.className = "set-language-btn en"
-                langBtnText.textContent = "En"
+                langBtnText.innerText = "En"
                }
              })
 
