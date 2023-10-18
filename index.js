@@ -319,6 +319,7 @@ function playAudio(audioStr) {
                
                 audio.addEventListener('loadedmetadata', function() {
                   const durationInSeconds = audio.duration
+                  durationInSeconds.toFixed(1)
                 //   delay(durationInSeconds)
                     if (time[iteration] > 0){
                 setTimeout(() => {
@@ -332,7 +333,7 @@ function playAudio(audioStr) {
                 iteration ++
             }
          
-                time.push(durationInSeconds + 100)
+                time.push(durationInSeconds*1000 + 200)
                  
                     console.log("Audio duration: " + durationInSeconds + " seconds");
                   
