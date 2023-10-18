@@ -264,7 +264,7 @@ function eleven(Txt){
 resArr.push(response.audio)
 
               return console.log("worked")
-              toSay(resArr)
+              
           } else {
                   // setTimeOut(() => toSay(resArr), 2000)
               console.log("No audio data in the response");
@@ -291,7 +291,8 @@ resArr.push(response.audio)
       socket.onclose = function (event) {
           if (event.wasClean) {
               console.info(`Connection closed cleanly, code=${event.code}, reason=${event.reason}`);
-            
+              let cos = resArr.join('')
+            toSay(cos)
           } else {
               console.warn('Connection died');
           }
@@ -304,7 +305,7 @@ resArr.push(response.audio)
     
    let connected =  res.join('')
   let audio = new Audio();
-     let audioString = res[iteration]
+     let audioString = res
      // iteration > 0 ? audioString = connected : audioString = res[0]
                 const audioBlob = mp3_44100toBlob(audioString);
                 const audioUrl = URL.createObjectURL(audioBlob);
@@ -321,7 +322,7 @@ resArr.push(response.audio)
                
                   })
 
-                   console.log(res[iteration])
+               
 iteration ++
       let timeReduced = time.reduce((acc, curr) => {
         return acc + curr
