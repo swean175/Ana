@@ -321,10 +321,12 @@ resArr.push(response.audio)
          
                      // setTimeout(() => playAudio(audio), 2000)
 
-      // let timeReduced = time.reduce((a, b, 0) => a + b)
+      let timeReduced = time.reduce((acc, curr) => {
+        return acc + curr
+    }, 0)
       console.log("said")
-            // setTimeout(() => sentence.play(), timeReduced)
-                  audio.play()
+            setTimeout(() => sentence.play(), timeReduced)
+                  // audio.play()
   
             }
 
