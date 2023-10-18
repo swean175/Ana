@@ -311,6 +311,20 @@ iteration ++
 
 
 function toSay(res){
+                audio.addEventListener('loadedmetadata', function() {
+                 const convToSec = audio.duration.toFixed(1)
+                 const durationInSeconds = convToSec * 1000
+                  
+                time.push(durationInSeconds)
+                 
+                    console.log("Audio duration: " + durationInSeconds + " seconds ");
+               console.log("time is "+ time)
+                       audio.play()
+        timeReduced = time.reduce((acc, curr) => {
+        return acc + curr
+    }, 0)
+       })
+
     console.log("shit")
           console.log("toSay at  " + timeReduced)
     
@@ -321,23 +335,8 @@ function toSay(res){
                 const audioBlob = mp3_44100toBlob(audioString);
                 const audioUrl = URL.createObjectURL(audioBlob);
                  audio.src = audioUrl  
-               
-                audio.addEventListener('loadedmetadata',async function() {
-                  
-                 const convToSec = await audio.duration.toFixed(1)
-                 const durationInSeconds = convToSec * 1000
-                  
-                time.push(durationInSeconds)
-                 
-                    console.log("Audio duration: " + durationInSeconds + " seconds ");
-               console.log("time is "+ time)
-                       audio.play()
-
-                        timeReduced = time.reduce((acc, curr) => {
-        return acc + curr
-    }, 0)
-                  })
-
+    
+    
     console.log("timeReduced "+ timeReduced)
             // setTimeout(() => audio.play(), timeReduced)
           
