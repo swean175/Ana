@@ -11,6 +11,8 @@ const content = document.getElementById('content')
 const speechRec = window.SpeechRecognition || window.webkitSpeechRecognition
 const recognition = new speechRec()
 recognition.lang = 'en-GB'
+const languageBtn = document.getElementById('language-btn')
+let languageBtnClicked = false
 let iteration = 0
 let time = [0]
 
@@ -323,6 +325,7 @@ function playAudio(audioStr) {
                  
                     if (time[iteration] > 0){
                         let reducedTime = time.reduce((a, b) => a + b, 0)
+                        console.log("reduced time = "+ reducedTime)
                 setTimeout(() => {
                     audio.play()
                     console.log("spoken after " + reducedTime + "  delay on iteration "+iteration)
@@ -334,7 +337,7 @@ function playAudio(audioStr) {
                 iteration ++
             }
          
-                time.push((durationInSeconds*1000) + (10 * iteration))
+                time.push(durationInSeconds*1000)
                  
                     console.log("Audio duration: " + durationInSeconds + " seconds, time is "+time[iteration]);
                   
@@ -357,6 +360,9 @@ function playAudio(audioStr) {
                 return new Blob([byteArray], { type: 'audio/mp3' });
              }
 
-
+             languageBtn.addEventListener("click", ()=>{
+                languageBtnClicked = !languageBtnClicked
+                languageBtnClicked ? languageBtn.className = "set-language-btn pl" : languageBtn.className = "set-language-btn en"
+             })
 
 renderConversationFromDb()
