@@ -291,7 +291,7 @@ resArr.push(response.audio)
       socket.onclose = function (event) {
           if (event.wasClean) {
               console.info(`Connection closed cleanly, code=${event.code}, reason=${event.reason}`);
-               toSay(resArr)
+               setTimeout(() => toSay(resArr), 2000)
           } else {
               console.warn('Connection died');
           }
@@ -320,8 +320,7 @@ resArr.push(response.audio)
                
                   })
 
-         
-                     // setTimeout(() => playAudio(audio), 2000)
+                  
 iteration ++
       let timeReduced = time.reduce((acc, curr) => {
         return acc + curr
