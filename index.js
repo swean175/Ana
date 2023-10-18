@@ -12,7 +12,7 @@ const speechRec = window.SpeechRecognition || window.webkitSpeechRecognition
 const recognition = new speechRec()
 recognition.lang = 'pl'
 var durationInSeconds = 0
-var time = durationInSeconds * 10000
+var time = 0
 
 
 
@@ -301,7 +301,7 @@ resArr.push(response.audio)
        
        console.log("time = "+time)
             //  i > 0 ? time = i * 1550 : time = 0
-                     setTimeout(() => playAudio(res[i]), time)
+                     setTimeout(() => playAudio(res[i]), time+1000)
               
          }
             }
@@ -326,7 +326,7 @@ resArr.push(response.audio)
                     durationInSeconds = audio.duration
                     console.log("Audio duration: " + durationInSeconds + " seconds");
                   })
-                 
+                 time = durationInSeconds * 10000
              }
              
              function mp3_44100toBlob(mp3_44100) {
