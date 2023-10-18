@@ -291,8 +291,8 @@ resArr.push(response.audio)
       socket.onclose = function (event) {
           if (event.wasClean) {
               console.info(`Connection closed cleanly, code=${event.code}, reason=${event.reason}`);
-              let cos = resArr.join('')
-            toSay(cos)
+             console.log(resArr[0])
+            toSay(resArr[0])
           } else {
               console.warn('Connection died');
           }
