@@ -320,10 +320,14 @@ function playAudio(audioStr) {
                 audio.addEventListener('loadedmetadata', function() {
                   const durationInSeconds = audio.duration
                 //   delay(durationInSeconds)
-
-                setTimeout(() => {audio.play()
+                    if (time > 0){
+                setTimeout(() => {
+                    audio.play()
                     console.log("spoken")
                 }, time)
+            } else {
+                audio.play()
+            }
                 time = durationInSeconds
                  
                     console.log("Audio duration: " + durationInSeconds + " seconds");
