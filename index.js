@@ -209,6 +209,7 @@ talkBtn.addEventListener('click', () => {
 
 function eleven(Txt){
     iteration = 0
+    time = [0]
     const resArr = []
 
 
@@ -334,7 +335,7 @@ function playAudio(audioStr) {
                 iteration ++
             }
          
-                time.push((durationInSeconds*1000) + 100)
+                time.push((durationInSeconds*1000) + 40)
                  
                     console.log("Audio duration: " + durationInSeconds + " seconds");
                   
