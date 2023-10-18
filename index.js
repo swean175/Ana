@@ -260,7 +260,7 @@ function eleven(Txt){
 resArr.push(response.audio)
 
          
-              return console.log("worked" + iteration)
+              return console.log("worked")
           } else {
                   // setTimeOut(() => toSay(resArr), 2000)
               console.log("No audio data in the response");
