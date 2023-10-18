@@ -292,20 +292,12 @@ iteration ++
           if (event.wasClean) {
               console.info(`Connection closed cleanly, code=${event.code}, reason=${event.reason}`);
               
-              
-              let partResArr = []
                   resArr.forEach((it) => {
-                      let i = 0
-                      let newIt
-                  i === 0 ?newIt = it.split(0, - 1) :newIt = it.split(1, -1)
-                      partResArr.push(newIt)
-                      i ++
+                  toSay(it)
               })
-              partResArr.push("==")
               
-      let connected = partResArr.join('')
-              console.log(connected)
-            toSay(connected)
+              
+           
           } else {
               console.warn('Connection died');
           }
