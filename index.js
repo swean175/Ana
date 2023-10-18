@@ -290,8 +290,8 @@ resArr.push(response.audio)
       // Handle socket closing
       socket.onclose = function (event) {
           if (event.wasClean) {
-                 toSay(resArr)
               console.info(`Connection closed cleanly, code=${event.code}, reason=${event.reason}`);
+               toSay(resArr)
           } else {
               console.warn('Connection died');
           }
