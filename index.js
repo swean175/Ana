@@ -299,7 +299,8 @@ resArr.push(response.audio)
 }
 
 
-async function toSay(res){
+ function toSay(res){
+          console.log("said on iteration " + iteration)
    let connected =  res.join('')
   const audio = new Audio();
       const audioString = res[0]
@@ -322,11 +323,11 @@ async function toSay(res){
          
                      // setTimeout(() => playAudio(audio), 2000)
 iteration ++
-      let timeReduced = await time.reduce((acc, curr) => {
+      let timeReduced = time.reduce((acc, curr) => {
         return acc + curr
     }, 0)
-      console.log("said")
-    
+
+    console.log("timeReduced "+ timeReduced)
             // setTimeout(() => audio.play(), timeReduced)
                   return await audio.play()
             }
