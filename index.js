@@ -293,7 +293,7 @@ iteration ++
               console.info(`Connection closed cleanly, code=${event.code}, reason=${event.reason}`);
               
                   resArr.forEach((it) => {
-                  toSay(it)
+                 setTimeout(() => toSay(it), timeReduced)
               })
               
               
@@ -327,15 +327,13 @@ iteration ++
                
                   })
 
-               
-
-      let timeReduced = time.reduce((acc, curr) => {
+      var timeReduced = time.reduce((acc, curr) => {
         return acc + curr
     }, 0)
 
     console.log("timeReduced "+ timeReduced)
-            setTimeout(() => audio.play(), timeReduced)
-               
+            // setTimeout(() => audio.play(), timeReduced)
+               audio.play()
             }
 
             
