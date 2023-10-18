@@ -301,53 +301,59 @@ resArr.push(response.audio)
 
  function toSay(res){
    let newRes = res.join("")
-         // for (let i = 0; i < res.length; i++){
+
+     
+         for (let i = 0; i < res.length; i++){
        
             //  i > 0 ? time = i * 1550 : time = 0
             // time === 0 & i > 0? time = 2000: time = time
-                     setTimeout(() => playAudio(newRes), 2000)
-                  
-         // }
-            }
 
-            
-            
-
-function playAudio(audioStr) {
-      console.log("said")
-                const audioString = audioStr;
+    const audioString = res[i];
                 const audioBlob = mp3_44100toBlob(audioString);
                 const audioUrl = URL.createObjectURL(audioBlob);
              
                 const audio = new Audio();
                 audio.src = audioUrl
                
-                // audio.addEventListener('loadedmetadata', function() {
+                audio.addEventListener('loadedmetadata', function() {
                   
-                //  const convToSec = audio.duration.toFixed(1)
-                //  const durationInSeconds = convToSec * 1000
-                    audio.play()
+                 const convToSec = audio.duration.toFixed(1)
+                 const durationInSeconds = convToSec * 1000
+                  
 
-            //         if (time[iteration] > 0){
-            //             let reducedTime = time.reduce((a, b) => a + b, 0)
-            //             console.log("reduced time = "+ reducedTime)
-            //     setTimeout(() => {
-            //         audio.play()
-            //         console.log("spoken after " + reducedTime + "  delay on iteration "+iteration+" time is "+time[iteration])
-            //         iteration ++
-            //     }, reducedTime)
-            // } else {
-            //     audio.play()
-            //     console.log("spoken after " + time[iteration] + "  delay on iteration "+iteration+" time is "+time[iteration])
-            //     iteration ++
-            // }
+                    if (time[iteration] > 0){
+                        var reducedTime = time.reduce((a, b) => a + b, 0)
+                        console.log("reduced time = "+ reducedTime)
+                setTimeout(() => {
+                   
+                    console.log("spoken after " + reducedTime + "  delay on iteration "+iteration+" time is "+time[iteration])
+                    iteration ++
+                }, reducedTime)
+            } else {
+             
+                console.log("spoken after " + time[iteration] + "  delay on iteration "+iteration+" time is "+time[iteration])
+                iteration ++
+            }
          
 
-                // time.push(durationInSeconds + 100)
+                time.push(durationInSeconds + 100)
                  
-                    // console.log("Audio duration: " + durationInSeconds + " seconds ");
+                    console.log("Audio duration: " + durationInSeconds + " seconds ");
                   
-                  // })
+                  })
+
+         }
+                     setTimeout(() => playAudio(newRes), reducedTime)
+                  
+  
+            }
+
+            
+            
+
+function playAudio(sentence) {
+      console.log("said")
+            sentence.play()
                   
              }
 
