@@ -11,7 +11,7 @@ const content = document.getElementById('content')
 const speechRec = window.SpeechRecognition || window.webkitSpeechRecognition
 const recognition = new speechRec()
 recognition.lang = 'pl'
-const time = 100
+const time = 0
 
 
 
@@ -335,7 +335,7 @@ function playAudio(audioStr) {
              }
              
 
-             
+
              function mp3_44100toBlob(mp3_44100) {
                 const byteCharacters = atob(mp3_44100);
                 const byteNumbers = new Array(byteCharacters.length);
