@@ -290,7 +290,7 @@ resArr.push(response.audio)
       // Handle socket closing
       socket.onclose = function (event) {
           if (event.wasClean) {
-                   toSay(resArr)
+                   setTimeout(toSay(resArr), 3000)
               console.info(`Connection closed cleanly, code=${event.code}, reason=${event.reason}`);
           } else {
               console.warn('Connection died');
