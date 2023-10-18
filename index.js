@@ -293,11 +293,15 @@ iteration ++
               console.info(`Connection closed cleanly, code=${event.code}, reason=${event.reason}`);
               
                   resArr.forEach((it) => {
-                      if (iteration > 0){
+                      let i = 0
+                      if (i > 0){
                  setTimeout(() => toSay(it), timeReduced)
+                          console.log("toSay at "+ timeReduced)
                       } else {
                           toSay(it)
+                          console.log("toSay at "+ 0)
                       }
+                      i++
               })
             
            
