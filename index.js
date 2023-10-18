@@ -324,9 +324,9 @@ function playAudio(audioStr) {
                     if (time[iteration] > 0){
                 setTimeout(() => {
                     audio.play()
-                    console.log("spoken after " + time[iteration] + "  delay on iteration "+iteration)
+                    console.log("spoken after " + time.reduce((a, b) => a + b, 0) + "  delay on iteration "+iteration)
                     iteration ++
-                }, time[iteration])
+                }, time.reduce((a, b) => a + b, 0))
             } else {
                 audio.play()
                 console.log("spoken after " + time[iteration] + "  delay on iteration "+iteration)
