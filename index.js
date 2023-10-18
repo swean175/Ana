@@ -11,7 +11,7 @@ const content = document.getElementById('content')
 const speechRec = window.SpeechRecognition || window.webkitSpeechRecognition
 const recognition = new speechRec()
 recognition.lang = 'pl'
-const time = 0
+let time = 0
 
 
 
@@ -300,8 +300,9 @@ resArr.push(response.audio)
        
        console.log("time = "+time)
             //  i > 0 ? time = i * 1550 : time = 0
-                    //  setTimeout(() => playAudio(res[i]), time+1000)
-                    playAudio(res[i])
+            time === 0 & i > 0? time = 2000: time = time
+                     setTimeout(() => playAudio(res[i]), time)
+                
          }
             }
 
@@ -325,7 +326,7 @@ function playAudio(audioStr) {
 
                   setTimeout(() => {audio.play()
                     console.log("spoken")
-                }, time)
+                }, 50)
              }
 
 
