@@ -324,7 +324,7 @@ resArr.push(response.audio)
                   })
                
                  audio.play()
-                  
+                  console.log("spoken")
              }
              
              function mp3_44100toBlob(mp3_44100) {
