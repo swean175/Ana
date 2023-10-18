@@ -311,6 +311,18 @@ iteration ++
 
 
 function toSay(res){
+
+       console.log("shit")
+          console.log("toSay at  " + timeReduced)
+    
+   // let connected =  res.join('')
+  let audio = new Audio();
+     let audioString = res
+     // iteration > 0 ? audioString = connected : audioString = res[0]
+                const audioBlob = mp3_44100toBlob(audioString);
+                const audioUrl = URL.createObjectURL(audioBlob);
+                 audio.src = audioUrl  
+    
                 audio.addEventListener('loadedmetadata', function() {
                  const convToSec = audio.duration.toFixed(1)
                  const durationInSeconds = convToSec * 1000
@@ -325,17 +337,6 @@ function toSay(res){
     }, 0)
        })
 
-    console.log("shit")
-          console.log("toSay at  " + timeReduced)
-    
-   // let connected =  res.join('')
-  let audio = new Audio();
-     let audioString = res
-     // iteration > 0 ? audioString = connected : audioString = res[0]
-                const audioBlob = mp3_44100toBlob(audioString);
-                const audioUrl = URL.createObjectURL(audioBlob);
-                 audio.src = audioUrl  
-    
     
     console.log("timeReduced "+ timeReduced)
             // setTimeout(() => audio.play(), timeReduced)
