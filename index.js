@@ -295,9 +295,11 @@ iteration ++
               
               let partResArr = []
                   resArr.forEach((it) => {
+                      let i = 0
                       let newIt
-                  iteration === 0 ?newIt = it.split(0, - 1) :newIt = it.split(1, -1)
+                  i === 0 ?newIt = it.split(0, - 1) :newIt = it.split(1, -1)
                       partResArr.push(newIt)
+                      i ++
               })
               partResArr.push("==")
               
