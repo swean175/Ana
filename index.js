@@ -296,10 +296,8 @@ iteration ++
                       let i = 0
                       if (i > 0){
                  setTimeout(() => toSay(it), timeReduced)
-                          console.log("toSay at "+ timeReduced)
                       } else {
                           toSay(it)
-                          console.log("toSay at "+ 0)
                       }
                       i++
               })
@@ -313,7 +311,7 @@ iteration ++
 
 
 async function toSay(res){
-          console.log("said on iteration " + iteration)
+          console.log("toSay at  " + timeReduced)
     
    // let connected =  res.join('')
   let audio = new Audio();
