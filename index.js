@@ -299,9 +299,9 @@ resArr.push(response.audio)
          for (let i = 0; i < res.length; i++){
        
             //  i > 0 ? time = i * 1550 : time = 0
-            time === 0 & i > 0? time = 2000: time = time
+            // time === 0 & i > 0? time = 2000: time = time
                      setTimeout(() => playAudio(res[i]), 100)
-                     console.log("time = "+time)
+                  
          }
             }
 
@@ -326,7 +326,7 @@ function playAudio(audioStr) {
                 }, time)
                     console.log("Audio duration: " + durationInSeconds + " seconds");
                   })
-
+                  console.log("time = "+time)
              }
 
 
