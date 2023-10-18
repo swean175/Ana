@@ -312,7 +312,7 @@ resArr.push(response.audio)
                  const convToSec = audio.duration.toFixed(1)
                  const durationInSeconds = convToSec * 1000
                   
-                time.push(durationInSeconds + 100)
+                time.push(durationInSeconds)
                  
                     console.log("Audio duration: " + durationInSeconds + " seconds ");
                
@@ -325,9 +325,9 @@ resArr.push(response.audio)
         return acc + curr
     }, 0)
       console.log("said")
-            setTimeout(() => sentence.play(), timeReduced)
-                  // audio.play()
-  
+            // setTimeout(() => sentence.play(), timeReduced)
+                  audio.play()
+  alert(timeReduced)
             }
 
             
