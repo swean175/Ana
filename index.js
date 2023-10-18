@@ -323,16 +323,16 @@ function playAudio(audioStr) {
                     if (time > 0){
                 setTimeout(() => {
                     audio.play()
-                    console.log("spoken")
+                    console.log("spoken after " + time + "delay")
                 }, time)
             } else {
                 audio.play()
-                console.log("spoken")
+                console.log("spoken after " + time + "delay")
             }
                 time = durationInSeconds
                  
                     console.log("Audio duration: " + durationInSeconds + " seconds");
-                    console.log("time = "+time)
+                  
                   })
                   
              }
