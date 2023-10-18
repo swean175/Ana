@@ -11,7 +11,8 @@ const content = document.getElementById('content')
 const speechRec = window.SpeechRecognition || window.webkitSpeechRecognition
 const recognition = new speechRec()
 recognition.lang = 'en-GB'
-let time = 0
+let iteration = -1
+let time = [0]
 
 
 
@@ -310,6 +311,7 @@ resArr.push(response.audio)
 
 function playAudio(audioStr) {
       console.log("said")
+      iteration ++
                 const audioString = audioStr;
                 const audioBlob = mp3_44100toBlob(audioString);
                 const audioUrl = URL.createObjectURL(audioBlob);
@@ -320,16 +322,16 @@ function playAudio(audioStr) {
                 audio.addEventListener('loadedmetadata', function() {
                   const durationInSeconds = audio.duration
                 //   delay(durationInSeconds)
-                    if (time > 0){
+                    if (time[iteration] > 0){
                 setTimeout(() => {
                     audio.play()
-                    console.log("spoken after " + time + "delay")
-                }, time)
+                    console.log("spoken after " + time[iteration] + " delay")
+                }, time[iteration])
             } else {
                 audio.play()
-                console.log("spoken after " + time + "delay")
+                console.log("spoken after " + time[iteration] + " delay")
             }
-                time = durationInSeconds
+                time.push(durationInSeconds)
                  
                     console.log("Audio duration: " + durationInSeconds + " seconds");
                   
