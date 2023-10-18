@@ -325,8 +325,9 @@ function playAudio(audioStr) {
                     console.log("spoken")
                 }, time)
                     console.log("Audio duration: " + durationInSeconds + " seconds");
+                    console.log("time = "+time)
                   })
-                  console.log("time = "+time)
+                  
              }
 
 
