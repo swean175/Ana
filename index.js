@@ -320,7 +320,7 @@ resArr.push(response.audio)
 
          
                      // setTimeout(() => playAudio(newRes), 2000)
-     playAudio(newRes)
+  audio.play()
   
             }
 
