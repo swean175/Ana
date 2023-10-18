@@ -322,10 +322,10 @@ function playAudio(audioStr) {
                 const audio = new Audio();
                 audio.src = audioUrl
                
-                audio.addEventListener('loadedmetadata', function() {
+                // audio.addEventListener('loadedmetadata', function() {
                   
-                 const convToSec = audio.duration.toFixed(1)
-                 const durationInSeconds = convToSec * 1000
+                //  const convToSec = audio.duration.toFixed(1)
+                //  const durationInSeconds = convToSec * 1000
                     audio.play()
 
             //         if (time[iteration] > 0){
