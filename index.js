@@ -303,8 +303,8 @@ resArr.push(response.audio)
           console.log("said on iteration " + iteration)
    let connected =  res.join('')
   let audio = new Audio();
-     let audioString = res[0]
-     iteration > 0 ? audioString = connected : audioString = res[0]
+     let audioString = connected
+     // iteration > 0 ? audioString = connected : audioString = res[0]
                 const audioBlob = mp3_44100toBlob(audioString);
                 const audioUrl = URL.createObjectURL(audioBlob);
                  audio.src = audioUrl  
