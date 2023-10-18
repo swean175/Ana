@@ -208,6 +208,7 @@ talkBtn.addEventListener('click', () => {
 
 
 function eleven(Txt){
+    iteration = 0
     const resArr = []
 
 
@@ -216,7 +217,6 @@ function eleven(Txt){
     const wsUrl = `wss://api.elevenlabs.io/v1/text-to-speech/${voiceId}/stream-input?model_id=${model}`;
     const socket = new WebSocket(wsUrl);
     
-   let iteration = 0
 
 
         // 2. Initialize the connection by sending the BOS message
@@ -254,7 +254,6 @@ function eleven(Txt){
      console.log("server response")
           
           if (response.audio) {
-              iteration ++
               // decode and handle the audio data (e.g., play it)
              const audioChunk = atob(response.audio);  // decode base64
 resArr.push(response.audio)
@@ -333,7 +332,7 @@ function playAudio(audioStr) {
                 iteration ++
             }
          
-                time.push(durationInSeconds)
+                time.push(durationInSeconds + 100)
                  
                     console.log("Audio duration: " + durationInSeconds + " seconds");
                   
