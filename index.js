@@ -345,7 +345,7 @@ function playAudio(audioStr) {
 
                 // time.push(durationInSeconds + 100)
                  
-                    console.log("Audio duration: " + durationInSeconds + " seconds ");
+                    // console.log("Audio duration: " + durationInSeconds + " seconds ");
                   
                   // })
                   
