@@ -316,16 +316,16 @@ resArr.push(response.audio)
                 const audioUrl = URL.createObjectURL(audioBlob);
              
                 const audio = new Audio();
-                audio.src = audioUrl;
-               
-                audio.addEventListener('loadedmetadata', async function() {
-                    durationInSeconds = await audio.duration
-                    console.log("Audio duration: " + durationInSeconds + " seconds");
-                  })
+                audio.src = audioUrl
                
                  setTimeout(() => {audio.play()
                     console.log("spoken")
-                }, 500)
+                }, 100)
+
+                audio.addEventListener('loadedmetadata', function() {
+                    durationInSeconds = audio.duration
+                    console.log("Audio duration: " + durationInSeconds + " seconds");
+                  })
                  
              }
              
