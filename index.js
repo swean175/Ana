@@ -301,6 +301,7 @@ resArr.push(response.audio)
 
  function toSay(res){
           console.log("said on iteration " + iteration)
+    
    let connected =  res.join('')
   let audio = new Audio();
      let audioString = connected
@@ -320,7 +321,7 @@ resArr.push(response.audio)
                
                   })
 
-                  
+                   console.log(res[iteration])
 iteration ++
       let timeReduced = time.reduce((acc, curr) => {
         return acc + curr
