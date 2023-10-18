@@ -324,13 +324,15 @@ function playAudio(audioStr) {
                     if (time[iteration] > 0){
                 setTimeout(() => {
                     audio.play()
-                    console.log("spoken after " + time[iteration] + "  delay")
+                    console.log("spoken after " + time[iteration] + "  delay on iteration "+iteration)
+                    iteration ++
                 }, time[iteration])
             } else {
                 audio.play()
-                console.log("spoken after " + time[iteration] + "  delay")
+                console.log("spoken after " + time[iteration] + "  delay on iteration "+iteration)
+                iteration ++
             }
-            iteration ++
+         
                 time.push(durationInSeconds)
                  
                     console.log("Audio duration: " + durationInSeconds + " seconds");
