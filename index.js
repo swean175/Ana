@@ -212,7 +212,7 @@ talkBtn.addEventListener('click', () => {
 
 
 function eleven(Txt){
-    iteration = 0
+    iteration = -1
     time = [0]
     const resArr = []
 
@@ -262,7 +262,7 @@ function eleven(Txt){
               // decode and handle the audio data (e.g., play it)
              const audioChunk = atob(response.audio);  // decode base64
 resArr.push(response.audio)
-
+iteration ++
               return console.log("worked")
               
           } else {
@@ -291,8 +291,12 @@ resArr.push(response.audio)
       socket.onclose = function (event) {
           if (event.wasClean) {
               console.info(`Connection closed cleanly, code=${event.code}, reason=${event.reason}`);
-             console.log(resArr[0])
-            toSay(resArr[0])
+              let partsResArr = resArr.forEach((it) => {
+                  iteration === 0 ? it.split(0, it.length - 1) : it.split(1, it.length -1)
+              })
+      let connected = partsResArr.jon('') + "=="
+              console.log(connected)
+            toSay(connected)
           } else {
               console.warn('Connection died');
           }
@@ -323,7 +327,7 @@ resArr.push(response.audio)
                   })
 
                
-iteration ++
+
       let timeReduced = time.reduce((acc, curr) => {
         return acc + curr
     }, 0)
