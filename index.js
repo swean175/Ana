@@ -301,13 +301,13 @@ resArr.push(response.audio)
 
  function toSay(res){
    let newRes = res.join("")
-         for (let i = 0; i < res.length; i++){
+         // for (let i = 0; i < res.length; i++){
        
             //  i > 0 ? time = i * 1550 : time = 0
             // time === 0 & i > 0? time = 2000: time = time
                      setTimeout(() => playAudio(newRes), 2000)
                   
-         }
+         // }
             }
 
             
