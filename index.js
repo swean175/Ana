@@ -15,7 +15,7 @@ const languageBtn = document.getElementById('language-btn')
 const langBtnText = document.getElementById('lang-btn')
 let languageBtnClicked = false
 let iteration = 0
-let timeReduced = 0
+let timeReduced = 100
 let time = [0]
 
 
@@ -293,7 +293,11 @@ iteration ++
               console.info(`Connection closed cleanly, code=${event.code}, reason=${event.reason}`);
               
                   resArr.forEach((it) => {
+                      if (iteration > 0){
                  setTimeout(() => toSay(it), timeReduced)
+                      } else {
+                          toSay(it)
+                      }
               })
               
               
