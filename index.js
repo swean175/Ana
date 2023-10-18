@@ -343,7 +343,7 @@ resArr.push(response.audio)
                   })
 
          }
-                     setTimeout(() => playAudio(newRes), reducedTime)
+                     setTimeout(() => playAudio(newRes), 3000)
                   
   
             }
