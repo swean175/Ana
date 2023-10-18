@@ -293,15 +293,15 @@ iteration ++
               console.info(`Connection closed cleanly, code=${event.code}, reason=${event.reason}`);
               
               
-              let partsResArr = []
+              let partResArr = []
                   resArr.forEach((it) => {
                       let newIt
                   iteration === 0 ?newIt = it.split(0, - 1) :newIt = it.split(1, -1)
-                      partsResArr.push(newIt)
+                      partResArr.push(newIt)
               })
               partResArr.push("==")
               
-      let connected = partsResArr.join('')
+      let connected = partResArr.join('')
               console.log(connected)
             toSay(connected)
           } else {
