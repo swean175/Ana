@@ -292,15 +292,9 @@ iteration ++
           if (event.wasClean) {
               console.info(`Connection closed cleanly, code=${event.code}, reason=${event.reason}`);
               
-                  resArr.forEach((it) => {
-                      let i = 0
-                      if (i > 0){
-                 setTimeout(() => toSay(it), timeReduced)
-                      } else {
-                          toSay(it)
-                      }
-                      i++
-              })
+                      
+               toSay(it)
+                    
             
            
           } else {
@@ -311,35 +305,55 @@ iteration ++
 
 
 function toSay(res){
+    console.log("shit")
+    let reducedArr = []
+    res.forEach((it) => {
+        let i = 0
+        if (i > 0){
+            console.log("toSay at  " + timeReduced)
 
-       console.log("shit")
-          console.log("toSay at  " + timeReduced)
-    
-   // let connected =  res.join('')
-  let audio = new Audio();
-     let audioString = res
-     // iteration > 0 ? audioString = connected : audioString = res[0]
-                const audioBlob = mp3_44100toBlob(audioString);
-                const audioUrl = URL.createObjectURL(audioBlob);
-                 audio.src = audioUrl  
-    
-                audio.addEventListener('loadedmetadata', function() {
-                 const convToSec = audio.duration.toFixed(1)
-                 const durationInSeconds = convToSec * 1000
-                  
-                time.push(durationInSeconds)
-                 
-                    console.log("Audio duration: " + durationInSeconds + " seconds ");
-               console.log("time is "+ time)
-                       audio.play()
-        timeReduced = time.reduce((acc, curr) => {
-        return acc + curr
-    }, 0)
-       })
+            let audio = new Audio();
+            let audioString = res
+            // iteration > 0 ? audioString = connected : audioString = res[0]
+                       const audioBlob = mp3_44100toBlob(audioString);
+                       const audioUrl = URL.createObjectURL(audioBlob);
+                        audio.src = audioUrl  
+           
+                       audio.addEventListener('loadedmetadata', function() {
+                        const convToSec = audio.duration.toFixed(1)
+                        const durationInSeconds = convToSec * 1000
+                       time.push(durationInSeconds)
+                        
+                           console.log("Audio duration: " + durationInSeconds + " seconds ");
+                      console.log("time is "+ time)
+               timeReduced = time.reduce((acc, curr) => {
+               return acc + curr
+           }, 0)
+           reducedArr.pusch(timeReduced)
 
-    
-    console.log("timeReduced "+ timeReduced)
-            // setTimeout(() => audio.play(), timeReduced)
+           if (iteration === reducedArr.length){
+            for (let j = 0; j < iteration; j++){
+             setTimeout(() => audio.play(), reducedArr[j])
+            }
+           }
+              })
+       
+           
+           console.log("timeReduced "+ timeReduced)
+
+        } else {
+
+            let audio = new Audio();
+            let audioString = res
+                       const audioBlob = mp3_44100toBlob(audioString);
+                       const audioUrl = URL.createObjectURL(audioBlob);
+                        audio.src = audioUrl  
+           
+           audio.play()
+        }
+        i++
+})
+          
           
             }
 
