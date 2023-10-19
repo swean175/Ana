@@ -308,8 +308,8 @@ function toSay(res){
     console.log("shit")
     let reducedArr = []
     res.forEach((it) => {
-        let i = 0
-        if (i > 0){
+       
+        if (iteration > 0){
             console.log("toSay at  " + timeReduced)
 
             let audio = new Audio();
@@ -332,7 +332,7 @@ function toSay(res){
            console.log("palyed once")
            audio.play()
         }
-        i++
+       
 })
 
 audio.addEventListener('loadedmetadata', function() {
