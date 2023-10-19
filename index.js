@@ -329,7 +329,7 @@ function toSay(res){
                         timeReduced = time.reduce((acc, curr) => {
                         return acc + curr
                         }, 0)
-                        reducedArr.pusch(timeReduced)
+                        reducedArr.push(timeReduced)
                         
                         if (iteration === reducedArr.length){
                         for (let j = 0; j < iteration; j++){
