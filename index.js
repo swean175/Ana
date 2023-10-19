@@ -293,7 +293,7 @@ iteration ++
               console.info(`Connection closed cleanly, code=${event.code}, reason=${event.reason}`);
               
                       
-               toSay(it)
+               toSay(resArr)
                     
             
            
