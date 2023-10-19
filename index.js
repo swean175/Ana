@@ -334,8 +334,9 @@ function toSay(res){
                         if (iteration === reducedArr.length){
                         for (let j = 0; j < iteration; j++){
                             console.log("reducedArr  "+reducedArr[j])
-                            audio.src = audioSources[j]
+                           
                         setTimeout(() => {
+                            audio.src = audioSources[j]
                             audio.play()
                             console.log("done")
                         }, reducedArr[j])
