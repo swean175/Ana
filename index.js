@@ -313,7 +313,7 @@ function toSay(res){
             console.log("toSay at  " + timeReduced)
 
             let audio = new Audio();
-            let audioString = res
+            let audioString = it
             // iteration > 0 ? audioString = connected : audioString = res[0]
                        const audioBlob = mp3_44100toBlob(audioString);
                        const audioUrl = URL.createObjectURL(audioBlob);
@@ -344,7 +344,7 @@ function toSay(res){
         } else {
 
             let audio = new Audio();
-            let audioString = res
+            let audioString = it
                        const audioBlob = mp3_44100toBlob(audioString);
                        const audioUrl = URL.createObjectURL(audioBlob);
                         audio.src = audioUrl  
