@@ -15,7 +15,7 @@ const languageBtn = document.getElementById('language-btn')
 const langBtnText = document.getElementById('lang-btn')
 let languageBtnClicked = false
 let iteration = 0
-
+let timeReduced = 100
 let time = [0]
 
 
@@ -212,7 +212,7 @@ talkBtn.addEventListener('click', () => {
 
 
 function eleven(Txt){
-    iteration = 0
+    iteration = -1
     time = [0]
     const resArr = []
 
@@ -262,9 +262,9 @@ function eleven(Txt){
               // decode and handle the audio data (e.g., play it)
              const audioChunk = atob(response.audio);  // decode base64
 resArr.push(response.audio)
-
-         
+iteration ++
               return console.log("worked")
+              
           } else {
                   // setTimeOut(() => toSay(resArr), 2000)
               console.log("No audio data in the response");
@@ -290,8 +290,19 @@ resArr.push(response.audio)
       // Handle socket closing
       socket.onclose = function (event) {
           if (event.wasClean) {
-                   toSay(resArr)
               console.info(`Connection closed cleanly, code=${event.code}, reason=${event.reason}`);
+              
+                  resArr.forEach((it) => {
+                      let i = 0
+                      if (i > 0){
+                 setTimeout(() => toSay(it), timeReduced)
+                      } else {
+                          toSay(it)
+                      }
+                      i++
+              })
+            
+           
           } else {
               console.warn('Connection died');
           }
@@ -299,58 +310,38 @@ resArr.push(response.audio)
 }
 
 
- function toSay(res){
-   
-         for (let i = 0; i < res.length; i++){
-       
-            //  i > 0 ? time = i * 1550 : time = 0
-            // time === 0 & i > 0? time = 2000: time = time
-                     setTimeout(() => playAudio(res[i]), 100)
-                  
-         }
-            }
+function toSay(res){
 
-            
-            
-
-function playAudio(audioStr) {
-      console.log("said")
-                const audioString = audioStr;
+       console.log("shit")
+          console.log("toSay at  " + timeReduced)
+    
+   // let connected =  res.join('')
+  let audio = new Audio();
+     let audioString = res
+     // iteration > 0 ? audioString = connected : audioString = res[0]
                 const audioBlob = mp3_44100toBlob(audioString);
                 const audioUrl = URL.createObjectURL(audioBlob);
-             
-                const audio = new Audio();
-                audio.src = audioUrl
-               
+                 audio.src = audioUrl  
+    
                 audio.addEventListener('loadedmetadata', function() {
-                  
                  const convToSec = audio.duration.toFixed(1)
                  const durationInSeconds = convToSec * 1000
-
-                    if (time[iteration] > 0){
-                        let reducedTime = time.reduce((a, b) => a + b, 0)
-                        console.log("reduced time = "+ reducedTime)
-                setTimeout(() => {
-                    audio.play()
-                    console.log("spoken after " + reducedTime + "  delay on iteration "+iteration+" time is "+time[iteration])
-                    iteration ++
-                }, reducedTime)
-            } else {
-                audio.play()
-                console.log("spoken after " + time[iteration] + "  delay on iteration "+iteration+" time is "+time[iteration])
-                iteration ++
-            }
-         
-
-                time.push(durationInSeconds + 100)
+                  
+                time.push(durationInSeconds)
                  
                     console.log("Audio duration: " + durationInSeconds + " seconds ");
-                  
-                  })
-                  
-             }
+               console.log("time is "+ time)
+                       audio.play()
+        timeReduced = time.reduce((acc, curr) => {
+        return acc + curr
+    }, 0)
+       })
 
-
+    
+    console.log("timeReduced "+ timeReduced)
+            // setTimeout(() => audio.play(), timeReduced)
+          
+            }
 
 
              function mp3_44100toBlob(mp3_44100) {
