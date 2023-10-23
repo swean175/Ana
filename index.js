@@ -332,7 +332,7 @@ function toSay(res){
                         reducedArr.push(timeReduced)
                         
                         if (iteration === reducedArr.length){
-                        for (let j = 0; j < iteration; j++){
+                        for (let j = 0; j <= iteration; j++){
                             console.log("reducedArr  "+reducedArr[j])
                            
                         setTimeout(() => {
