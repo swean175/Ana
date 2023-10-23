@@ -308,9 +308,11 @@ function toSay(res){
     console.log("res items "+res.length)
     let reducedArr = []
     let audioSources = []
-    res.forEach((it) => {
+   
        
-        if (iteration > 0){
+        if (iteration > 1){
+
+            res.forEach((it) => {
 
             let audio = new Audio();
             let audioString = it
@@ -319,12 +321,13 @@ function toSay(res){
                        const audioUrl = URL.createObjectURL(audioBlob);
                         audio.src = audioUrl  
                         audioSources.push(audio.src)
+
                         audio.addEventListener('loadedmetadata', function() {
                             const convToSec = audio.duration.toFixed(1)
                             const durationInSeconds = convToSec * 1000
                            time.push(durationInSeconds)
                             
-                               console.log("Audio duration: " + durationInSeconds + " seconds ");
+                               console.log("Audio duration: " + durationInSeconds + " miliseconds ");
                           console.log("time is "+ time)
                         timeReduced = time.reduce((acc, curr) => {
                         return acc + curr
@@ -345,7 +348,7 @@ function toSay(res){
                         }
                         })
        
-          
+                    })
 
         } else {
 
@@ -358,7 +361,7 @@ function toSay(res){
            audio.play()
         }
        
-})
+
  }
 
 
