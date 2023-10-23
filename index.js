@@ -332,13 +332,13 @@ function toSay(res){
                         reducedArr.push(timeReduced)
                         
                         if (iteration === reducedArr.length){
-                        for (let j = 0; j <= iteration; j++){
+                        for (let j = 0; j < iteration; j++){
                             console.log("reducedArr  "+reducedArr[j])
                            
                         setTimeout(() => {
                             audio.src = audioSources[j]
                             audio.play()
-                            console.log("done")
+                            console.log("fraze "+j )
                         }, reducedArr[j])
                        
                         }
