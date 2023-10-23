@@ -305,7 +305,7 @@ iteration ++
 
 
 function toSay(res){
-    console.log("shit")
+    console.log("res items "+res.length)
     let reducedArr = []
     let audioSources = []
     res.forEach((it) => {
