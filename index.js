@@ -213,7 +213,7 @@ talkBtn.addEventListener('click', () => {
 
 function eleven(Txt){
     iteration = -1
-    time = [0]
+    time = []
     const resArr = []
 
 
@@ -345,8 +345,7 @@ function toSay(res){
                         }
                         })
        
-           
-           console.log("timeReduced "+ timeReduced)
+          
 
         } else {
 
