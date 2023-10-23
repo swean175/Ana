@@ -213,8 +213,8 @@ talkBtn.addEventListener('click', () => {
 
 function eleven(Txt){
     iteration = 0
-    time = []
-    const resArr = [0]
+    time = [0]
+    const resArr = []
 
 
     const voiceId = '21m00Tcm4TlvDq8ikWAM'; // replace with your voice_id
