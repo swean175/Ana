@@ -212,7 +212,7 @@ talkBtn.addEventListener('click', () => {
 
 
 function eleven(Txt){
-    iteration = -1
+    iteration = 0
     time = []
     const resArr = []
 
