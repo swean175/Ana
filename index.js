@@ -332,7 +332,7 @@ function toSay(res){
                         timeReduced = time.reduce((acc, curr) => {
                         return acc + curr
                         }, 0)
-                        reducedArr.push(timeReduced)
+                        reducedArr.push(timeReduced+100)
                         
                         if (iteration === reducedArr.length){
                         for (let j = 0; j < iteration; j++){
