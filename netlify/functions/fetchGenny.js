@@ -28,7 +28,7 @@ const jobId = ""
 
 fetch('https://api.play.ht/api/v2/tts', options)
   .then(response => response.json())
-  .then(response => setJob(response.id))
+  .then(response => setJob(response))
   .catch(err => console.error(err));
 
 
