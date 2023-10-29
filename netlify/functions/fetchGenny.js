@@ -10,6 +10,7 @@ const jobId = ""
     function setJob(job){
       jobId = job
     }
+
   const options = {
   method: 'POST',
   headers: {
@@ -25,11 +26,15 @@ const jobId = ""
     voice_engine: 'PlayHT2.0'
   })
 };
-
-const sentJob = await fetch('https://api.play.ht/api/v2/tts', options)
+    function getData(){
+        fetch('https://api.play.ht/api/v2/tts', options)
   .then(data => data.json())
   .then(data => data)
   .catch(err => console.error(err));
+    }
+
+const sentJob = await getData()
+
 
 
 //     fetch(`https://api.play.ht/api/v2/tts/${jobId}`, options)
