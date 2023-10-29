@@ -32,13 +32,15 @@ fetch('https://api.play.ht/api/v2/tts', options)
   .catch(err => console.error(err));
 
 
-    const response = await fetch(`https://api.play.ht/api/v2/tts/${jobId}`, options)
+    fetch(`https://api.play.ht/api/v2/tts/${jobId}`, options)
   .then(response => response.json())
   .catch(err => console.error(err))
+const response = await jobId
+    
     return {
     
       statusCode: 200,
-      body: JSON.stringify({"reply":jobId}),  //response.data.url
+      body: JSON.stringify({"reply":response}),  //response.data.url
    
     }
 
