@@ -58,28 +58,27 @@ body:JSON.stringify(message)
   })
 
 const data = await response.json()
-  console.log(data)
   return data
     
 }
 
 
 
-// async function fetchEleven(message){
-//     const serUrl = 'https://resilient-ganache-139b9c.netlify.app/.netlify/functions/fetchEleven'
-//     const response = await fetch(serUrl, {
-//         method: 'POST',
-//         headers: {
-//             'Content-Type': 'application/json'
-//         },
-//         body:JSON.stringify(message)
-//           })
+async function fetchGenny(message){
+    const serUrl = 'https://resilient-ganache-139b9c.netlify.app/.netlify/functions/fetchGenny'
+    const response = await fetch(serUrl, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body:JSON.stringify(message)
+          })
         
-//         const data = await response.json()
-//           console.log(data)
-//           return data
+        const data = await response.json()
+          console.log(data)
+          return data
             
-//         }
+        }
 
 
  //--------------------------- Event
@@ -121,7 +120,7 @@ async function fetchReply() {
             push(conversationInDb, response.reply)
             renderTypewriterText(response.reply.content)
            
-           eleven(response.reply.content)
+          fetchGenny(response.reply.content)
             
         }
         else {
