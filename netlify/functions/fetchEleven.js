@@ -11,7 +11,7 @@ const jobId = ""
   headers: {
     accept: 'text/event-stream',
     'content-type': 'application/json',
-    AUTHORIZATION: process.env,
+    AUTHORIZATION: process.env.GENNY_API_KEY,
     'X-USER-ID': 'fpHJRFyzBxVVNwDVuTkh6FrHhyx1'
   },
   body: JSON.stringify({
