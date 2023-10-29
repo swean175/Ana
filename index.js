@@ -58,7 +58,7 @@ body:JSON.stringify(message)
   })
 
 const data = await response.json()
-  return data.reply
+  return data
     
 }
 
@@ -76,7 +76,7 @@ async function fetchGenny(message){
         
         const data = await response.json()
           console.log(data)
-          return data
+          return data.reply
             
         }
 
