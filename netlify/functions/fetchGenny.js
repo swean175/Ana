@@ -6,6 +6,10 @@
 const handler = async (event) => {
   try {
 const jobId = ""
+
+    function setJob(job){
+      jobId = job
+    }
   const options = {
   method: 'POST',
   headers: {
@@ -24,7 +28,7 @@ const jobId = ""
 
 fetch('https://api.play.ht/api/v2/tts', options)
   .then(response => response.json())
-  .then(response => jobId = response.id)
+  .then(response => setJob(response.id))
   .catch(err => console.error(err));
 
 
