@@ -26,9 +26,9 @@ const jobId = ""
   })
 };
 
-fetch('https://api.play.ht/api/v2/tts', options)
+const sentJob = await fetch('https://api.play.ht/api/v2/tts', options)
   .then(response => response.json())
-  .then(response => setJob(response))
+  .then(response => response.id)
   .catch(err => console.error(err));
 
 
@@ -40,7 +40,7 @@ const response = await jobId
     return {
     
       statusCode: 200,
-      body: JSON.stringify({"reply":response}),  //response.data.url
+      body: JSON.stringify({"reply":sentJob}),  //response.data.url
    
     }
 
