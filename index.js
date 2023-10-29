@@ -58,7 +58,7 @@ body:JSON.stringify(message)
   })
 
 const data = await response.json()
-  return data
+  return data.reply
     
 }
 
