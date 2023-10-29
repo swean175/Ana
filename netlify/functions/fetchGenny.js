@@ -27,15 +27,15 @@ const jobId = ""
 };
 
 const sentJob = await fetch('https://api.play.ht/api/v2/tts', options)
-  .then(response => response.json())
-  .then(response => response.id)
+  .then(data => data.json())
+  .then(data => data)
   .catch(err => console.error(err));
 
 
-    fetch(`https://api.play.ht/api/v2/tts/${jobId}`, options)
-  .then(response => response.json())
-  .catch(err => console.error(err))
-const response = await jobId
+//     fetch(`https://api.play.ht/api/v2/tts/${jobId}`, options)
+//   .then(data => data.json())
+//   .catch(err => console.error(err))
+// const response = await jobId
     
     return {
     
