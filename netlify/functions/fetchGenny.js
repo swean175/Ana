@@ -34,7 +34,7 @@ fetch('https://api.play.ht/api/v2/tts', options)
     return {
     
       statusCode: 200,
-      body: JSON.stringify({"reply":response.data.url}),
+      body: JSON.stringify({"reply":jobId}),  //response.data.url
    
     }
 
