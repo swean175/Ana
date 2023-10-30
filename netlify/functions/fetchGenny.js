@@ -20,17 +20,13 @@ const handler = async (event) => {
   })
 };
 
-  let res
  
   try {
 
- function setId(job){
-    res = job
-  }
       
-fetch('https://api.play.ht/api/v2/tts', options)
+const res = fetch('https://api.play.ht/api/v2/tts', options)
   .then(data => data.json())
-  .then(data => setID(data))
+  .then(data => console.log(data))
   .catch(err => console.error(err))
     
 
