@@ -26,14 +26,13 @@ const jobId = ""
     voice_engine: 'PlayHT2.0'
   })
 };
-    function getData(){
-        fetch('https://api.play.ht/api/v2/tts', options)
+ 
+    
+
+const sentJob = await () => fetch('https://api.play.ht/api/v2/tts', options)
   .then(data => data.json())
   .then(data => data)
   .catch(err => console.error(err));
-    }
-
-const sentJob = await getData()
 
 
 
