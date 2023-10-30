@@ -4,14 +4,7 @@
 
 // Docs on event and context https://docs.netlify.com/functions/build/#code-your-function-2
 const handler = async (event) => {
-  try {
-const jobId = ""
-
-    function setJob(job){
-      jobId = job
-    }
-
-  const options = {
+    const options = {
   method: 'POST',
   headers: {
     accept: 'text/event-stream',
@@ -26,12 +19,16 @@ const jobId = ""
     voice_engine: 'PlayHT2.0'
   })
 };
- 
-    
 
-let sentJob = await fetch('https://api.play.ht/api/v2/tts', options)
+  let res
+  function setId(job){
+    res = job
+  }
+  try {
+
+fetch('https://api.play.ht/api/v2/tts', options)
   .then(data => data.json())
-  .then(data => data)
+  .then(data => setID(data))
   .catch(err => console.error(err))
     
 
@@ -45,7 +42,7 @@ let sentJob = await fetch('https://api.play.ht/api/v2/tts', options)
     return {
     
       statusCode: 200,
-      body: JSON.stringify({"reply":sentJob}),  //response.data.url
+      body: JSON.stringify({"reply":res}),  //response.data.url
    
     }
 
