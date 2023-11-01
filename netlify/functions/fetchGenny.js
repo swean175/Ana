@@ -24,7 +24,7 @@ try {
       if (!response.ok) {
           throw new Error('Network response was not ok');
       }
-      const data = await response.json();
+      const data = await response;
       console.log(data);
       // Do something with the data
      
@@ -32,7 +32,7 @@ try {
       return {
       
         statusCode: 200,
-        body: data,  //response.data.url
+        body: JSON.stringify({"reply":data}),  //response.data.url
      
       }
     
