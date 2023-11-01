@@ -6,7 +6,7 @@ const handler = async (event) => {
   method: 'POST',
   headers: {
     accept: 'text/event-stream',
-    'content-type': 'application/json',
+    'content-type': 'audio/mpeg',
     AUTHORIZATION: process.env.GENNY_API_KEY,
     'X-USER-ID': 'fpHJRFyzBxVVNwDVuTkh6FrHhyx1'
   },
