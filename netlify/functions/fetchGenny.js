@@ -26,8 +26,11 @@ const res = fetch('https://api.play.ht/api/v2/tts/stream', options)
   .then(response => response.json())
   .catch(err => console.error(err))
 
-  console.error(res)
-  console.error(response)
+  setTimeout(()=>{
+    console.error(res)
+  }, 7000)
+
+
 
 // const res = "cos"
 //    res = fetch('https://api.play.ht/api/v2/tts/stream', options)
