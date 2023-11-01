@@ -24,7 +24,8 @@ try {
       if (!response.ok) {
           throw new Error('Network response was not ok');
       }
-      const data = await response.blob()
+      const jajo = await response.json()
+      const data = await jajo.blob()
       console.log(typeof data);
       // Do something with the data
     
