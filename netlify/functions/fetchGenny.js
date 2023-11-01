@@ -27,9 +27,7 @@ try {
       const data = await response.blob()
       console.log(typeof data);
       // Do something with the data
-      const base64Audio = await blobToBase64(data);
-
-
+    
  
   
   
@@ -45,19 +43,6 @@ try {
    }
 
 
-
-
-   function blobToBase64(blob) {
-    return new Promise((resolve, reject) => {
-      const reader = new FileReader();
-      reader.readAsDataURL(blob);
-      reader.onloadend = () => {
-        const base64Data = reader.result.split(',')[1];
-        resolve(base64Data);
-      };
-      reader.onerror = reject;
-    });
-  }
  
 }
 
