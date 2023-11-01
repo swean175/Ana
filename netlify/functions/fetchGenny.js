@@ -23,10 +23,10 @@ const handler = async (event) => {
 
   const res = fetch('https://api.play.ht/api/v2/tts/stream', options)
   .then(response => response.json())
-  .then(response => console.log(response))
+  .then(response =>  console.error(res))
   .catch(err => console.error(err))
     
-  console.error(res)
+ 
     return {
     
       statusCode: 200,
