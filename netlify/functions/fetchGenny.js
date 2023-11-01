@@ -37,9 +37,9 @@ try {
      
       }
     
-    } catch (error) {
-      console.error('Fetch error:', error);
-      }
+  } catch (error) {
+     return { statusCode: 500, body: error.toString("dont know") }
+   }
 
  
 }
