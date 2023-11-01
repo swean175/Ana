@@ -25,20 +25,21 @@ try {
           throw new Error('Network response was not ok');
       }
       const data = await response.json();
-      console.log(JSON.parse(data));
+      console.log(data);
       // Do something with the data
      
-    } catch (error) {
-      console.error('Fetch error:', error);
-      }
+   
   
       return {
       
         statusCode: 200,
-        body: JSON.stringify({"reply":response}),  //response.data.url
+        body: JSON.stringify({"reply":data}),  //response.data.url
      
       }
     
+    } catch (error) {
+      console.error('Fetch error:', error);
+      }
 
  
 }
