@@ -28,6 +28,7 @@ const res = fetch('https://api.play.ht/api/v2/tts/stream', options)
 
   setTimeout(()=>{
     console.error(res)
+    console.log(res)
   }, 7000)
 
 
