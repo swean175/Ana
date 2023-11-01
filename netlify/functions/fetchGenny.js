@@ -5,7 +5,7 @@ const handler = async (event) => {
     const options = {
   method: 'POST',
   headers: {
-    accept: 'application/json',
+    accept: 'audio/mpeg',
     'content-type': 'application/json',
     AUTHORIZATION: process.env.GENNY_API_KEY,
     'X-USER-ID': 'fpHJRFyzBxVVNwDVuTkh6FrHhyx1'
@@ -20,7 +20,7 @@ const handler = async (event) => {
 
 try {
 
-  const response = await fetch('https://api.play.ht/api/v2/tts/stream', options)
+  const response = await fetch('https://api.play.ht/api/v2/tts', options)
       if (!response.ok) {
           throw new Error('Network response was not ok');
       }
