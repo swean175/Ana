@@ -28,7 +28,7 @@ const handler = async (event) => {
     return {
     
       statusCode: 200,
-      body: res//JSON.stringify({"reply":res}),  //response.data.url
+      body: JSON.stringify({"reply":res.content}),  //response.data.url
    
     }
 
