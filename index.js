@@ -76,7 +76,7 @@ async function fetchGenny(message){
         
         const data = await response.json()
           console.log(data)
-          return data
+          return data.reply
             
         }
 

@@ -20,7 +20,7 @@ const handler = async (event) => {
 
 try {
 
-  const response = await fetch('https://api.play.ht/api/v2/tts', options)
+  const response = await fetch('https://api.play.ht/api/v2/tts/stream', options)
       if (!response.ok) {
           throw new Error('Network response was not ok');
       }
