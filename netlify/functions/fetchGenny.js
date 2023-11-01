@@ -23,7 +23,7 @@ const handler = async (event) => {
 
   const res = fetch('https://api.play.ht/api/v2/tts/stream', options)
   .then(response => response.json())
-  .then(response =>  console.error(response))
+  .then(response =>  console.log("respone"+response))
   .catch(err => console.error(err))
     
  
