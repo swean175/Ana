@@ -2,6 +2,10 @@
 
 
 
+
+
+
+
 // Docs on event and context https://docs.netlify.com/functions/build/#code-your-function-2
 const handler = async (event) => {
     const options = {
@@ -24,10 +28,16 @@ const handler = async (event) => {
   try {
 
       
-const res = fetch('https://api.play.ht/api/v2/tts', options)
-  .then(data => data.json())
-  .then(data => console.log(response))
-  .catch(err => console.error(err))
+// const res = fetch('https://api.play.ht/api/v2/tts', options)
+//   .then(data => data.json())
+//   .then(data => console.log(response))
+//   .catch(err => console.error(err))
+
+
+  const res = fetch('https://api.play.ht/api/v2/tts/stream', options)
+  .then(response => response.json())
+  .then(response => console.log(response))
+  .catch(err => console.error(err));
     
 
   const response = async (res, response) => {
