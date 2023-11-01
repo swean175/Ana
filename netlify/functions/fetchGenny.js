@@ -21,41 +21,22 @@ const handler = async (event) => {
 try {
 
   const response = await fetch('https://api.play.ht/api/v2/tts/stream', options)
-  .then((data) => data.json())
       if (!response.ok) {
           throw new Error('Network response was not ok');
       }
-      const data = await response
+      const data = await response.blob()
       console.log(typeof data);
       // Do something with the data
-     
+      const base64Audio = await blobToBase64(data);
 
 
-  //     const base64Audio = await blobToBase64(audioBlob);
-
-  // // Create JSON object
-  // const json = JSON.stringify({ "reply": base64Audio });
-
-
-
-
-  //     function blobToBase64(blob) {
-  //       return new Promise((resolve, reject) => {
-  //         const reader = new FileReader();
-  //         reader.readAsDataURL(blob);
-  //         reader.onloadend = () => {
-  //           const base64Data = reader.result.split(',')[1];
-  //           resolve(base64Data);
-  //         };
-  //         reader.onerror = reject;
-  //       });
-  //     }
-   
+ 
+  
   
       return {
       
         statusCode: 200,
-        body: JSON.stringify({"reply":response}),  //response.data.url
+        body: JSON.stringify({"reply":base64Audio}),  //response.data.url
      
       }
     
@@ -63,6 +44,20 @@ try {
      return { statusCode: 500, body: error.toString("dont know") }
    }
 
+
+
+
+   function blobToBase64(blob) {
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.readAsDataURL(blob);
+      reader.onloadend = () => {
+        const base64Data = reader.result.split(',')[1];
+        resolve(base64Data);
+      };
+      reader.onerror = reject;
+    });
+  }
  
 }
 
