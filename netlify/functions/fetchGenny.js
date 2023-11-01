@@ -18,18 +18,38 @@ const handler = async (event) => {
   })
 };
 
-  try {
+try {
 
-
+  const response = await fetch('https://api.play.ht/api/v2/tts/stream', options)
+      if (!response.ok) {
+          throw new Error('Network response was not ok');
+      }
+      const data = await response.json();
+      console.log(data);
+      // Do something with the data
+     
   
-const res = fetch('https://api.play.ht/api/v2/tts/stream', options)
-  .then(response => response.json())
-  .catch(err => console.error(err))
+      return {
+      
+        statusCode: 200,
+        body: JSON.stringify({"reply":data}),  //response.data.url
+     
+      }
+    
 
-  setTimeout(()=>{
-    console.error(res)
-    console.log(res)
-  }, 7000)
+  } catch (error) {
+    console.error('Fetch error:', error);
+    }
+}
+
+// const res = fetch('https://api.play.ht/api/v2/tts/stream', options)
+//   .then(response => response.json())
+//   .catch(err => console.error(err))
+
+//   setTimeout(()=>{
+//     console.error(res)
+//     console.log(res)
+//   }, 7000)
 
 
 
@@ -40,17 +60,18 @@ const res = fetch('https://api.play.ht/api/v2/tts/stream', options)
 //   .catch(err => console.error(err))
     
  
-    return {
+    // return {
     
-      statusCode: 200,
-      body: JSON.stringify({"reply":res.content}),  //response.data.url
+    //   statusCode: 200,
+    //   body: JSON.stringify({"reply":res.content}),  //response.data.url
    
-    }
+    // }
 
-  } catch (error) {
-    return { statusCode: 500, body: error.toString("dont know") }
-  }
-}
+  // } catch (error) {
+  //   return { statusCode: 500, body: error.toString("dont know") }
+  // }
+//   }
+// }
 
 module.exports = { handler }
 
