@@ -24,10 +24,32 @@ try {
       if (!response.ok) {
           throw new Error('Network response was not ok');
       }
-      const data = await response.json();
+      const data = await response
+      data.json()
       console.log(typeof data);
       // Do something with the data
      
+
+
+  //     const base64Audio = await blobToBase64(audioBlob);
+
+  // // Create JSON object
+  // const json = JSON.stringify({ "reply": base64Audio });
+
+
+
+
+  //     function blobToBase64(blob) {
+  //       return new Promise((resolve, reject) => {
+  //         const reader = new FileReader();
+  //         reader.readAsDataURL(blob);
+  //         reader.onloadend = () => {
+  //           const base64Data = reader.result.split(',')[1];
+  //           resolve(base64Data);
+  //         };
+  //         reader.onerror = reject;
+  //       });
+  //     }
    
   
       return {
