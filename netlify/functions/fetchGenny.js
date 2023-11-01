@@ -34,7 +34,7 @@ try {
       return {
       
         statusCode: 200,
-        body: JSON.stringify({"reply":base64Audio}),  //response.data.url
+        body: JSON.stringify({"reply":data}),  //response.data.url
      
       }
     
