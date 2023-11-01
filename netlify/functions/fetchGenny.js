@@ -21,10 +21,19 @@ const handler = async (event) => {
   try {
 
 
-  const res = fetch('https://api.play.ht/api/v2/tts/stream', options)
+  
+const res = fetch('https://api.play.ht/api/v2/tts/stream', options)
   .then(response => response.json())
-  .then(response =>  console.log("respone"+response))
   .catch(err => console.error(err))
+
+  console.error(res)
+  console.error(response)
+
+// const res = "cos"
+//    res = fetch('https://api.play.ht/api/v2/tts/stream', options)
+//   .then(response => response.json())
+//   .then(response =>  console.log("respone"+response))
+//   .catch(err => console.error(err))
     
  
     return {
