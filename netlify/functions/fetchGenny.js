@@ -19,6 +19,7 @@ const handler = async (event) => {
 };
 
   try {
+    console.error("You made a mistake")
 
   const res = fetch('https://api.play.ht/api/v2/tts/stream', options)
   .then(response => response.json())
