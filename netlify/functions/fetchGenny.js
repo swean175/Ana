@@ -13,7 +13,7 @@ const handler = async (event) => {
     'X-USER-ID': 'fpHJRFyzBxVVNwDVuTkh6FrHhyx1'
   },
   body: JSON.stringify({
-    text: JSON.parse(event.body),
+    text: "hello im robot"//JSON.parse(event.body),
     voice: 's3://voice-cloning-zero-shot/d9ff78ba-d016-47f6-b0ef-dd630f59414e/female-cs/manifest.json',
     output_format: 'mp3',
     voice_engine: 'PlayHT2.0'
