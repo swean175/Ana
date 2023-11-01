@@ -26,9 +26,13 @@ const handler = async (event) => {
       
 const res = fetch('https://api.play.ht/api/v2/tts', options)
   .then(data => data.json())
-  .then(data => console.log(data))
+  .then(data => console.log(response))
   .catch(err => console.error(err))
     
+
+  const response = async (res, response) => {
+return await res(response)
+  }
 
 
 
@@ -40,7 +44,7 @@ const res = fetch('https://api.play.ht/api/v2/tts', options)
     return {
     
       statusCode: 200,
-      body: JSON.stringify({"reply":res}),  //response.data.url
+      body: JSON.stringify({"reply":response}),  //response.data.url
    
     }
 
