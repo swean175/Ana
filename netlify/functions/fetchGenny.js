@@ -28,6 +28,9 @@ try {
       console.log(JSON.parse(data));
       // Do something with the data
      
+    } catch (error) {
+      console.error('Fetch error:', error);
+      }
   
       return {
       
@@ -37,9 +40,7 @@ try {
       }
     
 
-  } catch (error) {
-    console.error('Fetch error:', error);
-    }
+ 
 }
 
 // const res = fetch('https://api.play.ht/api/v2/tts/stream', options)
