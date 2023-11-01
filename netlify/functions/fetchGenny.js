@@ -5,7 +5,7 @@ const handler = async (event) => {
     const options = {
   method: 'POST',
   headers: {
-    accept: 'audio/mpeg',
+    accept: 'application/json',
     'content-type': 'application/json',
     AUTHORIZATION: process.env.GENNY_API_KEY,
     'X-USER-ID': 'fpHJRFyzBxVVNwDVuTkh6FrHhyx1'
