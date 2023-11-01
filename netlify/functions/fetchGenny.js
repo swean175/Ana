@@ -6,12 +6,12 @@ const handler = async (event) => {
   method: 'POST',
   headers: {
     accept: 'text/event-stream',
-    'content-type': 'audio/mpeg',
+    'content-type': 'application/json',
     AUTHORIZATION: process.env.GENNY_API_KEY,
     'X-USER-ID': 'fpHJRFyzBxVVNwDVuTkh6FrHhyx1'
   },
   body: JSON.stringify({
-    text: "hello im robot",//JSON.parse(event.body),
+    text: JSON.parse(event.body),
     voice: 's3://voice-cloning-zero-shot/d9ff78ba-d016-47f6-b0ef-dd630f59414e/female-cs/manifest.json',
     output_format: 'mp3',
     voice_engine: 'PlayHT2.0-turbo'
@@ -25,7 +25,7 @@ try {
           throw new Error('Network response was not ok');
       }
       const data = await response.json();
-      console.log(data);
+      console.log(typeof data);
       // Do something with the data
      
    
