@@ -21,11 +21,11 @@ const handler = async (event) => {
 try {
 
   const response = await fetch('https://api.play.ht/api/v2/tts/stream', options)
+  .then((data) => data.json())
       if (!response.ok) {
           throw new Error('Network response was not ok');
       }
       const data = await response
-      data.json()
       console.log(typeof data);
       // Do something with the data
      
