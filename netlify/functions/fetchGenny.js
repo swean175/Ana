@@ -25,7 +25,7 @@ try {
           throw new Error('Network response was not ok');
       }
       const data = await response.json();
-      console.log(data);
+      console.log(JSON.parse(data));
       // Do something with the data
      
   
