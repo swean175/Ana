@@ -37,32 +37,39 @@ const options = {
 
 try {
 
-  const response = await fetch('https://api.play.ht/api/v2/tts', options)
-      if (!response.ok) {
-          throw new Error('Network response was not ok');
-      }
-      const contentType = response.headers.get("Content-Type");
-      console.log(contentType);
-      const data = await response;
+  // const response = await fetch('https://api.play.ht/api/v2/tts', options)
+  //     if (!response.ok) {
+  //         throw new Error('Network response was not ok');
+  //     }
+  //     const contentType = response.headers.get("Content-Type");
+  //     console.log(contentType);
+  //     const data = await response;
       // Do something with the data
     
+
+
  
-  
-  
-      return {
-      
-        statusCode: 200,
-        body: JSON.stringify({"reply":data}),  //response.data.url
-     
-      }
+   res = fetch('https://api.play.ht/api/v2/tts', options)
+  .then(response => response.json())
+  .then(response =>  console.log("respone"+response))
+  .catch(err => console.error(err))
     
+ 
+    return {
+    
+      statusCode: 200,
+      body: JSON.stringify({"reply":res.content}),  //response.data.url
+   
+    }
+
   } catch (error) {
-     return { statusCode: 500, body: error.toString("dont know") }
-   }
+    return { statusCode: 500, body: error.toString("dont know") }
+  }
+  }
 
 
  
-}
+
 
 // const res = fetch('https://api.play.ht/api/v2/tts/stream', options)
 //   .then(response => response.json())
@@ -75,25 +82,7 @@ try {
 
 
 
-// const res = "cos"
-//    res = fetch('https://api.play.ht/api/v2/tts/stream', options)
-//   .then(response => response.json())
-//   .then(response =>  console.log("respone"+response))
-//   .catch(err => console.error(err))
-    
- 
-    // return {
-    
-    //   statusCode: 200,
-    //   body: JSON.stringify({"reply":res.content}),  //response.data.url
-   
-    // }
 
-  // } catch (error) {
-  //   return { statusCode: 500, body: error.toString("dont know") }
-  // }
-//   }
-// }
 
 module.exports = { handler }
 
