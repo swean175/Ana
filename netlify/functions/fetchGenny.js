@@ -26,7 +26,7 @@ try {
       }
       const contentType = response.headers.get("Content-Type");
       console.log(contentType);
-      const data = await response.blob();;
+      const data = await response.json();;
       // Do something with the data
     
  
@@ -35,7 +35,7 @@ try {
       return {
       
         statusCode: 200,
-        body: data//JSON.stringify({body:data}),  //response.data.url
+        body: JSON.stringify({"reply":data}),  //response.data.url
      
       }
     
