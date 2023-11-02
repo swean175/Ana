@@ -26,7 +26,7 @@ try {
       }
       const contentType = response.headers.get("Content-Type");
       console.log(contentType);
-      const data = await response.json();;
+      const data = await response;
       // Do something with the data
     
  
