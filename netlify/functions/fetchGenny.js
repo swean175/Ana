@@ -35,7 +35,7 @@ try {
       return {
       
         statusCode: 200,
-        body: JSON.stringify({"reply":data}),  //response.data.url
+        body: data//JSON.stringify({body:data}),  //response.data.url
      
       }
     
