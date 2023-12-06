@@ -11,8 +11,11 @@ const content = document.getElementById('content')
 const speechRec = window.SpeechRecognition || window.webkitSpeechRecognition
 const recognition = new speechRec()
 recognition.lang = "en-GB"
+let lang = document.createElement("p")
 const languageBtn = document.getElementById('language-btn')
-const langBtnText = document.getElementById('lang-btn')
+languageBtn.appendChild(lang).textContent = "En"
+languageBtn.innerText = "En"
+languageBtn.classList.add("en")
 let languageBtnClicked = false
 let iteration = 0
 let timeReduced = 100
@@ -375,13 +378,13 @@ function toSay(res){
                 const byteArray = new Uint8Array(byteNumbers);
                 return new Blob([byteArray], { type: 'audio/mp3' });
              }
-
+//----------------------------------------------------------------------------
              languageBtn.addEventListener("click", ()=>{
                 languageBtnClicked = !languageBtnClicked
                if (languageBtnClicked){
                 recognition.lang = "pl-PL"
                 languageBtn.className = "set-language-btn pl"
-                langBtnText.innerText = "Pl"
+                langBtnText.textContent = "Pl"
                } else {
                 recognition.lang = "en-GB"
                 languageBtn.className = "set-language-btn en"
