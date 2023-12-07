@@ -44,13 +44,32 @@ const instructionObj = {
 
 
 function say(res){
-    let audio = new Audio();
-    let audioString = res
-               const audioBlob = mp3_44100toBlob(audioString);
-               const audioUrl = URL.createObjectURL(audioBlob);
-                audio.src = audioUrl  
-   console.log("palyed once")
-   audio.play()
+//     let audio = new Audio();
+//     let audioString = res
+//                const audioBlob = mp3_44100toBlob(audioString);
+//                const audioUrl = URL.createObjectURL(audioBlob);
+//                 audio.src = audioUrl  
+//    console.log("palyed once")
+//    audio.play()
+var file = res;
+var reader = new FileReader();
+reader.onload = function (event) {
+    // Get the file content as a string
+    var mp3Content = event.target.result;
+
+    // Create a Blob from the file content
+    var blob = new Blob([mp3Content], { type: 'audio/mpeg' });
+
+    // Create a temporary URL for the Blob
+    var blobUrl = URL.createObjectURL(blob);
+
+    // Set the temporary URL as the source for the audio element
+    var audioPlayer = document.getElementById('audioPlayer');
+    audioPlayer.src = blobUrl;
+
+    // Play the audio immediately
+    audioPlayer.play();
+    reader.readAsText(file);
 }
 
         //---------------------------------------Fetch
