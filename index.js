@@ -46,7 +46,7 @@ const instructionObj = {
 function say(res){
     let audio = new Audio();
     let audioString = res
-               const audioBlob = mp3_44100toBlob(audioString);
+               const audioBlob = mp3_44100_128toBlob(audioString);
                const audioUrl = URL.createObjectURL(audioBlob);
                 audio.src = audioUrl  
    console.log("palyed once")
