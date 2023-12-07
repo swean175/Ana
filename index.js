@@ -118,7 +118,6 @@ async function fetchGenny(message){
       fetch('https://api.elevenlabs.io/v1/text-to-speech/7R4Z6kuWuNrgOEM0shNG?output_format=mp3_44100_128', options)
         .then(response => response.json())
         .then(response => console.log(response))
-        .then(()=> say(response))
         .catch(err => console.error(err));
             
         }
