@@ -43,7 +43,15 @@ const instructionObj = {
 }
 
 
-
+function say(res){
+    let audio = new Audio();
+    let audioString = res
+               const audioBlob = mp3_44100toBlob(audioString);
+               const audioUrl = URL.createObjectURL(audioBlob);
+                audio.src = audioUrl  
+   console.log("palyed once")
+   audio.play()
+}
 
         //---------------------------------------Fetch
 
@@ -94,15 +102,6 @@ async function fetchGenny(message){
         .then(response => say(response))
         .catch(err => console.error(err));
             
-        function say(res){
-            let audio = new Audio();
-            let audioString = res
-                       const audioBlob = mp3_44100toBlob(audioString);
-                       const audioUrl = URL.createObjectURL(audioBlob);
-                        audio.src = audioUrl  
-           console.log("palyed once")
-           audio.play()
-        }
         }
 
 
