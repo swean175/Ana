@@ -9,7 +9,8 @@ const talkBtn = document.getElementById('talk')
 const content = document.getElementById('content')
 const languageBtn = document.getElementById('language-btn')
 const lang = document.getElementById('lang')
-lang.className="pl"
+lang.className="en"
+lang.textContent="En"
 //--------------------Speech
 const speechRec = window.SpeechRecognition || window.webkitSpeechRecognition
 const recognition = new speechRec()
@@ -380,12 +381,12 @@ function toSay(res){
                 languageBtnClicked = !languageBtnClicked
                if (languageBtnClicked){
                 recognition.lang = "pl-PL"
-                languageBtn.className = "set-language-btn pl"
-                langBtnText.textContent = "Pl"
+                lang.className="pl"
+                lang.textContent="Pl"
                } else {
                 recognition.lang = "en-GB"
-                languageBtn.className = "set-language-btn en"
-                langBtnText.innerText = "En"
+                lang.className="en"
+                lang.textContent="En"
                }
              })
 
