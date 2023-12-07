@@ -91,7 +91,7 @@ async function fetchGenny(message){
         method: 'POST',
         headers: {
           'xi-api-key': '04a2a640ad70a0dee3a3f8888a1ab5b5',
-          'Content-Type': 'application/json'
+          'Content-Type': 'audio/mpeg' //'application/json'
         },
         body: `{"model_id":"eleven_multilingual_v2","text":"Hi i'm Anna","voice_settings":{"similarity_boost":1,"stability":1,"style":1,"use_speaker_boost":true}}`
       };
