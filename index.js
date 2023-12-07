@@ -151,7 +151,7 @@ function renderTypewriterText(text) {
 
 document.getElementById('clear-btn').addEventListener('click', () => {
     remove(conversationInDb)
-    // chatbotConversation.innerHTML = '<div class="speech speech-ai">How can I help you?</div>'
+    chatbotConversation.innerHTML = '<div class="speech speech-ai">How can I help you?</div>'
 })
 
 function renderConversationFromDb(){
