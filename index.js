@@ -66,18 +66,32 @@ const data = await response.json()
 
 
 async function fetchGenny(message){
-    const serUrl = 'https://resilient-ganache-139b9c.netlify.app/.netlify/functions/fetchGenny'
-    const response = await fetch(serUrl, {
+    // const serUrl = 'https://resilient-ganache-139b9c.netlify.app/.netlify/functions/fetchGenny'
+    // const response = await fetch(serUrl, {
+    //     method: 'POST',
+    //     headers: {
+    //         'Content-Type': 'application/json'
+    //     },
+    //     body:JSON.stringify(message)
+    //       })
+        
+    //     const data = await response.json()
+    //       console.log(data.reply)
+    //       return data.reply
+
+    const options = {
         method: 'POST',
         headers: {
-            'Content-Type': 'application/json'
+          'xi-api-key': '04a2a640ad70a0dee3a3f8888a1ab5b5',
+          'Content-Type': 'application/json'
         },
-        body:JSON.stringify(message)
-          })
-        
-        const data = await response.json()
-          console.log(data.reply)
-          return data.reply
+        body: `{"model_id":"eleven_multilingual_v2","text":"${message}","voice_settings":{"similarity_boost":1,"stability":1,"style":1,"use_speaker_boost":true}}`
+      };
+      
+      fetch('https://api.elevenlabs.io/v1/text-to-speech/7R4Z6kuWuNrgOEM0shNG', options)
+        .then(response => response.json())
+        .then(response => console.log(response))
+        .catch(err => console.error(err));
             
         }
 
