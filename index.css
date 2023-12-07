@@ -101,12 +101,12 @@
     cursor: pointer;
   }
 
-  .pl::after{
-    background-color:  #f15353;
+ .pl{
+   color:  #f15353;
   }
 
   .en{
-    background-color:  #2f68ec;
+  color:  #2f68ec;
   }
 
   

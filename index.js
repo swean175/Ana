@@ -7,20 +7,17 @@ import { getDatabase, ref, push, get, remove } from 'firebase/database'
 const userInput = document.getElementById('user-input')
 const talkBtn = document.getElementById('talk')
 const content = document.getElementById('content')
+const languageBtn = document.getElementById('language-btn')
+const lang = document.getElementById('lang')
+lang.className="pl"
 //--------------------Speech
 const speechRec = window.SpeechRecognition || window.webkitSpeechRecognition
 const recognition = new speechRec()
 recognition.lang = "en-GB"
-let lang = document.createElement("p")
-const languageBtn = document.getElementById('language-btn')
-languageBtn.appendChild(lang).textContent = "En"
-languageBtn.innerText = "En"
-languageBtn.classList.add("en")
 let languageBtnClicked = false
 let iteration = 0
 let timeReduced = 100
 let time = [0]
-
 
 
 
@@ -153,7 +150,7 @@ function renderTypewriterText(text) {
 
 document.getElementById('clear-btn').addEventListener('click', () => {
     remove(conversationInDb)
-    chatbotConversation.innerHTML = '<div class="speech speech-ai">How can I help you?</div>'
+    // chatbotConversation.innerHTML = '<div class="speech speech-ai">How can I help you?</div>'
 })
 
 function renderConversationFromDb(){
