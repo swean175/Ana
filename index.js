@@ -91,7 +91,7 @@ async function fetchGenny(message){
         method: 'POST',
         headers: {
           'xi-api-key': '04a2a640ad70a0dee3a3f8888a1ab5b5',
-          'Content-Type': 'audio/mpeg' //'application/json'
+          'Content-Type': 'application/json'
         },
         body: `{"model_id":"eleven_multilingual_v2","text":"Hi i'm Anna","voice_settings":{"similarity_boost":1,"stability":1,"style":1,"use_speaker_boost":true}}`
       };
@@ -99,7 +99,7 @@ async function fetchGenny(message){
       fetch('https://api.elevenlabs.io/v1/text-to-speech/7R4Z6kuWuNrgOEM0shNG?output_format=mp3_44100_64', options)
         .then(response => response.json())
         .then(response => console.log(response))
-        .then(response => say(response))
+        .then(say(response))
         .catch(err => console.error(err));
             
         }
