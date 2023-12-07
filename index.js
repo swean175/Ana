@@ -71,7 +71,7 @@ reader.onload = function (event) {
     audioPlayer.play();
     reader.readAsText(file);
 }
-
+}
         //---------------------------------------Fetch
 
         
