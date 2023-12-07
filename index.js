@@ -91,8 +91,18 @@ async function fetchGenny(message){
       fetch('https://api.elevenlabs.io/v1/text-to-speech/7R4Z6kuWuNrgOEM0shNG', options)
         .then(response => response.json())
         .then(response => console.log(response))
+        .then(response => say(response))
         .catch(err => console.error(err));
             
+        function say(res){
+            let audio = new Audio();
+            let audioString = res
+                       const audioBlob = mp3_44100toBlob(audioString);
+                       const audioUrl = URL.createObjectURL(audioBlob);
+                        audio.src = audioUrl  
+           console.log("palyed once")
+           audio.play()
+        }
         }
 
 
