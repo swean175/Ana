@@ -205,9 +205,6 @@ function renderTypewriterText(text) {
         i++
         chatbotConversation.scrollTop = chatbotConversation.scrollHeight
     }, 50)
-    chatbotConversation.appendChild(aud)
-    aud.innerHTML=`<audio id="audioPlayer" controls>
-    </audio>`
 }
 
 document.getElementById('clear-btn').addEventListener('click', () => {
