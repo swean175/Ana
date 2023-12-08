@@ -59,7 +59,7 @@ reader.onload = function (event) {
     var mp3Content = event.target.result;
 
     // Create a Blob from the file content
-    var blob = new Blob([mp3Content], { type: 'audio/mpeg' });
+    var blob = new Blob([file], { type: 'audio/mpeg' });
 
     // Create a temporary URL for the Blob
     var blobUrl = URL.createObjectURL(blob);
