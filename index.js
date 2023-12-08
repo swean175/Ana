@@ -53,7 +53,7 @@ function say(res){
 //    audio.play()
 
 
-const audioData = res
+const audioData =  `data:audio/mp3;base64,${res}`
 const audio = new Audio();
 audio.src = audioData;
 
