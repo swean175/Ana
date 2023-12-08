@@ -52,15 +52,33 @@ function say(res){
 //    console.log("palyed once")
 //    audio.play()
 
+function convertAudio(str) {
+  
+    const file = str
+    const reader = new FileReader();
 
-const audioData =  `data:audio/mp3;base64,${res}`
-const audio = new Audio();
-audio.src = audioData;
+    reader.onloadend = function() {
+      const audioData = reader.result.split(',')[1];
+      console.log(audioData); // This is the base64 encoded string
 
-audio.autoplay = true;
+      // Pass the audioData to the playAudio function
+      playAudio(audioData);
+    }
 
-document.getElementById("apend").appendChild(audio);
-console.log("goes till here")
+    reader.readAsDataURL(file);
+  }
+
+  function playAudio(audioData) {
+    // Create an audio element
+    const audio = new Audio();
+
+    // Set the source of the audio element
+    audio.src = "data:audio/mp3;base64," + audioData;
+
+    // Autoplay the audio
+    audio.auto
+}
+convertAudio(res)
 }
 
 
