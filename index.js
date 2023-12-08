@@ -63,9 +63,10 @@ function convertAudio(str) {
 
       // Pass the audioData to the playAudio function
       playAudio(audioData);
+     
     }
-
-    // reader.readAsDataURL(file);
+    console.log("poszlo")
+    reader.readAsDataURL(file);
   }
 
   function playAudio(audioData) {
@@ -79,7 +80,7 @@ function convertAudio(str) {
     audio.play()
 }
 convertAudio(res)
-console.log("poszlo")
+
 }
 
 
