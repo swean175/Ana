@@ -79,6 +79,7 @@ function convertAudio(str) {
     audio.play()
 }
 convertAudio(res)
+console.log("poszlo")
 }
 
 
