@@ -65,7 +65,7 @@ function convertAudio(str) {
       playAudio(audioData);
     }
 
-    reader.readAsDataURL(file);
+    // reader.readAsDataURL(file);
   }
 
   function playAudio(audioData) {
@@ -76,7 +76,7 @@ function convertAudio(str) {
     audio.src = "data:audio/mp3;base64," + audioData;
 
     // Autoplay the audio
-    audio.auto
+    audio.play()
 }
 convertAudio(res)
 }
