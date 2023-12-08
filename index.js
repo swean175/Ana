@@ -51,7 +51,7 @@ function say(res){
 //                 audio.src = audioUrl  
 //    console.log("palyed once")
 //    audio.play()
-
+console.log("goes till here")
 var file = res;
 var reader = new FileReader();
 reader.onload = function (event) {
