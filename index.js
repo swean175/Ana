@@ -51,28 +51,16 @@ function say(res){
 //                 audio.src = audioUrl  
 //    console.log("palyed once")
 //    audio.play()
+
+
+const audioData = res
+const audio = new Audio();
+audio.src = audioData;
+
+audio.autoplay = true;
+
+document.body.appendChild(audio);
 console.log("goes till here")
-var file = res;
-var reader = new FileReader();
-reader.onload = function (event) {
-    // Get the file content as a string
-    var mp3Content = event.target.result;
-
-    // Create a Blob from the file content
-    var blob = new Blob([mp3Content], { type: 'audio/mpeg' });
-
-    // Create a temporary URL for the Blob
-    var blobUrl = URL.createObjectURL(blob);
-
-    // Set the temporary URL as the source for the audio element
-    var audioPlayer = document.getElementById('audioPlayer');
-    audioPlayer.src = blobUrl;
-
-    // Play the audio immediately
-    audioPlayer.play();
-    reader.readAsText(file);
-}
-
 }
 
 
