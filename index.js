@@ -53,6 +53,20 @@ function say(res){
    audio.play()
 
 }
+
+
+function mp3_44100toBlob(mp3_44100) {
+    const byteCharacters = atob(mp3_44100);
+    const byteNumbers = new Array(byteCharacters.length);
+ 
+    for (let i = 0; i < byteCharacters.length; i++) {
+       byteNumbers[i] = byteCharacters.charCodeAt(i);
+    }
+ 
+    const byteArray = new Uint8Array(byteNumbers);
+    return new Blob([byteArray], { type: 'audio/mp3' });
+ }
+
         //---------------------------------------Fetch
 
         
