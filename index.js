@@ -54,7 +54,7 @@ function say(res){
 
 function convertAudio(str) {
   
-    const file = mp3_44100toBlob(str)
+    const file = str
     const reader = new FileReader();
 
     reader.onloadend = function() {
@@ -68,7 +68,7 @@ function convertAudio(str) {
      
     }
     console.log("poszlo")
-    reader.readAsDataURL(file);
+   
   }
 
   function playAudio(audioData) {
