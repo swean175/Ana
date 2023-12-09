@@ -54,11 +54,13 @@ function say(res){
 
 function convertAudio(str) {
   
-    const file = mp3_44100toBlob(str)
+    const file = str
     const reader = new FileReader();
 
     reader.onloadend = function() {
-      const audioData = reader.result.split(',')[1];
+        const buffer = reader.result
+        const audioData = bufferToBase64(buffer);
+    
       console.log(audioData); // This is the base64 encoded string
 
       // Pass the audioData to the playAudio function
