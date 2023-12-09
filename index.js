@@ -54,7 +54,7 @@ function say(res){
 
 function convertAudio(str) {
   
-    const file = str
+    const file = mp3_44100toBlob(str)
     const reader = new FileReader();
 
     reader.onloadend = function() {
