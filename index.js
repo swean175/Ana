@@ -53,13 +53,11 @@ function say(res){
 //    audio.play()
 
 const encodedString = res;
-const dataView = new DataView(new Uint8Array(encodedString.length).buffer);
-for (let i = 0; i < encodedString.length; i++) {
-  dataView.setUint8(i, encodedString.charCodeAt(i) & 0xFF);
-}
+const encoder = new TextEncoder();
+const arrayBuffer = encoder.encode(encodedString);
 
 const decoder = new TextDecoder();
-const decodedString = decoder.decode(dataView);
+const decodedString = decoder.decode(arrayBuffer);
 
 console.log(decodedString);
 
