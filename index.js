@@ -53,6 +53,7 @@ function say(res){
 //    audio.play()
 
 const encodedString = res;
+console.log(encodedString.length)
 const arrayBuffer = new Uint8Array(encodedString.length);
 for (let i = 0; i < encodedString.length; i++) {
   arrayBuffer[i] = encodedString.charCodeAt(i) & 0xFF;
