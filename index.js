@@ -52,6 +52,17 @@ function say(res){
 //    console.log("palyed once")
 //    audio.play()
 
+const encodedString = res;
+const arrayBuffer = new Uint8Array(encodedString.length);
+for (let i = 0; i < encodedString.length; i++) {
+  arrayBuffer[i] = encodedString.charCodeAt(i) & 0xFF;
+}
+
+const decoder = new TextDecoder();
+const decodedString = decoder.decode(arrayBuffer);
+
+console.log(decodedString);
+
 function convertAudio(str) {
   
     const file = str
@@ -81,7 +92,7 @@ function convertAudio(str) {
     // Autoplay the audio
     audio.play()
 }
-convertAudio(res)
+convertAudio(decodedString)
 
 }
 
