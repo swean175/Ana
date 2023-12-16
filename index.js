@@ -52,14 +52,6 @@ function say(res){
 //    console.log("palyed once")
 //    audio.play()
 
-const encodedString = res;
-const encoder = new TextEncoder();
-const arrayBuffer = encoder.encode(encodedString);
-
-const decoder = new TextDecoder();
-const decodedString = decoder.decode(arrayBuffer);
-
-console.log(decodedString);
 
 function convertAudio(str) {
   
@@ -69,8 +61,6 @@ function convertAudio(str) {
     reader.onloadend = function() {
         const buffer = reader.result
         const audioData = bufferToBase64(buffer);
-    
-      console.log(audioData); // This is the base64 encoded string
 
       // Pass the audioData to the playAudio function
       playAudio(audioData);
@@ -146,7 +136,7 @@ async function fetchGenny(message){
       fetch(`https://06rdqx.buildship.run/voice?text=${message}`) 
         // .then(response => response.json())
         .then(response => console.log(response))
-        // .then(response => say(response))
+        .then(response => say(response))
         .catch(err => console.error(err));
        //-------------------------------------------------------------
         }
