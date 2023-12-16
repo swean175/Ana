@@ -144,6 +144,8 @@ async function fetchGenny(message){
     let text = {JSON.stringify(message)}
     const options = {
         method: 'Get',
+        headers: {
+    'Content-Type': 'application/json',
         body: text 
       };
       
