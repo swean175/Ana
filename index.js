@@ -141,34 +141,21 @@ async function fetchGenny(message){
     //       console.log(data.reply)
     //       return data.reply
 //-------------------------------------------
-    // const options = {
-    //     method: 'POST',
-    //     headers: {
-    //       'xi-api-key': '04a2a640ad70a0dee3a3f8888a1ab5b5',
-    //       'Content-Type': 'application/json'
-    //     },
-    //     body: `{"model_id":"eleven_multilingual_v1","text":"Hi i'm Anna","voice_settings":{"similarity_boost":0.5,"stability":0.8,"style":1,"use_speaker_boost":true}}`
-    //   };
-      
-    //   fetch('https://api.elevenlabs.io/v1/text-to-speech/7R4Z6kuWuNrgOEM0shNG?output_format=mp3_44100_64&optimize_streaming_latency=1', options)
-    //     // .then(response => response.json())
-    //     .then(response => console.log(response))
-    //     .then(response => say(response))
-    //     .catch(err => console.error(err));
-       //-------------------------------------------------------------
     const options = {
-  method: 'POST',
-  headers: {
-    'xi-api-key': '04a2a640ad70a0dee3a3f8888a1ab5b5',
-    'Content-Type': 'application/json'
-  },
-  body: '{"model_id":"eleven_multilingual_v2","text":"Hi Im Ana","voice_settings":{"similarity_boost":0.5,"stability":0.5,"style":0.5,"use_speaker_boost":true}}'
-};
-
-fetch('https://api.elevenlabs.io/v1/text-to-speech/7R4Z6kuWuNrgOEM0shNG/stream?optimize_streaming_latency=1&output_format=mp3_44100_64', options)
-  .then(response => response.json())
-  .then(response => console.log(response))
-  .catch(err => console.error(err));
+        method: 'POST',
+        headers: {
+          'xi-api-key': '04a2a640ad70a0dee3a3f8888a1ab5b5',
+          'Content-Type': 'application/json'
+        },
+        body: `{"model_id":"eleven_multilingual_v1","text":"Hi i'm Anna","voice_settings":{"similarity_boost":0.5,"stability":0.8,"style":1,"use_speaker_boost":true}}`
+      };
+      
+      fetch('https://api.elevenlabs.io/v1/text-to-speech/7R4Z6kuWuNrgOEM0shNG?output_format=mp3_44100_64&optimize_streaming_latency=1', options)
+        // .then(response => response.json())
+        .then(response => console.log(response))
+        .then(response => say(response))
+        .catch(err => console.error(err));
+       //-------------------------------------------------------------
         }
 
 
