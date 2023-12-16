@@ -141,15 +141,9 @@ async function fetchGenny(message){
     //       console.log(data.reply)
     //       return data.reply
 //-------------------------------------------
-    let text = {JSON.stringify(message)}
-    const options = {
-        method: 'Get',
-        headers: {
-    'Content-Type': 'application/json',
-        body: text 
-      };
-      
-      fetch('https://06rdqx.buildship.run/voice', options)
+ 
+  
+      fetch(`https://06rdqx.buildship.run/voice?${message}`) 
         .then(response => response.json())
         .then(response => console.log(response))
         // .then(response => say(response))
