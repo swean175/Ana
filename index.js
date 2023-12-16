@@ -71,16 +71,11 @@ function convertAudio(str) {
   }
 
   function playAudio(audioData) {
-    // Create an audio element
     const audio = new Audio();
-
-    // Set the source of the audio element
     audio.src = "data:audio/mp3;base64," + audioData;
-
-    // Autoplay the audio
     audio.play()
 }
-convertAudio(decodedString)
+convertAudio(res)
 
 }
 
