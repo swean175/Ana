@@ -44,38 +44,36 @@ const instructionObj = {
 
 
 function say(res){
-//     let audio = new Audio();
-//     let audioString = res
-//                const audioBlob = mp3_44100toBlob(audioString);
-//                const audioUrl = URL.createObjectURL(audioBlob);
-//                 audio.src = audioUrl  
-//    console.log("palyed once")
-//    audio.play()
+    let audio = new Audio();
+    let audioString = res
+               const audioBlob = mp3_44100toBlob(audioString);
+               const audioUrl = URL.createObjectURL(audioBlob);
+                audio.src = audioUrl  
+   console.log("palyed once")
+   audio.play()
 
 
-function convertAudio(str) {
+// function convertAudio(str) {
   
-    const file = str
-    const reader = new FileReader();
+//     const file = str
+//     const reader = new FileReader();
 
-    reader.onloadend = function() {
-        const buffer = reader.result
-        const audioData = bufferToBase64(buffer);
-
-      // Pass the audioData to the playAudio function
-      playAudio(audioData);
+//     reader.onloadend = function() {
+//         const buffer = reader.result
+//         const audioData = bufferToBase64(buffer);
+//       playAudio(audioData);
      
-    }
-    console.log("poszlo")
+//     }
+//     console.log("poszlo")
    
-  }
+//   }
 
-  function playAudio(audioData) {
-    const audio = new Audio();
-    audio.src = "data:audio/mp3;base64," + audioData;
-    audio.play()
-}
-convertAudio(res)
+//   function playAudio(audioData) {
+//     const audio = new Audio();
+//     audio.src = "data:audio/mp3;base64," + audioData;
+//     audio.play()
+// }
+// convertAudio(res)
 
 }
 
