@@ -47,49 +47,8 @@ function say(res){
      console.log(res)
     const audio = new Audio(res)
    audio.play()
-   
-       console.log("palyed once")
-//---------------------------------
-    // var a = new Audio(res);
-    // a.play();
-//---------------------------------
-
-// function convertAudio(str) {
-  
-//     const file = str
-//     const reader = new FileReader();
-
-//     reader.onloadend = function() {
-//         const buffer = reader.result
-//         const audioData = bufferToBase64(buffer);
-//       playAudio(audioData);
-     
-//     }
-//     console.log("poszlo")
-   
-//   }
-
-//   function playAudio(audioData) {
-//     const audio = new Audio();
-//     audio.src = "data:audio/mp3;base64," + audioData;
-//     audio.play()
-// }
-// convertAudio(res)
-
 }
 
-
-function mp3_44100toBlob(mp3_44100) {
-    const byteCharacters = atob(mp3_44100);
-    const byteNumbers = new Array(byteCharacters.length);
- 
-    for (let i = 0; i < byteCharacters.length; i++) {
-       byteNumbers[i] = byteCharacters.charCodeAt(i);
-    }
- 
-    const byteArray = new Uint8Array(byteNumbers);
-    return new Blob([byteArray], { type: 'audio/mp3' });
- }
 
         //---------------------------------------Fetch
 
