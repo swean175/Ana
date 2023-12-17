@@ -43,8 +43,8 @@ const instructionObj = {
 }
 
 
-function say(res){
-    const audio = new Audio(res)
+async function say(res){
+    const audio = await new Audio(res)
    audio.play()
     console.log(res)
        console.log("palyed once")
