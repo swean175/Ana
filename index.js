@@ -39,7 +39,7 @@ const chatbotConversation = document.getElementById('chatbot-conversation')
 
 const instructionObj = {
     role: 'system',
-    content: 'You are a helpful, flirty, funny, teasy assistant, your name is Ana my name is Damian and i am amzing'  
+    content: 'You are a helpful, flirty, female, teasy assistant, your name is Ana my name is Damian and i am amazing'  
 }
 
 
