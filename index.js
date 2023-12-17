@@ -43,10 +43,11 @@ const instructionObj = {
 }
 
 
-async function say(res){
-    const audio = await new Audio(res)
+function say(res){
+     console.log(res)
+    const audio = new Audio(res)
    audio.play()
-    console.log(res)
+   
        console.log("palyed once")
 //---------------------------------
     // var a = new Audio(res);
@@ -129,7 +130,7 @@ async function fetchGenny(message){
       fetch(`https://06rdqx.buildship.run/voice?text=${message}`) 
         .then(response => response.json())
         .then(response => console.log(response))
-        .then( say(response) )
+        .then(() => say(response) )
         .catch(err => console.error(err));
        //-------------------------------------------------------------
         }
