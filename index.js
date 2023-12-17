@@ -127,9 +127,9 @@ async function fetchGenny(message){
  
   
       fetch(`https://06rdqx.buildship.run/voice?text=${message}`) 
-        // .then(response => response.json())
+        .then(response => response.json())
         .then(response => console.log(response))
-        .then(response => say(response.response))
+        .then(response => say(response))
         .catch(err => console.error(err));
        //-------------------------------------------------------------
         }
