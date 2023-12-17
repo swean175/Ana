@@ -44,7 +44,7 @@ const instructionObj = {
 
 
 function say(res){
-    let audio = new Audio(res)
+    const audio = new Audio(res)
    audio.play()
     console.log(res)
        console.log("palyed once")
