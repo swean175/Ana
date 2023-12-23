@@ -16,14 +16,26 @@ const speechRec = window.SpeechRecognition || window.webkitSpeechRecognition
 const recognition = new speechRec()
 recognition.lang = "en-GB"
 let languageBtnClicked = false
-let iteration = 0
-let timeReduced = 100
-let time = [0]
+
 
 
 
 
 //---------------------------------Database
+
+async function fetchFirebase(){
+    const serUrl = 'https://resilient-ganache-139b9c.netlify.app/.netlify/functions/fetchFirebase'
+    const response = await fetch(serUrl, {
+ method: 'GET'
+   })
+ 
+ const data = await response.json()
+ console.log(data.res)
+   return data.res
+ 
+ }
+
+fetchFirebase()
 
 const appSettings = {
     databaseURL: 'https://aiassistent-10cdd-default-rtdb.europe-west1.firebasedatabase.app/'
