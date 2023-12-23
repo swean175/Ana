@@ -1,12 +1,8 @@
-import { initializeApp } from 'firebase/app'
-import { getDatabase, ref, push, get, remove } from 'firebase/database'
-
-const openai = new OpenAI({apiKey: process.env.OPENAI_API_KEY})
 
 
 
 // Docs on event and context https://docs.netlify.com/functions/build/#code-your-function-2
-const handler = async (event) => {
+const handler = async () => {
   try {
 
 
