@@ -7,7 +7,7 @@ const handler = async () => {
 
 
     const appSettings = {
-        databaseURL: await process.env.FIREBASE_URL
+        databaseURL: process.env.FIREBASE_URL
     }
 
 

@@ -30,6 +30,7 @@ async function fetchFirebase(){
    })
  
  const data = await response.json()
+ console.log(data.res.databaseURL)
    return data.res.databaseURL
  
  }
