@@ -37,7 +37,7 @@ async function fetchFirebase(){
  }
 
 const appSettings = {
-    databaseURL: `${url.url}`
+    databaseURL: `"${url.url}"`
 }
 
 const app = initializeApp(appSettings)
