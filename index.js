@@ -36,12 +36,8 @@ async function fetchFirebase(){
  
  }
 
-setTimeout(()=>{
-    console.log("time")
-}, 520)
-
 const appSettings = {
-    databaseURL: url.url
+    databaseURL: `${url.url}`
 }
 
 const app = initializeApp(appSettings)
