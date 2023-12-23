@@ -98,12 +98,12 @@ async function fetchGenny(message){
 //-------------------------------------------
  
   
-    //   fetch(`https://06rdqx.buildship.run/voice?text=${message}`) 
-    //     .then(response => response.json())
-    //     // .then(response => console.log(response))
-    //     .then(response => say(response) )
-    //     .catch(err => console.error(err));
-    //     }
+      fetch(`https://06rdqx.buildship.run/voice?text=${message}`) 
+        .then(response => response.json())
+        // .then(response => console.log(response))
+        .then(response => say(response) )
+        .catch(err => console.error(err));
+         }
 
 
  //--------------------------- Event
@@ -145,7 +145,7 @@ async function fetchReply() {
             push(conversationInDb, response.reply)
             renderTypewriterText(response.reply.content)
            
-          fetchGenny(response.reply.content)
+        //   fetchGenny(response.reply.content)
             
         }
         else {
