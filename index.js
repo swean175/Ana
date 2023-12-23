@@ -30,15 +30,14 @@ async function fetchFirebase(){
    })
  
  const data = await response.json()
- console.log(data)
-   return data.res
+   return data.res.databaseURL
  
  }
 
 
 
 const appSettings = {
-    databaseURL: fetchFirebase().databaseURL
+    databaseURL: fetchFirebase()
 }
 
 const app = initializeApp(appSettings)
