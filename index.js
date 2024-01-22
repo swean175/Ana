@@ -19,11 +19,6 @@ let languageBtnClicked = false
 
 
 //---------------------------------Database
-let urlF = fetchFirebase()
-
-setTimeout(() => {
-    console.log(urlF)
-}, 1000)
 
 async function fetchFirebase(){
     const serUrl = 'https://resilient-ganache-139b9c.netlify.app/.netlify/functions/fetchFirebase'
@@ -37,9 +32,8 @@ async function fetchFirebase(){
 
 
 const appSettings = {
-    databaseURL: `${urlF}`
+    databaseURL: "https://aiassistent-10cdd-default-rtdb.europe-west1.firebasedatabase.app/"
 }
-
 
 const app = initializeApp(appSettings)
 
