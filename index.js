@@ -95,7 +95,6 @@ async function fetchGenny(message){
  async function genny(){
   const respone = await fetch('https://resilient-ganache-139b9c.netlify.app/.netlify/functions/fetchGenny')
    const api = await respone.json()
-  console.log(api.res + message)
 return api.res + message
  }
   const build = await genny()
