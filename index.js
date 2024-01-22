@@ -25,7 +25,7 @@ let languageBtnClicked = false
 // let url = {url:fetchFirebase()} 
 
 let appSettings = {
-    databaseURL: ""
+    databaseURL: fetchFirebase()
 }
 
 async function fetchFirebase(){
@@ -34,12 +34,12 @@ async function fetchFirebase(){
  method: 'GET'
    })
  
- const data = await response.json()
- console.log(typeof data.res)
-   appSettings.databaseURL = data.res
+ const data = await response.res.json()
+ console.log(typeof data)
+    return data
  }
 
-fetchFirebase()
+
 
 console.log(appSettings)
 
