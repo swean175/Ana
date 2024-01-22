@@ -24,7 +24,7 @@ let languageBtnClicked = false
 //---------------------------------Database
 // let url = {url:fetchFirebase()} 
 
-const appSettings = {
+let appSettings = {
     databaseURL: ""
 }
 
