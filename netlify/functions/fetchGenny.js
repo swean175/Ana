@@ -2,7 +2,7 @@ const handler = async () => {
   try {
 
 
-    const api = process.env.BUID_API
+    const api = process.env.BUILD_API
     
 
     return {
