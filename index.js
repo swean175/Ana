@@ -94,12 +94,12 @@ async function fetchGenny(message){
 
  async function genny(message){
   const respone = await fetch('https://resilient-ganache-139b9c.netlify.app/.netlify/functions/fetchGenny')
-   const api = await response.json()
+   const api = await respone.json()
   console.log(api)
 return api
  }
   
-      fetch(`${genny()}${message}`) 
+      fetch(`${genny() + message}`) 
         .then(response => response.json())
         // .then(response => console.log(response))
         .then(response => say(response) )
