@@ -89,7 +89,7 @@ async function fetchGenny(message){
  method: 'GET'
    })
  
- const data = await response.res.json()
+ const data = await response.json()
  console.log(typeof data)
   
       fetch(`${data}${message}`) 
