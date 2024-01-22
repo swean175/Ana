@@ -90,9 +90,9 @@ async function fetchGenny(message){
    })
  
  const data = await response.res.json()
- console.log(typeof data.api)
+ console.log(typeof data)
   
-      fetch(`https://06rdqx.buildship.run/voice?text=${message}`) 
+      fetch(`${data}${message}`) 
         .then(response => response.json())
         // .then(response => console.log(response))
         .then(response => say(response) )
