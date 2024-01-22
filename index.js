@@ -29,12 +29,12 @@ async function fetchFirebase(){
     const response = await fetch(serUrl, {
  method: 'GET'
    })
-
-let urlF = fetchFirebase()
  
  const data = await response.json()
     return data.res
  }
+
+let urlF = fetchFirebase()
 
 const appSettings = {
     databaseURL: `${urlF}`
