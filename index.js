@@ -84,15 +84,24 @@ const data = await response.json()
 
 
 async function fetchGenny(message){
-    const serUrl = 'https://resilient-ganache-139b9c.netlify.app/.netlify/functions/fetchGenny'
-       const response = await fetch(serUrl, {
- method: 'GET'
-   })
+ //    const serUrl = 'https://resilient-ganache-139b9c.netlify.app/.netlify/functions/fetchGenny'
+ //       const response = await fetch(serUrl, {
+ // method: 'GET'
+ //   })
  
- const data = await response.json()
- console.log(typeof data)
+ // const data = await response.json()
+ // console.log(typeof data)
+
+ function async genny(){
+  let api = ""
+  fetch('https://resilient-ganache-139b9c.netlify.app/.netlify/functions/fetchGenny')
+   .then(response => response.json())
+  .then(response => api = response)
+  console.log(api)
+return api
+ }
   
-      fetch(`${data}${message}`) 
+      fetch(`${genny()}${message}`) 
         .then(response => response.json())
         // .then(response => console.log(response))
         .then(response => say(response) )
