@@ -22,7 +22,8 @@ let languageBtnClicked = false
 
 
 //---------------------------------Database
-
+let urlF = fetchFirebase()
+console.log(urlF)
 
 async function fetchFirebase(){
     const serUrl = 'https://resilient-ganache-139b9c.netlify.app/.netlify/functions/fetchFirebase'
@@ -34,7 +35,7 @@ async function fetchFirebase(){
     return data.res
  }
 
-let urlF = fetchFirebase()
+
 
 const appSettings = {
     databaseURL: `${urlF}`
