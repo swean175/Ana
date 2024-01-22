@@ -92,11 +92,9 @@ async function fetchGenny(message){
  // const data = await response.json()
  // console.log(typeof data)
 
- async function genny(){
-  let api = ""
-  fetch('https://resilient-ganache-139b9c.netlify.app/.netlify/functions/fetchGenny')
-   .then(response => response.json())
-  .then(response => api = response)
+ async function genny(message){
+  const respone = await fetch('https://resilient-ganache-139b9c.netlify.app/.netlify/functions/fetchGenny')
+   const api = await response.json()
   console.log(api)
 return api
  }
