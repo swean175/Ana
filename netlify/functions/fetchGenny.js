@@ -1,22 +1,7 @@
 
 
-// Docs on event and context https://docs.netlify.com/functions/build/#code-your-function-2
+
 const handler = async (event) => {
-//     const options = {
-//   method: 'POST',
-//   headers: {
-//     accept: 'audio/mpeg',
-//     'content-type': 'application/json',
-//     AUTHORIZATION: process.env.GENNY_API_KEY,
-//     'X-USER-ID': 'fpHJRFyzBxVVNwDVuTkh6FrHhyx1'
-//   },
-//   body: JSON.stringify({
-//     text: JSON.parse(event.body),
-//     voice: 's3://voice-cloning-zero-shot/d9ff78ba-d016-47f6-b0ef-dd630f59414e/female-cs/manifest.json',
-//     output_format: 'mp3',
-//     voice_engine: 'PlayHT2.0-turbo'
-//   })
-// };
 
 
 const options = {
@@ -69,20 +54,6 @@ try {
 
 
  
-
-
-// const res = fetch('https://api.play.ht/api/v2/tts/stream', options)
-//   .then(response => response.json())
-//   .catch(err => console.error(err))
-
-//   setTimeout(()=>{
-//     console.error(res)
-//     console.log(res)
-//   }, 7000)
-
-
-
-
 
 module.exports = { handler }
 
