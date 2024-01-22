@@ -22,23 +22,22 @@ let languageBtnClicked = false
 
 
 //---------------------------------Database
-// let url = {url:fetchFirebase()} 
 
 
+async function fetchFirebase(){
+    const serUrl = 'https://resilient-ganache-139b9c.netlify.app/.netlify/functions/fetchFirebase'
+    const response = await fetch(serUrl, {
+ method: 'GET'
+   })
 
-// async function fetchFirebase(){
-//     const serUrl = 'https://resilient-ganache-139b9c.netlify.app/.netlify/functions/fetchFirebase'
-//     const response = await fetch(serUrl, {
-//  method: 'GET'
-//    })
+let urlF = fetchFirebase()
  
-//  const data = await response.res.json()
-//  console.log(typeof data)
-//     return data
-//  }
+ const data = await response.json()
+    return data.res
+ }
 
 const appSettings = {
-    databaseURL: "https://aiassistent-10cdd-default-rtdb.europe-west1.firebasedatabase.app/"
+    databaseURL: `${urlF}`
 }
 
 
