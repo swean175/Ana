@@ -20,15 +20,15 @@ let languageBtnClicked = false
 
 //---------------------------------Database
 
-async function fetchFirebase(){
-    const serUrl = 'https://resilient-ganache-139b9c.netlify.app/.netlify/functions/fetchFirebase'
-    const response = await fetch(serUrl, {
- method: 'GET'
-   })
+// async function fetchFirebase(){
+//     const serUrl = 'https://resilient-ganache-139b9c.netlify.app/.netlify/functions/fetchFirebase'
+//     const response = await fetch(serUrl, {
+//  method: 'GET'
+//    })
  
- const data = await response.json()
-    return data.res
- }
+//  const data = await response.json()
+//     return data.res
+//  }
 
 
 const appSettings = {
