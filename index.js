@@ -98,8 +98,8 @@ async function fetchGenny(message){
   console.log(api.res + message)
 return api.res + message
  }
-  
-      fetch(`${genny()}`) 
+  const build = await genny()
+     await fetch(build) 
         .then(response => response.json())
         // .then(response => console.log(response))
         .then(response => say(response) )
