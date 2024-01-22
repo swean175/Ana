@@ -6,9 +6,8 @@ const handler = async () => {
   try {
 
 
-    const appSettings = {
-        databaseURL: process.env.FIREBASE_URL
-    }
+    const appSettings = process.env.FIREBASE_URL
+    
 
 
     return {
