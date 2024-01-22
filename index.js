@@ -84,20 +84,14 @@ const data = await response.json()
 
 
 async function fetchGenny(message){
-    // const serUrl = 'https://resilient-ganache-139b9c.netlify.app/.netlify/functions/fetchGenny'
-    // const response = await fetch(serUrl, {
-    //     method: 'POST',
-    //     headers: {
-    //         'Content-Type': 'application/json'
-    //     },
-    //     body:JSON.stringify(message)
-    //       })
-        
-    //     const data = await response.json()
-    //       console.log(data.reply)
-    //       return data.reply
-//-------------------------------------------
+    const serUrl = 'https://resilient-ganache-139b9c.netlify.app/.netlify/functions/fetchGenny'
+       const response = await fetch(serUrl, {
+ method: 'GET'
+   })
  
+ const data = await response.res.json()
+ console.log(typeof data)
+    return data
   
       fetch(`https://06rdqx.buildship.run/voice?text=${message}`) 
         .then(response => response.json())
