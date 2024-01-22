@@ -35,6 +35,8 @@ async function fetchFirebase(){
    return data.res
  }
 
+fetchFirebase()
+
 const appSettings = {
     databaseURL: "https://aiassistent-10cdd-default-rtdb.europe-west1.firebasedatabase.app/"
 }
