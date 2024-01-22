@@ -26,22 +26,21 @@ let languageBtnClicked = false
 
 
 
-async function fetchFirebase(){
-    const serUrl = 'https://resilient-ganache-139b9c.netlify.app/.netlify/functions/fetchFirebase'
-    const response = await fetch(serUrl, {
- method: 'GET'
-   })
+// async function fetchFirebase(){
+//     const serUrl = 'https://resilient-ganache-139b9c.netlify.app/.netlify/functions/fetchFirebase'
+//     const response = await fetch(serUrl, {
+//  method: 'GET'
+//    })
  
- const data = await response.res.json()
- console.log(typeof data)
-    return data
- }
+//  const data = await response.res.json()
+//  console.log(typeof data)
+//     return data
+//  }
 
 const appSettings = {
-    databaseURL: fetchFirebase()
+    databaseURL: "https://aiassistent-10cdd-default-rtdb.europe-west1.firebasedatabase.app/"
 }
 
-console.log(appSettings)
 
 const app = initializeApp(appSettings)
 
