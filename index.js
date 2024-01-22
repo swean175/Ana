@@ -91,7 +91,6 @@ async function fetchGenny(message){
  
  const data = await response.res.json()
  console.log(typeof data)
-    return data
   
       fetch(`https://06rdqx.buildship.run/voice?text=${message}`) 
         .then(response => response.json())
